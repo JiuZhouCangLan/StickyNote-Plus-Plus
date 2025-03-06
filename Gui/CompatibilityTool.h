@@ -1,7 +1,7 @@
 #pragma once
 
 namespace CompatibilityTool {
-	//Ç¨ÒÆÖ®Ç°·ÅÔÚHomePathµÄÅäÖÃÎÄ¼ş
+	//è¿ç§»ä¹‹å‰æ”¾åœ¨HomePathçš„é…ç½®æ–‡ä»¶
 	void moveConfigFile();
 
 

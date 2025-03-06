@@ -43,7 +43,7 @@ namespace OriginUI {
 		InputLineEditFocus* lineEdit;
 		QToolButton* okButton,*cancelButton;
 		InputLineEditLayoutMod mod;
-		//ÊÇ·ñ×Ô¶¯ÏÔÊ¾È¡Ïû°´Å¥
+		//æ˜¯å¦è‡ªåŠ¨æ˜¾ç¤ºå–æ¶ˆæŒ‰é’®
 		bool autoShowCancelButton;
 	};
 
@@ -56,7 +56,7 @@ namespace OriginUI {
 		
 
 		lineEdit = new InputLineEditFocus();
-		//Îª±à¼­Æ÷Ìí¼ÓÒ»¸öÊÂ¼þ¹ýÂËÆ÷£¬½Ø»ñ»Ø³µ°´ÏÂÊÂ¼þ
+		//ä¸ºç¼–è¾‘å™¨æ·»åŠ ä¸€ä¸ªäº‹ä»¶è¿‡æ»¤å™¨ï¼ŒæˆªèŽ·å›žè½¦æŒ‰ä¸‹äº‹ä»¶
 		auto filter = new InputLineEditEventFilter(lineEdit);
 		filter->Edit = widget;
 		lineEdit->installEventFilter(filter);
@@ -110,7 +110,7 @@ OriginUI::InputLineEdit::InputLineEdit(QWidget* parent /*= 0*/)
 {
 	d = new InputLineEditD(this);
 
-	//·¢ËÍ±à¼­Æ÷µÄ½¹µã×´Ì¬
+	//å‘é€ç¼–è¾‘å™¨çš„ç„¦ç‚¹çŠ¶æ€
 	connect(d->lineEdit, &InputLineEditFocus::gotFocus, this, [&]() {
 		Q_EMIT gotFocus();
 		});

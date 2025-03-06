@@ -25,7 +25,7 @@ OriginUI::KeyboardLineEdit::~KeyboardLineEdit()
 
 void OriginUI::KeyboardLineEdit::keyPressEvent(QKeyEvent* event)
 {
-	//如果之前已经有按键松开，那么重新输入按键时，需要清空之前的按键
+	//濡傛灉涔嬪墠宸茬粡鏈夋寜閿澗寮�锛岄偅涔堥噸鏂拌緭鍏ユ寜閿椂锛岄渶瑕佹竻绌轰箣鍓嶇殑鎸夐敭
 	if (d->keyboardRelease)
 	{
 		d->keys.clear();

@@ -11,17 +11,17 @@ namespace NGui {
 		DiversityContent(QWidget* parent = 0);
 		~DiversityContent();
 	public:
-		//´ÓhtmlÖĞÔØÈëÄÚÈİ
+		//ä»htmlä¸­è½½å…¥å†…å®¹
 		virtual  void loadNote(const std::shared_ptr<NF::StickyNote> note) override;
-		//±£´æÄÚÈİµ½html
+		//ä¿å­˜å†…å®¹åˆ°html
 		virtual  void saveNote(const std::shared_ptr<NF::StickyNote> note) override;
-		//Á´½ÓÓë±ã¼ã´°¿ÚµÄĞÅºÅºÍ²Û
+		//é“¾æ¥ä¸ä¾¿ç¬ºçª—å£çš„ä¿¡å·å’Œæ§½
 		virtual  void connectStickyNote(StickyNote* stickyNote) override;
-		//È¡Ïû±ã¼ã´°¿ÚµÄĞÅºÅµÄ²Û
+		//å–æ¶ˆä¾¿ç¬ºçª—å£çš„ä¿¡å·çš„æ§½
 		virtual	 void disConnectStickyNote(StickyNote* stickyNote) override;
-		//ÅĞ¶Ï±ã¼ãÄÚÈİÊÇ·ñÎª¿Õ
+		//åˆ¤æ–­ä¾¿ç¬ºå†…å®¹æ˜¯å¦ä¸ºç©º
 		virtual  bool isEmpty() override;
-		//³õÊ¼»¯Ò³Ãæ£¬¿ÉÒÔÔÚÀïÃæ½øĞĞÒ»Ğ©¶Ô±ã¼ã´°¿ÚµÄÉèÖÃ
+		//åˆå§‹åŒ–é¡µé¢ï¼Œå¯ä»¥åœ¨é‡Œé¢è¿›è¡Œä¸€äº›å¯¹ä¾¿ç¬ºçª—å£çš„è®¾ç½®
 		virtual  void initGui(StickyNote* stickyNote) override;
 
 	};

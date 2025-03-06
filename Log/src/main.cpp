@@ -6,7 +6,7 @@ int main() {
 	cpplog->onAll();
 
 	std::cout << "this is cout";
-	std::cerr << "ÕâÊÇ´íÎóÊä³ö" << "1" << "2" << "3" << std::endl;
+	std::cerr << "è¿™æ˜¯é”™è¯¯è¾“å‡º" << "1" << "2" << "3" << std::endl;
 
 	return 0;
 }

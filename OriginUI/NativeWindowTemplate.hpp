@@ -49,15 +49,15 @@ public:
         // we will get rid of titlebar and thick frame again in nativeEvent() later
         if (m_bResizeable) {
             const DWORD style = ::GetWindowLong(hwnd, GWL_STYLE);
-            // WS_CAPTION: û���������Իᵼ���� VS �³��ִ��ڱ߿�����(���ڼ���״̬�л�ʱ), ���������Իᵼ�����ʱ���ݳ�����Ļ, ��˱�����������, ���ʱ�ߴ���������
-            // WS_MAXIMIZEBOX: ��������������֧�ִ����϶�����Ļ��Ե�Ŵ�Ч��
-            // WS_SYSMENU: ������������, ����win7�³���ϵͳ�������С���͹رհ�ť
-            // WS_THICKFRAME: ��������������ʹ���ڸ���ϵͳ��ӰЧ��
+            // WS_CAPTION: 没有这项属性会导致在 VS 下出现窗口边框闪动(窗口激活状态切换时), 有这项属性会导致最大化时内容超出屏幕, 因此保留这项属性, 最大化时尺寸另作处理
+            // WS_MAXIMIZEBOX: 添加这项属性以支持窗口拖动到屏幕边缘放大效果
+            // WS_SYSMENU: 禁用这项属性, 避免win7下出现系统的最大最小化和关闭按钮
+            // WS_THICKFRAME: 添加这项属性以使窗口附带系统阴影效果
             ::SetWindowLong(hwnd, GWL_STYLE, (style & ~WS_SYSMENU) | WS_MAXIMIZEBOX | WS_CAPTION | WS_THICKFRAME);
         }
         else {
             const DWORD style = ::GetWindowLong(hwnd, GWL_STYLE);
-            // WS_MAXIMIZEBOX: ���������Ŵ���ʱ, ���ô�����
+            // WS_MAXIMIZEBOX: 不允许缩放窗口时, 禁用此属性
             ::SetWindowLong(hwnd, GWL_STYLE, (style & ~WS_SYSMENU & ~WS_MAXIMIZEBOX) | WS_CAPTION | WS_THICKFRAME);
         }
 
@@ -122,18 +122,18 @@ protected:
             // this kills the window frame and title bar we added with WS_THICKFRAME and WS_CAPTION
             NCCALCSIZE_PARAMS* sz = reinterpret_cast<NCCALCSIZE_PARAMS*>(msg->lParam);
             if (!::IsZoomed(msg->hwnd)) {
-                // sz->rgrc[0] ��ֵ�����ԭ���Ĳ�ͬ, ����������/�ϱ߿����Ŵ���ʱ, �ᵼ����/�²���ֿհ����� (���ƶ���)
-                // �����±߿�ʧȥ1���ض��Ӿ�Ӱ����С, ��˵ײ�����1����
+                // sz->rgrc[0] 的值必须跟原来的不同, 否则拉伸左/上边框缩放窗口时, 会导致右/下侧出现空白区域 (绘制抖动)
+                // 窗口下边框失去1像素对视觉影响最小, 因此底部减少1像素
                 sz->rgrc[0].bottom += 1;
             }
             else {
-                // flags ���� 0x8000 ʱ, ��ζ�ſ��ܳ���������, ǿ��ˢ�´��ڱ������, ΢�����ĵ����Ҳ������ֵ�Ķ���, ���о�
+                // flags 包含 0x8000 时, 意味着可能出现了问题, 强制刷新窗口避免白屏, 微软的文档中找不到这个值的定义, 待研究
                 if (sz->lppos->flags & 0x8000 && IsWindowVisible(msg->hwnd)) {
-                    m_forceUpdateTimer.start(); // ����ǿ��ˢ�¶�ʱ��
+                    m_forceUpdateTimer.start(); // 启动强制刷新定时器
                 }
                 else {
-                    m_forceUpdateTimer.stop(); // ������������ʾ, û�б�Ҫ��ִ��ǿ��ˢ��
-                    // �������ʱ���ݳ�����Ļ����
+                    m_forceUpdateTimer.stop(); // 窗口已正常显示, 没有必要再执行强制刷新
+                    // 修正最大化时内容超出屏幕问题
                     auto monitor = MonitorFromWindow(msg->hwnd, MONITOR_DEFAULTTONEAREST);
                     MONITORINFO info;
                     info.cbSize = sizeof(MONITORINFO);
@@ -258,12 +258,12 @@ protected:
 
         switch (event->type()) {
         case QEvent::WindowStateChange: {
-            // �ڴ������ʱ, �����������ק��������ԭ����, ������Ȼ�������������, ��ʱ�ٽ��д��ڻ�ԭʱ(����˫��������, showNormal()�ȷ�ʽ), ����������һ��������Ļ֮��
-            // ��������������û��ʹ���ޱ߿����Զ��ᷢ��, Ӧ���� Qt ����һ�� Bug (���Գ��� Qt 5.15/Qt 6.3 + Win10)
-            // �˴�������Ϊ����
+            // 在窗口最大化时, 用鼠标向下拖拽标题栏还原窗口, 不松手然后重新贴边最大化, 此时再进行窗口还原时(包括双击标题栏, showNormal()等方式), 标题栏会有一部分在屏幕之外
+            // 这种现象无论有没有使用无边框属性都会发生, 应该是 Qt 的又一个 Bug (测试场景 Qt 5.15/Qt 6.3 + Win10)
+            // 此处进行行为修正
             if (T::windowState() == Qt::WindowNoState) {
                 const auto workRect = qApp->primaryScreen()->availableVirtualGeometry();
-                // ����ط�����ֱ���� pos() ����, ��Ϊ Qt �ĳߴ��λ����ؽӿ������ӳټ�֡, ��ʱ�õ��� pos() ��Ȼ�����ʱ��λ��
+                // 这个地方不能直接用 pos() 方法, 因为 Qt 的尺寸和位置相关接口总是延迟几帧, 此时拿到的 pos() 仍然是最大化时的位置
                 RECT rect;
                 GetWindowRect(reinterpret_cast<HWND>(this->winId()), &rect);
 
@@ -278,12 +278,12 @@ protected:
             break;
 #if 1//(QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
         case QEvent::ScreenChangeInternal: {
-            // ͨ������Maskǿ�ƴ�������, ����������קʱ�Ĵ�λ����, ͬʱ�ᵼ��ʧȥ������Ӱ
+            // 通过设置Mask强制触发更新, 修正跨屏拖拽时的错位问题, 同时会导致失去窗口阴影
             const auto oldMask = T::mask();
             T::setMask(QRegion(this->rect()));
             T::setMask(oldMask);
 
-            // �������ô�������, �Ѵ�����Ӱ������
+            // 重新设置窗口属性, 把窗口阴影带回来
             setResizeable(m_bResizeable);
             break;
         }

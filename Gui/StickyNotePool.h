@@ -36,11 +36,11 @@ namespace NGui {
 		void hideStickyNote(const std::string& GUID);
 		StickyNote* getStickyNote(const std::string& GUID);
 		void closeAllNote();
-		//´°¿ÚÊÇ·ñÒÑ¾­±»ÏÔÊ¾
+		//çª—å£æ˜¯å¦å·²ç»è¢«æ˜¾ç¤º
 		bool hasFileNote(const std::string& GUID);
-		//ÔØÈëÉèÖÃ
+		//è½½å…¥è®¾ç½®
 		void loadSetting();
-		//×¢²á´´½¨Æ÷
+		//æ³¨å†Œåˆ›å»ºå™¨
 		void registerStickyNoteCreator(StickyNoteCreator* creator);
 	public:
 		static StickyNote* CreatStickyNote(const std::string& type);
@@ -54,18 +54,18 @@ namespace NGui {
 	private:
 		StickyNotePool();
 		static std::shared_ptr<StickyNotePool> instance;
-		//¼ÇÂ¼ËùÓĞ±ã¼ã´°¿Ú
+		//è®°å½•æ‰€æœ‰ä¾¿ç¬ºçª—å£
 		std::vector<StickyNote*> pool;
-		//´æ·ÅËùÓĞµÄ±ã¼ã´´½¨Æ÷
+		//å­˜æ”¾æ‰€æœ‰çš„ä¾¿ç¬ºåˆ›å»ºå™¨
 		std::map<std::string, StickyNoteCreator*>  stickyNoteCreators;
-		//¶¨Ê±Ë¢ĞÂ±ã¼ã´°¿ÚµÄ°´Å¥×´Ì¬
+		//å®šæ—¶åˆ·æ–°ä¾¿ç¬ºçª—å£çš„æŒ‰é’®çŠ¶æ€
 		ActionCommandStateTimer *timer;
 
-		//´°¿ÚÀàĞÍ
+		//çª—å£ç±»å‹
 		bool stickyNoteToolMod;
-		//ÈÎÎñÀ¸ÊÇ·ñ×Ô¶¯µ¯³ö
+		//ä»»åŠ¡æ æ˜¯å¦è‡ªåŠ¨å¼¹å‡º
 		bool stickyNoteAutoPop;
-		//´°¿Ú×Ô¶¯Îü¸½´¥·¢¹¤¾ß
+		//çª—å£è‡ªåŠ¨å¸é™„è§¦å‘å·¥å…·
 		StickyNoteMagnetic* magnetic;
 	};
 }

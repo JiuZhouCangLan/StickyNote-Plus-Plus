@@ -144,25 +144,25 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../../../build/stickyNote/Gui/ui_mainWindow.h" line="68"/>
+        <location filename="../../build/Desktop_Qt_5_15_0_MSVC2019_64bit-RelWithDebInfo/Gui/ui_mainWindow.h" line="68"/>
         <source>MainWindow</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../../build/stickyNote/Gui/ui_mainWindow.h" line="69"/>
-        <source>置顶</source>
+        <location filename="../../build/Desktop_Qt_5_15_0_MSVC2019_64bit-RelWithDebInfo/Gui/ui_mainWindow.h" line="69"/>
+        <source>缃《</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../../build/stickyNote/Gui/ui_mainWindow.h" line="70"/>
-        <source>桌面</source>
+        <location filename="../../build/Desktop_Qt_5_15_0_MSVC2019_64bit-RelWithDebInfo/Gui/ui_mainWindow.h" line="70"/>
+        <source>妗岄潰</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>NGui::AcitonToDoListEdit</name>
     <message>
-        <location filename="../ActionCommand.cpp" line="625"/>
+        <location filename="../ActionCommand.cpp" line="626"/>
         <source>edit item</source>
         <translation>编辑事项</translation>
     </message>
@@ -170,7 +170,7 @@
 <context>
     <name>NGui::AcitonToDoListSplit</name>
     <message>
-        <location filename="../ActionCommand.cpp" line="600"/>
+        <location filename="../ActionCommand.cpp" line="601"/>
         <source>split item</source>
         <translation>事项分类</translation>
     </message>
@@ -186,7 +186,7 @@
 <context>
     <name>NGui::ActionColorSetting</name>
     <message>
-        <location filename="../ActionCommand.cpp" line="269"/>
+        <location filename="../ActionCommand.cpp" line="270"/>
         <source>set background color</source>
         <translation>设置背景颜色</translation>
     </message>
@@ -194,7 +194,7 @@
 <context>
     <name>NGui::ActionFontBold</name>
     <message>
-        <location filename="../ActionCommand.cpp" line="479"/>
+        <location filename="../ActionCommand.cpp" line="480"/>
         <source>bold</source>
         <translation>粗体</translation>
     </message>
@@ -202,7 +202,7 @@
 <context>
     <name>NGui::ActionFontColor</name>
     <message>
-        <location filename="../ActionCommand.cpp" line="538"/>
+        <location filename="../ActionCommand.cpp" line="539"/>
         <source>font color</source>
         <translation>字体颜色</translation>
     </message>
@@ -210,7 +210,7 @@
 <context>
     <name>NGui::ActionFontItalic</name>
     <message>
-        <location filename="../ActionCommand.cpp" line="459"/>
+        <location filename="../ActionCommand.cpp" line="460"/>
         <source>font italic</source>
         <translation>斜体</translation>
     </message>
@@ -218,7 +218,7 @@
 <context>
     <name>NGui::ActionFontList</name>
     <message>
-        <location filename="../ActionCommand.cpp" line="518"/>
+        <location filename="../ActionCommand.cpp" line="519"/>
         <source>list</source>
         <translation>列表</translation>
     </message>
@@ -226,7 +226,7 @@
 <context>
     <name>NGui::ActionFontSizeLower</name>
     <message>
-        <location filename="../ActionCommand.cpp" line="321"/>
+        <location filename="../ActionCommand.cpp" line="322"/>
         <source>down font size</source>
         <translation>缩小字体</translation>
     </message>
@@ -234,7 +234,7 @@
 <context>
     <name>NGui::ActionFontSizeUp</name>
     <message>
-        <location filename="../ActionCommand.cpp" line="306"/>
+        <location filename="../ActionCommand.cpp" line="307"/>
         <source>up font size</source>
         <translation>放大字体</translation>
     </message>
@@ -242,7 +242,7 @@
 <context>
     <name>NGui::ActionFontUnderLine</name>
     <message>
-        <location filename="../ActionCommand.cpp" line="499"/>
+        <location filename="../ActionCommand.cpp" line="500"/>
         <source>font underline</source>
         <translation>下划线</translation>
     </message>
@@ -250,7 +250,7 @@
 <context>
     <name>NGui::ActionNewCopyStyle</name>
     <message>
-        <location filename="../ActionCommand.cpp" line="282"/>
+        <location filename="../ActionCommand.cpp" line="283"/>
         <source>copy to sticky note style,add new sticky note</source>
         <translation>复制便笺样式，创建一个新的便笺</translation>
     </message>
@@ -266,15 +266,14 @@
 <context>
     <name>NGui::ActionNewNoteToDoList</name>
     <message>
-        <location filename="../ActionCommand.cpp" line="647"/>
         <source>new sticky note to do list</source>
-        <translation>新建一个待办事项的便笺</translation>
+        <translation type="vanished">新建一个待办事项的便笺</translation>
     </message>
 </context>
 <context>
     <name>NGui::ActionNewToDoList</name>
     <message>
-        <location filename="../ActionCommand.cpp" line="581"/>
+        <location filename="../ActionCommand.cpp" line="582"/>
         <source>new to do list</source>
         <translation>新建事项</translation>
     </message>
@@ -298,7 +297,7 @@
 <context>
     <name>NGui::ActionShowHistory</name>
     <message>
-        <location filename="../ActionCommand.cpp" line="443"/>
+        <location filename="../ActionCommand.cpp" line="444"/>
         <source>display sticky note list</source>
         <translation>显示便笺列表</translation>
     </message>
@@ -306,7 +305,7 @@
 <context>
     <name>NGui::ActionStrikeOutLine</name>
     <message>
-        <location filename="../ActionCommand.cpp" line="426"/>
+        <location filename="../ActionCommand.cpp" line="427"/>
         <source>delete line</source>
         <translation>删除线</translation>
     </message>
@@ -314,7 +313,7 @@
 <context>
     <name>NGui::ActionTextMark</name>
     <message>
-        <location filename="../ActionCommand.cpp" line="337"/>
+        <location filename="../ActionCommand.cpp" line="338"/>
         <source>mark text</source>
         <translation>标记文本</translation>
     </message>
@@ -322,7 +321,7 @@
 <context>
     <name>NGui::ActionTextToCenter</name>
     <message>
-        <location filename="../ActionCommand.cpp" line="368"/>
+        <location filename="../ActionCommand.cpp" line="369"/>
         <source>center</source>
         <translation>居中</translation>
     </message>
@@ -330,7 +329,7 @@
 <context>
     <name>NGui::ActionTextToLeft</name>
     <message>
-        <location filename="../ActionCommand.cpp" line="387"/>
+        <location filename="../ActionCommand.cpp" line="388"/>
         <source>left</source>
         <translation>居左</translation>
     </message>
@@ -338,7 +337,7 @@
 <context>
     <name>NGui::ActionTextToRight</name>
     <message>
-        <location filename="../ActionCommand.cpp" line="406"/>
+        <location filename="../ActionCommand.cpp" line="407"/>
         <source>right</source>
         <translation>居右</translation>
     </message>
@@ -346,42 +345,42 @@
 <context>
     <name>NGui::HistoryWidget</name>
     <message>
-        <location filename="../HistoryWidget.cpp" line="173"/>
+        <location filename="../HistoryWidget.cpp" line="183"/>
         <source>setting</source>
         <translation>设置</translation>
     </message>
     <message>
-        <location filename="../HistoryWidget.cpp" line="179"/>
+        <location filename="../HistoryWidget.cpp" line="189"/>
         <source>close</source>
         <translation>关闭</translation>
     </message>
     <message>
-        <location filename="../HistoryWidget.cpp" line="185"/>
+        <location filename="../HistoryWidget.cpp" line="195"/>
         <source>new sticky note</source>
         <translation>新建便笺</translation>
     </message>
     <message>
-        <location filename="../HistoryWidget.cpp" line="192"/>
+        <location filename="../HistoryWidget.cpp" line="202"/>
         <source>Search...</source>
         <translation>搜索...</translation>
     </message>
     <message>
-        <location filename="../HistoryWidget.cpp" line="198"/>
+        <location filename="../HistoryWidget.cpp" line="208"/>
         <source>Search</source>
         <translation>搜索</translation>
     </message>
     <message>
-        <location filename="../HistoryWidget.cpp" line="202"/>
+        <location filename="../HistoryWidget.cpp" line="212"/>
         <source>clear search</source>
         <translation>清除搜索内容</translation>
     </message>
     <message>
-        <location filename="../HistoryWidget.cpp" line="306"/>
+        <location filename="../HistoryWidget.cpp" line="317"/>
         <source>StickyNote</source>
         <translation>便笺</translation>
     </message>
     <message>
-        <location filename="../HistoryWidget.cpp" line="307"/>
+        <location filename="../HistoryWidget.cpp" line="318"/>
         <source>Shortcut key registration conflict when invoking the sticky note list window. 
 Please set a new shortcut key.</source>
         <translation>呼出便笺列表的快捷键注册失败，请重新设置一个新的快捷键。</translation>
@@ -398,22 +397,22 @@ Please set a new shortcut key.</source>
 <context>
     <name>NGui::SettingUI</name>
     <message>
-        <location filename="../SettingUI.cpp" line="93"/>
+        <location filename="../SettingUI.cpp" line="92"/>
         <source>Important notice</source>
         <translation>重要通知</translation>
     </message>
     <message>
-        <location filename="../SettingUI.cpp" line="94"/>
+        <location filename="../SettingUI.cpp" line="93"/>
         <source>I know</source>
         <translation>我明白</translation>
     </message>
     <message>
-        <location filename="../SettingUI.cpp" line="95"/>
+        <location filename="../SettingUI.cpp" line="94"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../SettingUI.cpp" line="96"/>
+        <location filename="../SettingUI.cpp" line="95"/>
         <source>		Notice for enabling both transparent window and fix to desktop functions:
 			1. On some computers, the fixed transparent window may disappear.
 			2. If this happens, please turn off one of the functions in the settings, and then restart the software to continue using it.
@@ -429,55 +428,69 @@ Please set a new shortcut key.</source>
 			5. 这是由于QT的BUG导致，已向官方提ISSUE，修复时间未知！</translation>
     </message>
     <message>
-        <location filename="../SettingUI.cpp" line="122"/>
+        <location filename="../SettingUI.cpp" line="121"/>
         <source>file dialog</source>
         <translation>文件选择框</translation>
     </message>
 </context>
 <context>
+    <name>NGui::StickyNote</name>
+    <message>
+        <location filename="../StickyNote.cpp" line="370"/>
+        <source>StickyNote</source>
+        <translation type="unfinished">便笺</translation>
+    </message>
+    <message>
+        <location filename="../StickyNote.cpp" line="371"/>
+        <source>Failed to save file for unknown reason! 
+Please timely feedback to the author.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>NGui::StickyNoteItem</name>
     <message>
-        <location filename="../StickyNoteItem.cpp" line="41"/>
+        <location filename="../StickyNoteItem.cpp" line="42"/>
         <source>Menu</source>
         <translation>菜单</translation>
     </message>
     <message>
-        <location filename="../StickyNoteItem.cpp" line="51"/>
+        <location filename="../StickyNoteItem.cpp" line="52"/>
         <source>delete</source>
         <translation>删除</translation>
     </message>
     <message>
-        <location filename="../StickyNoteItem.cpp" line="52"/>
+        <location filename="../StickyNoteItem.cpp" line="53"/>
         <source>delete sticky note</source>
         <translation>删除便笺数据</translation>
     </message>
     <message>
-        <location filename="../StickyNoteItem.cpp" line="55"/>
+        <location filename="../StickyNoteItem.cpp" line="56"/>
         <source>rest position</source>
         <translation>重置位置</translation>
     </message>
     <message>
-        <location filename="../StickyNoteItem.cpp" line="56"/>
+        <location filename="../StickyNoteItem.cpp" line="57"/>
         <source>rest sticky note position</source>
         <translation>重置便笺位置</translation>
     </message>
     <message>
-        <location filename="../StickyNoteItem.cpp" line="59"/>
+        <location filename="../StickyNoteItem.cpp" line="60"/>
         <source>display</source>
         <translation>显示</translation>
     </message>
     <message>
-        <location filename="../StickyNoteItem.cpp" line="60"/>
+        <location filename="../StickyNoteItem.cpp" line="61"/>
         <source>display sticky note in windows</source>
         <translation>显示便笺</translation>
     </message>
     <message>
-        <location filename="../StickyNoteItem.cpp" line="63"/>
+        <location filename="../StickyNoteItem.cpp" line="64"/>
         <source>close</source>
         <translation>关闭</translation>
     </message>
     <message>
-        <location filename="../StickyNoteItem.cpp" line="64"/>
+        <location filename="../StickyNoteItem.cpp" line="65"/>
         <source>close sticky note</source>
         <translation>关闭便笺</translation>
     </message>
@@ -568,7 +581,7 @@ Right-click to display the menu!</source>
 <context>
     <name>NGui::ToDoListAddItemWidget</name>
     <message>
-        <location filename="../ToDoListItem.cpp" line="149"/>
+        <location filename="../ToDoListItem.cpp" line="156"/>
         <source>Add to do list item!</source>
         <translation>添加一个事项！</translation>
     </message>
@@ -594,97 +607,97 @@ Right-click to display the menu!</source>
 <context>
     <name>SettingUI</name>
     <message>
-        <location filename="../../../../build/stickyNote/Gui/ui_SettingUI.h" line="566"/>
+        <location filename="../../build/Desktop_Qt_5_15_0_MSVC2019_64bit-RelWithDebInfo/Gui/ui_SettingUI.h" line="566"/>
         <source>Form</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../../build/stickyNote/Gui/ui_SettingUI.h" line="567"/>
+        <location filename="../../build/Desktop_Qt_5_15_0_MSVC2019_64bit-RelWithDebInfo/Gui/ui_SettingUI.h" line="567"/>
         <source>历史页面快捷键:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../../build/stickyNote/Gui/ui_SettingUI.h" line="568"/>
+        <location filename="../../build/Desktop_Qt_5_15_0_MSVC2019_64bit-RelWithDebInfo/Gui/ui_SettingUI.h" line="568"/>
         <source>默认字体(重启软件生效):</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../../build/stickyNote/Gui/ui_SettingUI.h" line="569"/>
+        <location filename="../../build/Desktop_Qt_5_15_0_MSVC2019_64bit-RelWithDebInfo/Gui/ui_SettingUI.h" line="569"/>
         <source>图片保存位置:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../../build/stickyNote/Gui/ui_SettingUI.h" line="570"/>
+        <location filename="../../build/Desktop_Qt_5_15_0_MSVC2019_64bit-RelWithDebInfo/Gui/ui_SettingUI.h" line="570"/>
         <source>设置</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../../build/stickyNote/Gui/ui_SettingUI.h" line="571"/>
+        <location filename="../../build/Desktop_Qt_5_15_0_MSVC2019_64bit-RelWithDebInfo/Gui/ui_SettingUI.h" line="571"/>
         <source>字体大小:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../../build/stickyNote/Gui/ui_SettingUI.h" line="572"/>
+        <location filename="../../build/Desktop_Qt_5_15_0_MSVC2019_64bit-RelWithDebInfo/Gui/ui_SettingUI.h" line="572"/>
         <source>透明窗口(重启软件生效):</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../../build/stickyNote/Gui/ui_SettingUI.h" line="574"/>
+        <location filename="../../build/Desktop_Qt_5_15_0_MSVC2019_64bit-RelWithDebInfo/Gui/ui_SettingUI.h" line="574"/>
         <source>固定到桌面(重启软件生效):</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../../build/stickyNote/Gui/ui_SettingUI.h" line="576"/>
+        <location filename="../../build/Desktop_Qt_5_15_0_MSVC2019_64bit-RelWithDebInfo/Gui/ui_SettingUI.h" line="576"/>
         <source>便利贴窗口显示到任务栏:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../../build/stickyNote/Gui/ui_SettingUI.h" line="578"/>
+        <location filename="../../build/Desktop_Qt_5_15_0_MSVC2019_64bit-RelWithDebInfo/Gui/ui_SettingUI.h" line="578"/>
         <source>鼠标划过便利贴窗口时是否弹出菜单:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../../build/stickyNote/Gui/ui_SettingUI.h" line="580"/>
+        <location filename="../../build/Desktop_Qt_5_15_0_MSVC2019_64bit-RelWithDebInfo/Gui/ui_SettingUI.h" line="580"/>
         <source>自动检查更新:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../../build/stickyNote/Gui/ui_SettingUI.h" line="582"/>
+        <location filename="../../build/Desktop_Qt_5_15_0_MSVC2019_64bit-RelWithDebInfo/Gui/ui_SettingUI.h" line="582"/>
         <source>点击链接时自动访问:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../../build/stickyNote/Gui/ui_SettingUI.h" line="584"/>
+        <location filename="../../build/Desktop_Qt_5_15_0_MSVC2019_64bit-RelWithDebInfo/Gui/ui_SettingUI.h" line="584"/>
         <source>是否开启窗口吸附</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../../build/stickyNote/Gui/ui_SettingUI.h" line="586"/>
+        <location filename="../../build/Desktop_Qt_5_15_0_MSVC2019_64bit-RelWithDebInfo/Gui/ui_SettingUI.h" line="586"/>
         <source>窗口吸附触发距离:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../../build/stickyNote/Gui/ui_SettingUI.h" line="587"/>
+        <location filename="../../build/Desktop_Qt_5_15_0_MSVC2019_64bit-RelWithDebInfo/Gui/ui_SettingUI.h" line="587"/>
         <source>窗口吸附后的间距:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../../build/stickyNote/Gui/ui_SettingUI.h" line="588"/>
+        <location filename="../../build/Desktop_Qt_5_15_0_MSVC2019_64bit-RelWithDebInfo/Gui/ui_SettingUI.h" line="588"/>
         <source>便利贴初始宽度:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../../build/stickyNote/Gui/ui_SettingUI.h" line="589"/>
+        <location filename="../../build/Desktop_Qt_5_15_0_MSVC2019_64bit-RelWithDebInfo/Gui/ui_SettingUI.h" line="589"/>
         <source>便利贴初始高度:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../../build/stickyNote/Gui/ui_SettingUI.h" line="590"/>
+        <location filename="../../build/Desktop_Qt_5_15_0_MSVC2019_64bit-RelWithDebInfo/Gui/ui_SettingUI.h" line="590"/>
         <source>是否显示便利贴工具(重启软件生效)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../../build/stickyNote/Gui/ui_SettingUI.h" line="591"/>
+        <location filename="../../build/Desktop_Qt_5_15_0_MSVC2019_64bit-RelWithDebInfo/Gui/ui_SettingUI.h" line="591"/>
         <source>应用</source>
         <translation type="unfinished"></translation>
     </message>
@@ -692,12 +705,12 @@ Right-click to display the menu!</source>
 <context>
     <name>ToDoListItem</name>
     <message>
-        <location filename="../../../../build/stickyNote/Gui/ui_ToDoListItem.h" line="117"/>
+        <location filename="../../build/Desktop_Qt_5_15_0_MSVC2019_64bit-RelWithDebInfo/Gui/ui_ToDoListItem.h" line="117"/>
         <source>Form</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../../build/stickyNote/Gui/ui_ToDoListItem.h" line="119"/>
+        <location filename="../../build/Desktop_Qt_5_15_0_MSVC2019_64bit-RelWithDebInfo/Gui/ui_ToDoListItem.h" line="119"/>
         <source>2020-02-11 12:24</source>
         <translation type="unfinished"></translation>
     </message>
@@ -705,28 +718,28 @@ Right-click to display the menu!</source>
 <context>
     <name>UpdateUI</name>
     <message>
-        <location filename="../../../../build/stickyNote/Gui/ui_UpdateUI.h" line="153"/>
+        <location filename="../../build/Desktop_Qt_5_15_0_MSVC2019_64bit-RelWithDebInfo/Gui/ui_UpdateUI.h" line="153"/>
         <source>Form</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../../build/stickyNote/Gui/ui_UpdateUI.h" line="154"/>
+        <location filename="../../build/Desktop_Qt_5_15_0_MSVC2019_64bit-RelWithDebInfo/Gui/ui_UpdateUI.h" line="154"/>
         <source>当前版本:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../../build/stickyNote/Gui/ui_UpdateUI.h" line="155"/>
-        <location filename="../../../../build/stickyNote/Gui/ui_UpdateUI.h" line="157"/>
+        <location filename="../../build/Desktop_Qt_5_15_0_MSVC2019_64bit-RelWithDebInfo/Gui/ui_UpdateUI.h" line="155"/>
+        <location filename="../../build/Desktop_Qt_5_15_0_MSVC2019_64bit-RelWithDebInfo/Gui/ui_UpdateUI.h" line="157"/>
         <source>0.0</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../../build/stickyNote/Gui/ui_UpdateUI.h" line="156"/>
+        <location filename="../../build/Desktop_Qt_5_15_0_MSVC2019_64bit-RelWithDebInfo/Gui/ui_UpdateUI.h" line="156"/>
         <source>最新版本:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../../build/stickyNote/Gui/ui_UpdateUI.h" line="158"/>
+        <location filename="../../build/Desktop_Qt_5_15_0_MSVC2019_64bit-RelWithDebInfo/Gui/ui_UpdateUI.h" line="158"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
@@ -737,12 +750,12 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../../build/stickyNote/Gui/ui_UpdateUI.h" line="165"/>
+        <location filename="../../build/Desktop_Qt_5_15_0_MSVC2019_64bit-RelWithDebInfo/Gui/ui_UpdateUI.h" line="165"/>
         <source>更新</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../../build/stickyNote/Gui/ui_UpdateUI.h" line="166"/>
+        <location filename="../../build/Desktop_Qt_5_15_0_MSVC2019_64bit-RelWithDebInfo/Gui/ui_UpdateUI.h" line="166"/>
         <source>忽略</source>
         <translation type="unfinished"></translation>
     </message>
@@ -750,21 +763,18 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>main</name>
     <message>
-        <location filename="../main.cpp" line="104"/>
         <source>Welcome to use sticky notes��</source>
-        <translation>欢迎使用StickyNote</translation>
+        <translation type="vanished">欢迎使用StickyNote</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="105"/>
         <source>When using it, you can right-click on the tray icon to bring up the menu��
 Alternatively, you can left-click on the tray icon to display the history page!
 Both pages allow you to create new sticky notes or perform other actions!</source>
-        <translation>在托盘中右键点击可以呼出彩蛋，左键点击点击呼出历史记录页面！</translation>
+        <translation type="vanished">在托盘中右键点击可以呼出彩蛋，左键点击点击呼出历史记录页面！</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="115"/>
         <source>First help!</source>
-        <translation type="unfinished">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+        <translation type="obsolete">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Microsoft YaHei&apos;; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -800,19 +810,16 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;两种便利贴可在托盘中新建，或者点击顶部的新建按钮。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="122"/>
         <source>Double-click the option to edit the content!</source>
-        <translation>双击修改内容！</translation>
+        <translation type="vanished">双击修改内容！</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="123"/>
         <source>To delete the option, you need to click the Edit button at the bottom!</source>
-        <translation>删除事项，需要点击底部按钮，开启编辑模式！</translation>
+        <translation type="vanished">删除事项，需要点击底部按钮，开启编辑模式！</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="124"/>
         <source>Click the plus button below to add the item!</source>
-        <translation>点击加号按钮，添加事项！</translation>
+        <translation type="vanished">点击加号按钮，添加事项！</translation>
     </message>
 </context>
 </TS>

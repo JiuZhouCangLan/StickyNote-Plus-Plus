@@ -3,7 +3,7 @@
 namespace NGui {
 	class StickyNote;
 	/*
-		图钉类，负责将窗口固定到顶层或者最底层
+		鍥鹃拤绫伙紝璐熻矗灏嗙獥鍙ｅ浐瀹氬埌椤跺眰鎴栬�呮渶搴曞眰
 	*/
 	class Pushpin {
 

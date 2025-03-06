@@ -25,7 +25,7 @@ bool NF::ImageSave::save(const QImage& image, QString endName /*= ".jpg"*/)
 	fileName = baseFileName + QString::number(fileCount) + endName;
 	QString filePath = path + "/" + fileName;
 
-	const int maxSaveCount = 100;	//Èç¹û×î´ó¼ì²é´ÎÊı£¬ÒÔÃâÏİÈëËÀÑ­»·
+	const int maxSaveCount = 100;	//å¦‚æœæœ€å¤§æ£€æŸ¥æ¬¡æ•°ï¼Œä»¥å…é™·å…¥æ­»å¾ªç¯
 	{
 		int  i = 0;
 		while (i < maxSaveCount && disposFileExist(filePath))
@@ -36,7 +36,7 @@ bool NF::ImageSave::save(const QImage& image, QString endName /*= ".jpg"*/)
 			i++;
 		}
 	}
-	//Èç¹ûÎÄ¼şÒÑ´æÔÚ ±£´æÊ§°Ü
+	//å¦‚æœæ–‡ä»¶å·²å­˜åœ¨ ä¿å­˜å¤±è´¥
 	if (disposFileExist(filePath))
 	{
 		std::cerr << "NF::ImageSave::save save count exceeding maximum limit,save filed!" << std::endl;

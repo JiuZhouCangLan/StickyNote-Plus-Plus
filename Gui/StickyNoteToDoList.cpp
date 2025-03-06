@@ -23,7 +23,7 @@ void NGui::StickyNoteToDoList::addItem(const QString& text)
 
 void NGui::StickyNoteToDoList::initActionCommand()
 {
-	//³õÊ¼»¯°´Å¥
+	//åˆå§‹åŒ–æŒ‰é’®
 	initActionCommandToTop(ActionCommandTypes("cmd_new_note", true));
 	//initActionCommandToTop(ActionCommandTypes("cmd_new_copy_style", true));
 	initActionCommandToTop(ActionCommandTypes("cmd_color_setting", true));

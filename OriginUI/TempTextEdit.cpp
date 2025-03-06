@@ -78,8 +78,8 @@ void OriginUI::TempTextEdit::toolButtonClicked(bool b)
 void OriginUI::TempTextEdit::leaveEvent(QEvent* event)
 {
 	QWidget::leaveEvent(event);
-	//²»ÄÜÔÚÊó±êÀë¿ªÊ±¸Ä±äÎÄ±¾
-	//ÒòÎªÉµ¹·ÊäÈë·¨£¬ÊäÈëÊ±Ò²»á·¢³ö¸ÃÊÂ¼ş 
+	//ä¸èƒ½åœ¨é¼ æ ‡ç¦»å¼€æ—¶æ”¹å˜æ–‡æœ¬
+	//å› ä¸ºå‚»ç‹—è¾“å…¥æ³•ï¼Œè¾“å…¥æ—¶ä¹Ÿä¼šå‘å‡ºè¯¥äº‹ä»¶ 
 /*	Q_EMIT okButtonClicked(true);*/
 }
 

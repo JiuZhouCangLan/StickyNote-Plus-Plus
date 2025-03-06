@@ -15,13 +15,13 @@
   </property>
   <property name="styleSheet">
    <string notr="true">QLabel{
-	font: 9pt &quot;微软雅黑&quot;;
+	font: 9pt &quot;寰蒋闆呴粦&quot;;
 }
 QWidget{
 background-color: rgb(255, 255, 255);
 }
 QPushButton{
-	font: 9pt &quot;微软雅黑&quot;;
+	font: 9pt &quot;寰蒋闆呴粦&quot;;
 	
 	border-color: rgb(180, 180, 180);
 	border: solid;
@@ -30,7 +30,7 @@ QPushButton{
 	background-color: qlineargradient(spread:pad, x1:0, y1:0, 		x2:0, y2:1, stop:0 rgba(170, 255, 255, 255), stop:1 			rgba(255, 255, 255, 255));
 }
 QPushButton:hover{
-	font: 9pt &quot;微软雅黑&quot;;
+	font: 9pt &quot;寰蒋闆呴粦&quot;;
 	border-color: rgb(180, 180, 180);
 	border: solid;
 	border-width:1px;

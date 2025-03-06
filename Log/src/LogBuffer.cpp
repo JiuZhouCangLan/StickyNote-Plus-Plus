@@ -8,7 +8,7 @@ Log::LogBuffer::LogBuffer()
 }
 
 /**
-* @brief Log::LogBuffer::overflow ½«Á÷ÖĞµÄÊı¾İ·ÅÈë»º³åÇø
+* @brief Log::LogBuffer::overflow å°†æµä¸­çš„æ•°æ®æ”¾å…¥ç¼“å†²åŒº
 * @param int c
 * @return int
 */
@@ -20,12 +20,12 @@ int Log::LogBuffer::overflow(int c /*= EOF*/)
 }
 
 /**
-* @brief Log::LogBuffer::sync ½«»º³åÇøµÄÊı¾İÍ¬²½µ½Éè±¸
+* @brief Log::LogBuffer::sync å°†ç¼“å†²åŒºçš„æ•°æ®åŒæ­¥åˆ°è®¾å¤‡
 * @return int
 */
 int Log::LogBuffer::sync()
 {
-	//Èç¹û»º³åÇøÎŞÊı¾İ  Ôò²»Êä³ö
+	//å¦‚æœç¼“å†²åŒºæ— æ•°æ®  åˆ™ä¸è¾“å‡º
 	if (buffer.empty())
 		return 0;
 
@@ -38,7 +38,7 @@ int Log::LogBuffer::sync()
 	}
 	file << getCurrentTime().c_str() << " ==" << getTag().c_str() << "==>> ";
 	file << buffer.c_str();
-	//Èç¹ûÊä³öµÄÄ©Î²Ã»ÓĞ»»ĞĞ£¬ÔòÔö¼Ó»»ĞĞ·û
+	//å¦‚æœè¾“å‡ºçš„æœ«å°¾æ²¡æœ‰æ¢è¡Œï¼Œåˆ™å¢åŠ æ¢è¡Œç¬¦
 	auto iter = buffer.rbegin();
 	if (*iter != '\n')
 		file << '\n';
@@ -49,7 +49,7 @@ int Log::LogBuffer::sync()
 }
 
 /**
-* @brief Log::LogBuffer::getTag »ñÈ¡Êä³ö±êÇ©
+* @brief Log::LogBuffer::getTag è·å–è¾“å‡ºæ ‡ç­¾
 * @return std::string
 */
 std::string Log::LogBuffer::getTag()
@@ -58,7 +58,7 @@ std::string Log::LogBuffer::getTag()
 }
 
 /**
-* @brief Log::LogBuffer::getCurrentTime »ñÈ¡µ±Ç°Ê±¼ä
+* @brief Log::LogBuffer::getCurrentTime è·å–å½“å‰æ—¶é—´
 * @return std::string
 */
 std::string Log::LogBuffer::getCurrentTime()

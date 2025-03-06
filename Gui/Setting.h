@@ -2,65 +2,62 @@
 #include "StickyNoteFile/Setting.h"
 #include <map>
 #include <memory>
-#include <mutex>
+
 namespace NF{
 	class PropertyBool;
 	class PropertyString;
 }
 namespace NGui {
 	class Setting :public NF::Setting {
-	public:
-		
+    public:
+        Setting();
 		~Setting();
+        void initProperty();
 
-	public:
-		//ÔØÈëÓë±£´æÎÄ¼şÊı¾İ Ê¹ÓÃÄ¬ÈÏÂ·¾¶
+		//è½½å…¥ä¸ä¿å­˜æ–‡ä»¶æ•°æ® ä½¿ç”¨é»˜è®¤è·¯å¾„
 		void loadProperty();
-		void saveProperty();
-	public:
-		//ÉèÖÃÄ¬ÈÏµÄÅäÖÃÎÄ¼şÂ·¾¶
+        void saveProperty();
+
+		//è®¾ç½®é»˜è®¤çš„é…ç½®æ–‡ä»¶è·¯å¾„
 		static void setDefaultConfigPath(const std::string& path);
 		static std::string getDefaultConfigPath();
 		static bool defaultPathExist();
 		static std::shared_ptr<Setting> GetInstance();
-	private:
-		void initProperty();
-		Setting();
-		
-	
-	public:
-		//±ãÀûÌù´°¿Ú¹¤¾ßÀ¸ÊÇ·ñ×Ô¶¯µ¯³ö
+
+    public:
+		//ä¾¿åˆ©è´´çª—å£å·¥å…·æ æ˜¯å¦è‡ªåŠ¨å¼¹å‡º
 		NF::PropertyBool* stickyNoteToolbarAutoPop;
-		//±ãÀûÌù´°¿ÚÊÇ·ñÏÔÊ¾ÔÙÈÎÎñÀ¸
+		//ä¾¿åˆ©è´´çª—å£æ˜¯å¦æ˜¾ç¤ºå†ä»»åŠ¡æ 
 		NF::PropertyBool* stickyNoteToolMod;
-		//ÀúÊ·´°¿Ú¿ì½İ¼ü
+		//å†å²çª—å£å¿«æ·é”®
 		NF::PropertyString* historyWidgetShortcut;
-		//ºöÂÔ°æ±¾
+		//å¿½ç•¥ç‰ˆæœ¬
 		NF::PropertyDouble* ignoreVersion;
-		//×Ô¶¯¼ì²é¸üĞÂ
+		//è‡ªåŠ¨æ£€æŸ¥æ›´æ–°
 		NF::PropertyBool* autoUpdate;
-		//ÓÃ»§µÄGUID£¬ÓÃÓÚ¼ÇÂ¼ÓÃ»§°æ±¾
+		//ç”¨æˆ·çš„GUIDï¼Œç”¨äºè®°å½•ç”¨æˆ·ç‰ˆæœ¬
 		NF::PropertyString* userID;
-		//´¥·¢×Ô¶¯Îü¸½µÄãĞÖµ
+		//è§¦å‘è‡ªåŠ¨å¸é™„çš„é˜ˆå€¼
 		NF::PropertyInt* magneticThreshold;
-		//ÊÇ·ñ´¥·¢´°¿ÚÎü¸½
+		//æ˜¯å¦è§¦å‘çª—å£å¸é™„
 		NF::PropertyBool* autoMagnetic;
-		//´°¿ÚÎü¸½ºóµÄ¼ä¾à
+		//çª—å£å¸é™„åçš„é—´è·
 		NF::PropertyInt* magneticDistance;
-		//Ä¬ÈÏ×ÖÌå
+		//é»˜è®¤å­—ä½“
 		NF::PropertyString* stickyNoteFont;
-		//Ä¬ÈÏÍ¼Æ¬´æ´¢Â·¾¶
+		//é»˜è®¤å›¾ç‰‡å­˜å‚¨è·¯å¾„
 		NF::PropertyString* imageSavePath;
-		//´°¿ÚÍ¸Ã÷
+		//çª—å£é€æ˜
 		NF::PropertyBool* transparentWidget;
-		//¹Ì¶¨µ½×ÀÃæ
+		//å›ºå®šåˆ°æ¡Œé¢
 		NF::PropertyBool* pinIconLayer;
-		//Ä¬ÈÏµÄ±ãÀûÌù´°¿ÚµÄ¿í¶ÈÓë¸ß¶È
+		//é»˜è®¤çš„ä¾¿åˆ©è´´çª—å£çš„å®½åº¦ä¸é«˜åº¦
 		NF::PropertyInt* stickyNoteWidth, * stickyNoteHeight;
-		//ËùÓĞÃüÁîµÄÄ¬ÈÏ×´Ì¬
+		//æ‰€æœ‰å‘½ä»¤çš„é»˜è®¤çŠ¶æ€
 		std::map<std::string, NF::PropertyBool*> cmdState;
-		//ÊÇ·ñ×Ô¶¯Ê¶±ğÁ´½Ó
+		//æ˜¯å¦è‡ªåŠ¨è¯†åˆ«é“¾æ¥
 		NF::PropertyBool* visitiUrl;
+
 	private:
 		static std::string defaultPath;
 		static std::shared_ptr<Setting> _instance;

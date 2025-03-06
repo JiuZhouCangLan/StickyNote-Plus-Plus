@@ -3,19 +3,19 @@
 #include "WinApiExport.h"
 #include <windows.h>
 
-//�����ڹ̶�������
+//将窗口固定到顶层
 WIN_API_EXPORT void setWindowAlwaysTop(HWND winID);
-//�жϴ����Ƿ����ڶ���
+//判断窗口是否置于顶层
 WIN_API_EXPORT BOOL isWindowAlwaysTop(HWND winID);
 
-//���ô���Ϊ��ͨ����
+//设置窗口为普通窗口
 WIN_API_EXPORT void setWindowNormal(HWND winID);
-//�жϴ����Ƿ�Ϊ��ͨ����
+//判断窗口是否为普通窗口
 WIN_API_EXPORT BOOL isWindowNormal(HWND winID);
 
-//����������ͼ���
+//将窗口置于图标层
 WIN_API_EXPORT void setWindowToIconLayer(HWND winID);
-//�жϴ����Ƿ���ͼ���
+//判断窗口是否在图标层
 WIN_API_EXPORT BOOL isWindowToIconLayer(HWND winID);
 
 

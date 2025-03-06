@@ -20,14 +20,14 @@ NGui::StickyNoteItem::StickyNoteItem(StickyNoteItemContent* ItemContent, QWidget
 	:QWidget(parent)
 {
 
-	//³õÊ¼»¯Êı¾İ
+	//åˆå§‹åŒ–æ•°æ®
 	filter = new StickyNoteItemEventFilter();
 	backColor = QColor("#FFF7D1");
 	isHover = false;
 	hoverColor = QColor(0, 0, 0, 40);
 	setMinimumSize(40, 50);
 
-	//³õÊ¼»¯²¼¾Ö
+	//åˆå§‹åŒ–å¸ƒå±€
 	vLayout = new QVBoxLayout();
 	hLayout = new QHBoxLayout();
 	
@@ -133,7 +133,7 @@ void NGui::StickyNoteItem::paintEvent(QPaintEvent* event)
 	painter.setBrush(QBrush(triangleColor));
 	painter.drawPolygon(triangle);
 
-	//Èç¹ûÊó±êĞüÍ£Ôö¼ÓÒ»²ãÍ¸Ã÷É«
+	//å¦‚æœé¼ æ ‡æ‚¬åœå¢åŠ ä¸€å±‚é€æ˜è‰²
 	if (isHover)
 	{
 		const QColor pen(0, 0, 0, 0);
@@ -181,7 +181,7 @@ void NGui::StickyNoteItem::resizeEvent(QResizeEvent* event)
 
 	auto re = this->rect();
 
-	//Èı½ÇÎ»ÖÃ´óĞ¡
+	//ä¸‰è§’ä½ç½®å¤§å°
 	const int trs = 15;
 
 	polygon.clear();
@@ -197,9 +197,9 @@ void NGui::StickyNoteItem::showEvent(QShowEvent* event)
 {
 	QWidget::showEvent(event);
 	/*
-		ÓÉÓÚdocumentLayout()->blockBoundingRect()º¯Êı£¬ĞèÒªÔÙ´°¿ÚÏÔÊ¾³öÀ´Ö®ºó²ÅÄÜ¼ÆËãĞĞ¸ß¶È¡£
-		ÔÚ´°¿ÚÎ´ÏÔÊ¾Ö®Ç°¼ÆËãµÄ¸ß¶ÈÊÇ´íÎóµÄ¡£
-		ËùÒÔÔÚ´°¿ÚÏÔÊ¾Ê±ĞèÒª´ÓĞÂ¼ÆËãÒ»ÏÂ¸ß¶È
+		ç”±äºdocumentLayout()->blockBoundingRect()å‡½æ•°ï¼Œéœ€è¦å†çª—å£æ˜¾ç¤ºå‡ºæ¥ä¹‹åæ‰èƒ½è®¡ç®—è¡Œé«˜åº¦ã€‚
+		åœ¨çª—å£æœªæ˜¾ç¤ºä¹‹å‰è®¡ç®—çš„é«˜åº¦æ˜¯é”™è¯¯çš„ã€‚
+		æ‰€ä»¥åœ¨çª—å£æ˜¾ç¤ºæ—¶éœ€è¦ä»æ–°è®¡ç®—ä¸€ä¸‹é«˜åº¦
 	*/
 	autoSize();
 }
@@ -207,7 +207,7 @@ void NGui::StickyNoteItem::showEvent(QShowEvent* event)
 void NGui::StickyNoteItem::showNoteWidget()
 {
 	auto pool = StickyNotePool::GetInstance();
-	//Èç¹ûÒÑ¾­ÏÔÊ¾£¬Ôò½«´°¿ÚÏÔÊ¾ÓÚ¶¥²ã
+	//å¦‚æœå·²ç»æ˜¾ç¤ºï¼Œåˆ™å°†çª—å£æ˜¾ç¤ºäºé¡¶å±‚
 	if (pool->hasFileNote(fileNote->guid))
 	{
 		auto nWidget = pool->getStickyNote(fileNote->guid);

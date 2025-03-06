@@ -83,7 +83,7 @@ NF::StickyNote::StickyNote()
 
 bool NF::StickyNote::operator==(const StickyNote& note)
 {
-	//ÅĞµÈÖ»ÅĞ¶ÏGUIDÊÇ·ñÏàµÈ
+	//åˆ¤ç­‰åªåˆ¤æ–­GUIDæ˜¯å¦ç›¸ç­‰
 	if (this->guid == note.guid)
 		return true;
 	return false;
@@ -105,7 +105,7 @@ void NF::StickyNote::loadNode(pugi::xml_node& node)
 	visible = node.attribute("visible").as_bool();
 	version = node.attribute("version").as_double(VERSION);
 
-	//¼æÈİÖ®Ç°Ã»ÓĞGUIDµÄÎÄ¼ş
+	//å…¼å®¹ä¹‹å‰æ²¡æœ‰GUIDçš„æ–‡ä»¶
 	std::string id = node.attribute("GUID").as_string();
 	if (!id.empty())
 		guid = id;
@@ -115,7 +115,7 @@ void NF::StickyNote::loadNode(pugi::xml_node& node)
 
 void NF::StickyNote::toNode(pugi::xml_node& node)
 {
-	//Èç¹ûÄÚÈİÎª¿Õ£¬ÔòÊÓÎªÉ¾³ı
+	//å¦‚æœå†…å®¹ä¸ºç©ºï¼Œåˆ™è§†ä¸ºåˆ é™¤
 	if (contentIsNull)
 	{
 		auto pnode = node.parent();
@@ -222,7 +222,7 @@ void NF::StickyNoteText::loadNode(xml_node& node)
 {
 	StickyNote::loadNode(node);
 	contentText.loadValue(node);
-	//¼æÈİÖ®Ç°°æ±¾µÄÊı¾İ
+	//å…¼å®¹ä¹‹å‰ç‰ˆæœ¬çš„æ•°æ®
 	if (contentText.getValue().empty())
 	{
 		contentText = node.attribute("content").as_string();

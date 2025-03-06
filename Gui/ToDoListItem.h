@@ -18,10 +18,10 @@ namespace NGui {
 		void gotFocus();
 		void lostFocus();
 	public:
-		//¶ÁÈ¡ºÍÉú³ÉÊı¾İ
+		//è¯»å–å’Œç”Ÿæˆæ•°æ®
 		void setData(NF::StickyNoteToDoListItem data);
 		NF::StickyNoteToDoListItem getData();
-		//»ñÈ¡ÎÄ±¾
+		//è·å–æ–‡æœ¬
 		QString getText() const;
 		void setText(const QString& text);
 
@@ -29,7 +29,7 @@ namespace NGui {
 		QDateTime getFinishedDateTime();
 		bool isFinished();
 
-		//ÉèÖÃ ºÍ  È¡Ïû ±à¼­×´Ì¬
+		//è®¾ç½® å’Œ  å–æ¶ˆ ç¼–è¾‘çŠ¶æ€
 		void showEditButton();
 		void hideEditButton();
 

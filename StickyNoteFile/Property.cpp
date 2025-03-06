@@ -1,9 +1,9 @@
 #include "Property.h"
 
 /*
-* type : Òª´æ´¢µÄÊı¾İÀàĞÍ,ÓÃÓÚÉú³ÉÀàÃû
-* name : ÀàÃûµÄºó×º
-* xmlType : ¶ÔÓ¦xml¿âÖĞ to_xxx()º¯ÊıµÄÀàĞÍ£¬ÓÃÓÚ¶ÁÈ¡
+* type : è¦å­˜å‚¨çš„æ•°æ®ç±»å‹,ç”¨äºç”Ÿæˆç±»å
+* name : ç±»åçš„åç¼€
+* xmlType : å¯¹åº”xmlåº“ä¸­ to_xxx()å‡½æ•°çš„ç±»å‹ï¼Œç”¨äºè¯»å–
 */
 #define PROPERTY_CLASS_SOURCE(type,className,xmlType)\
 Property##className::Property##className(const std::string& name,const type v)\
@@ -35,8 +35,8 @@ type Property##className::getValue()\
 	return value;\
 };
 /*
-* PROPERTY_CLASS_SOURCE µÄ¸Ä½øĞÍ Ö÷Òª½â¾öÀàĞÍ²»ÄÜÖ±½ÓÓÃÓÚxml´æ´¢£¬ĞèÒª×ö×ª»»µÄÇé¿öÏÂÊ¹ÓÃ
-* trName : ×ª»»º¯ÊıÃû³Æ£¬ÕâÀïÆäÊµÊÇÕë¶Ôstd::string ×ª char Ğ´µÄ
+* PROPERTY_CLASS_SOURCE çš„æ”¹è¿›å‹ ä¸»è¦è§£å†³ç±»å‹ä¸èƒ½ç›´æ¥ç”¨äºxmlå­˜å‚¨ï¼Œéœ€è¦åšè½¬æ¢çš„æƒ…å†µä¸‹ä½¿ç”¨
+* trName : è½¬æ¢å‡½æ•°åç§°ï¼Œè¿™é‡Œå…¶å®æ˜¯é’ˆå¯¹std::string è½¬ char å†™çš„
 */
 #define PROPERTY_CLASS_SOURCE_TR(type,className,xmlType,trName)\
 Property##className::Property##className(const std::string& name,const type v)\

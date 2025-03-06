@@ -4,15 +4,15 @@
 #include <string>
 
 /*
-* Õâ¸öºêÓÃÓÚ´´½¨¿ÉÒÔ´æ´¢Êý¾ÝÓëxmlÎÄ¼þµÄÀàÀàÐÍ
-* PROPERTY_CLASS_HEADER ºêÓÃÓÚ´´½¨Í·ÎÄ¼þ
-* PROPERTY_CLASS_SOURCE ÓÃÓÚ´´½¨Ô´ÎÄ¼þ£¬Õâ¸öºêÊµÏÖÔÙProperty.cppÎÄ¼þÖÐ
-* Á½¸öºêÐèÒªÅäºÏÊ¹ÓÃ£¬·ñÔò»á±àÒë±¨´í
-* type : Òª´æ´¢µÄÊý¾ÝÀàÐÍ
-* className : ÀàÃûµÄºó×º
-* ¹¹Ôì¶ÔÏóÊ±ÐèÒª´«ÈëÁ½¸ö²ÎÊý
-* name : ÊôÐÔÃû³Æ£¬Õâ¸öÊôÐÔÔÚÍ¬Ò»¸öxml node±ØÐëÊÇÎ¨Ò»µÄ£¬·ñÔòÔÚ¶ÁÈ¡Ê±²¢²»ÄÜÇø·Ö¡£
-* value :  Ä¬ÈÏµÄÖµ£¬Èç¹ûxml attribute ²»´æÔÚÊ±£¬¶ÁÈ¡Ê±»á½«Õâ¸öÖµ×÷ÎªÄ¬ÈÏÖµ¡£
+* è¿™ä¸ªå®ç”¨äºŽåˆ›å»ºå¯ä»¥å­˜å‚¨æ•°æ®ä¸Žxmlæ–‡ä»¶çš„ç±»ç±»åž‹
+* PROPERTY_CLASS_HEADER å®ç”¨äºŽåˆ›å»ºå¤´æ–‡ä»¶
+* PROPERTY_CLASS_SOURCE ç”¨äºŽåˆ›å»ºæºæ–‡ä»¶ï¼Œè¿™ä¸ªå®å®žçŽ°å†Property.cppæ–‡ä»¶ä¸­
+* ä¸¤ä¸ªå®éœ€è¦é…åˆä½¿ç”¨ï¼Œå¦åˆ™ä¼šç¼–è¯‘æŠ¥é”™
+* type : è¦å­˜å‚¨çš„æ•°æ®ç±»åž‹
+* className : ç±»åçš„åŽç¼€
+* æž„é€ å¯¹è±¡æ—¶éœ€è¦ä¼ å…¥ä¸¤ä¸ªå‚æ•°
+* name : å±žæ€§åç§°ï¼Œè¿™ä¸ªå±žæ€§åœ¨åŒä¸€ä¸ªxml nodeå¿…é¡»æ˜¯å”¯ä¸€çš„ï¼Œå¦åˆ™åœ¨è¯»å–æ—¶å¹¶ä¸èƒ½åŒºåˆ†ã€‚
+* value :  é»˜è®¤çš„å€¼ï¼Œå¦‚æžœxml attribute ä¸å­˜åœ¨æ—¶ï¼Œè¯»å–æ—¶ä¼šå°†è¿™ä¸ªå€¼ä½œä¸ºé»˜è®¤å€¼ã€‚
 */
 #define PROPERTY_CLASS_HEADER(type,className)\
 class NOTE_FILE_EXPORT Property##className:public Property{\
@@ -26,10 +26,10 @@ public:	\
 		void operator =(const type& v);\
 private:\
 	std::string name;\
-	##type value;\
+    type value;\
 }\
 /*
-* ¿ìËÙÉú³ÉÊôÐÔ±äÁ¿
+* å¿«é€Ÿç”Ÿæˆå±žæ€§å˜é‡
 */
 #define CREAT_PROPERTY(className,propertyName,propertyValue)\
 	className propertyName(#propertyName,propertyValue);
@@ -41,10 +41,10 @@ namespace NF {
 		virtual ~Property() {};
 		virtual void loadValue(pugi::xml_node& node) =0;
 		virtual void saveValue(pugi::xml_node& node) = 0;
-	};
+    };
 
-	PROPERTY_CLASS_HEADER(int,Int);
-	PROPERTY_CLASS_HEADER(double,Double);
+    PROPERTY_CLASS_HEADER(int,Int);
+    PROPERTY_CLASS_HEADER(double,Double);
 	PROPERTY_CLASS_HEADER(float,Float);
 	PROPERTY_CLASS_HEADER(unsigned int, UInt);
 	PROPERTY_CLASS_HEADER(std::string, String);

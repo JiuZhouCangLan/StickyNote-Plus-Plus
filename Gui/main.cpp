@@ -1,174 +1,152 @@
-#include <QtWidgets/QApplication>
-#include <QtWidgets/QWidget>
-#include <iostream>
-#include <memory>
-#include <QSystemTrayIcon>
-#include "mainWindow.h"
-#include <vector>
-#include "ToolBar.h"
-#include "StickyNote.h"
-#include "cpp_log.h"
-#include <qfile.h>
-#include <QTextStream>
-#include "WidgetNoBoder.h"
-#include "NoteFile.h"
-#include "SystemTrayIcon.h"
-#include "StickyNotePool.h"
-#include "ToolButtonColor.h"
-#include "ColorWidget.h"
-#include "ProcessCommunication.h"
 #include "HistoryWidget.h"
+#include "NoteFile.h"
+#include "ProcessCommunication.h"
 #include "Setting.h"
+#include "StickyNote.h"
+#include "StickyNotePool.h"
 #include "StickyNoteText.h"
 #include "StickyNoteToDoList.h"
+#include "SystemTrayIcon.h"
+#include "cpp_log.h"
 #include <QDir>
-#include<QTranslator>
-#include "circleSwitch.h"
-extern "C"
-{
-#include "PCStartRun.h"
-}
-#include "WindowNoBoder.h"
-#include "ImageSave.h"
-#include "EditLable.h"
-#include "TempTextEdit.h"
+#include <QSystemTrayIcon>
+#include <QTextStream>
+#include <QTranslator>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QWidget>
+#include <qfile.h>
+#include <memory>
+#include <vector>
 #include "CompatibilityTool.h"
+#include "ImageSave.h"
 #include "StickyNoteFactory.h"
 
-//ÎªÁË·½±ãÊ¹ÓÃqt ¶àÓïÑÔ¹¦ÄÜ£¬¶ÔÕâ¸öºê½øÐÐÐÞ¸Ä 
-#define QT_TRANSLATE_NOOP(scope, x) QCoreApplication::translate(scope,x)
-int main(int argc, char *argv[])
+#define CAT_TRANSLATE_NOOP(scope, x) QCoreApplication::translate(scope, x)
+
+int main(int argc, char* argv[])
 {
-	QApplication::setAttribute(Qt::AA_EnableHighDpiScaling); // ÔÚ´´½¨QCoreApplication¶ÔÏóÖ®Ç°ÉèÖÃÊôÐÔ
-	QApplication a(argc, argv);
+    QApplication::setAttribute(Qt::AA_EnableHighDpiScaling); // åœ¨åˆ›å»ºQCoreApplicationå¯¹è±¡ä¹‹å‰è®¾ç½®å±žæ€§
+    QApplication a(argc, argv);
 
-	//ÊµÀý»¯Ò»¸ö·­ÒëÄ£¿éµÄ¶ÔÏó£¬²¢ÔØÈë·­ÒëÎÄ¼þ
-	QTranslator translator;
-	auto  ok = translator.load(":/translate/translate/StickyNoteGui.qm");
-	//Ê¹ÓÃQApplictioinµÄ¶ÔÏó£¬Îª³ÌÐò°²×°·­ÒëÄ£¿é
-	a.installTranslator(&translator);
+    // å®žä¾‹åŒ–ä¸€ä¸ªç¿»è¯‘æ¨¡å—çš„å¯¹è±¡ï¼Œå¹¶è½½å…¥ç¿»è¯‘æ–‡ä»¶
+    QTranslator translator;
+    translator.load(":/translate/translate/StickyNoteGui.qm");
+    // ä½¿ç”¨QApplictioinçš„å¯¹è±¡ï¼Œä¸ºç¨‹åºå®‰è£…ç¿»è¯‘æ¨¡å—
+    a.installTranslator(&translator);
 
-	//ÉèÖÃÎª×îºóÒ»¸ö´°¿Ú¹Ø±ÕÊ±²»ÍË³ö³ÌÐò
-	a.setQuitOnLastWindowClosed(false);
+    // è®¾ç½®ä¸ºæœ€åŽä¸€ä¸ªçª—å£å…³é—­æ—¶ä¸é€€å‡ºç¨‹åº
+    a.setQuitOnLastWindowClosed(false);
 
-	//ÔØÈëqss 
-	QFile file(":/Style/qss/GuiStyle.qss");
-	file.open(QIODevice::ReadOnly);
-	QTextStream stream(&file);
-	QString qss = stream.readAll();
-	a.setStyleSheet(qss);
-	file.close();
-
+    // è½½å…¥qss
+    QFile file(":/Style/qss/GuiStyle.qss");
+    file.open(QIODevice::ReadOnly);
+    QTextStream stream(&file);
+    QString qss = stream.readAll();
+    a.setStyleSheet(qss);
+    file.close();
 
 #ifndef _DEBUG
-	Log::CppLog::GetInstance()->onAll();
+    Log::CppLog::GetInstance()->onAll();
 #endif
 
 #ifndef _DEBUG
-	//½¨Á¢½ø³ÌÍ¨ÐÅ
-	NGui::ProcessCommunication proC;
-	proC.connetction();
+    // å»ºç«‹è¿›ç¨‹é€šä¿¡
+    NGui::ProcessCommunication proC;
+    proC.connetction();
 
-	//ÅÐ¶ÏÊÇ·ñÓÐ½ø³ÌÒÑÔËÐÐ£¬ÓÐÔòÍË³ö³ÌÐò
-	if (proC.getType() == NGui::CLIENT)
-	{
-		//²âÊÔ·¢ËÍÏûÏ¢
-		proC.sendMessage("hello word!\n");
-		return 0;
-	}
+    // åˆ¤æ–­æ˜¯å¦æœ‰è¿›ç¨‹å·²è¿è¡Œï¼Œæœ‰åˆ™é€€å‡ºç¨‹åº
+    if (proC.getType() == NGui::CLIENT)
+    {
+        // æµ‹è¯•å‘é€æ¶ˆæ¯
+        proC.sendMessage("hello word!\n");
+        return 0;
+    }
 #endif
 
-	//×¢²á±ã¼ã´´ÔìÆ÷
-	NGui::StickyNoteCreator::registerAllCreator();
+    // æ³¨å†Œä¾¿ç¬ºåˆ›é€ å™¨
+    NGui::StickyNoteCreator::registerAllCreator();
 
-	//²âÊÔ
-	auto nt = NGui::StickyNotePool::CreatStickyNote("DiversityNote");
-	nt->show();
+    NGui::SystemTrayIcon trayIcon;
+    trayIcon.show();
 
-
-	NGui::SystemTrayIcon trayIcon;
-	trayIcon.show();
-
-	//ÓÃ±êÖ¾ÅÐ¶ÏÊÇ·ñÎªµÚÒ»´Î´ò¿ª³ÌÐò
-	bool fierstOpen = false;
-	//ÔØÈëÀúÊ·±ãÀûÌù
-	auto noteFile = NF::NoteFile::GetInstance();
-	//µ÷ÕûÎÄ¼þÂ·¾¶µ½userÄ¿Â¼
+    // ç”¨æ ‡å¿—åˆ¤æ–­æ˜¯å¦ä¸ºç¬¬ä¸€æ¬¡æ‰“å¼€ç¨‹åº
+    bool firstOpen = false;
+    // è½½å…¥åŽ†å²ä¾¿åˆ©è´´
+    auto noteFile = NF::NoteFile::GetInstance();
+    // è°ƒæ•´æ–‡ä»¶è·¯å¾„åˆ°userç›®å½•
 #ifndef _DEBUG
-	CompatibilityTool::moveConfigFile();
-	QDir dir;
-	auto homePath = QFileInfo(QCoreApplication::applicationFilePath()).absolutePath() + "/../data";
-	dir.setPath(homePath);
-	if (!dir.exists())
-		dir.mkdir(homePath);
-	noteFile->setFilePath(homePath.toStdString() + "/note.xml");
+    CompatibilityTool::moveConfigFile();
+    QDir dir;
+    auto homePath = QFileInfo(QCoreApplication::applicationFilePath()).absolutePath() + "/../data";
+    dir.setPath(homePath);
+    if (!dir.exists())
+        dir.mkdir(homePath);
+    noteFile->setFilePath(homePath.toStdString() + "/note.xml");
 
-	NGui::Setting::setDefaultConfigPath(homePath.toStdString() + "/config.cfg");
-	NGui::Setting setting;
-	//Èç¹ûÅäÖÃÎÄ¼þ²»´æÔÚ£¬Ôò±£´æÒ»ÏÂÅäÖÃ£¬½â¾öÃ»ÓÐµã»÷¹ýÉèÖÃÓ¦ÓÃ£¬¾Í»áÔÚÃ¿´ÎÆô¶¯Ê±ÖØ¸´Éú³ÉGUIDµÄÎÊÌâ
-	if (!setting.defaultPathExist())
-	{
-		
-		fierstOpen = true;
-		//ÉèÖÃ³ÌÐò¿ª»úÆô¶¯
-		trayIcon.actionAutoStartTrigger(true);
-		//ÉèÖÃÄ¬ÈÏÍ¼Æ¬±£´æÂ·¾¶
-		QDir d("../image");
-		setting.imageSavePath->setValue(d.absolutePath().toStdString());
-		setting.saveProperty();
-		//µÚÒ»´ÎÊ¹ÓÃµ¯³öÊ¹ÓÃÌáÊ¾
-		trayIcon.showMessage(QT_TRANSLATE_NOOP("main","Welcome to use sticky notes: "),
-			QT_TRANSLATE_NOOP("main", "When using it, you can right-click on the tray icon to bring up the menu! \n\
+    NGui::Setting::setDefaultConfigPath(homePath.toStdString() + "/config.cfg");
+    NGui::Setting setting;
+    // å¦‚æžœé…ç½®æ–‡ä»¶ä¸å­˜åœ¨ï¼Œåˆ™ä¿å­˜ä¸€ä¸‹é…ç½®ï¼Œè§£å†³æ²¡æœ‰ç‚¹å‡»è¿‡è®¾ç½®åº”ç”¨ï¼Œå°±ä¼šåœ¨æ¯æ¬¡å¯åŠ¨æ—¶é‡å¤ç”ŸæˆGUIDçš„é—®é¢˜
+    if (!setting.defaultPathExist())
+    {
+        firstOpen = true;
+        // è®¾ç½®ç¨‹åºå¼€æœºå¯åŠ¨
+        trayIcon.actionAutoStartTrigger(true);
+        // è®¾ç½®é»˜è®¤å›¾ç‰‡ä¿å­˜è·¯å¾„
+        QDir d("../image");
+        setting.imageSavePath->setValue(d.absolutePath().toStdString());
+        setting.saveProperty();
+        // ç¬¬ä¸€æ¬¡ä½¿ç”¨å¼¹å‡ºä½¿ç”¨æç¤º
+        trayIcon.showMessage(
+            CAT_TRANSLATE_NOOP("main", "Welcome to use sticky notes: "),
+            CAT_TRANSLATE_NOOP("main", "When using it, you can right-click on the tray icon to bring up the menu! \n\
 Alternatively, you can left-click on the tray icon to display the history page! \n\
-Both pages allow you to create new sticky notes or perform other actions! "), QSystemTrayIcon::Information, 20 * 1000);
-
-	}
-	NF::ImageSave::setDefaultFolder(QString::fromStdString(setting.imageSavePath->getValue()));
+Both pages allow you to create new sticky notes or perform other actions! "),
+            QSystemTrayIcon::Information,
+            20 * 1000);
+    }
+    NF::ImageSave::setDefaultFolder(QString::fromStdString(setting.imageSavePath->getValue()));
 #endif // _DEBUG
 
+    auto notes = noteFile->getStickyNote();
 
-	auto notes = noteFile->getStickyNote();
+    for (const auto &note : notes)
+    {
+        if (note->visible == false)
+            continue;
+        auto st = NGui::StickyNotePool::CreatStickyNote(note);
+        st->show();
+    }
 
-	for (auto note : notes)
-	{
-		if (note->visible == false)
-			continue;
-		auto st = NGui::StickyNotePool::CreatStickyNote(note);
-		st->show();
-	}
+    auto history = NGui::HistoryWidget::Getinstance();
 
-	auto history = NGui::HistoryWidget::Getinstance();
+    for (const auto &note : notes)
+    {
+        history->addFileNote(note);
+    }
 
-	for (auto note : notes)
-	{
-		history->addFileNote(note);
-	}
+    if (firstOpen)
+    {
 
-	if (fierstOpen) {
-	
-		//µÚÒ»´ÎÊ¹ÓÃµ¯³ö±ã¼ãÁÐ±í
+        // ç¬¬ä¸€æ¬¡ä½¿ç”¨å¼¹å‡ºä¾¿ç¬ºåˆ—è¡¨
 #if 1
-		{
+        {
 
-			auto nt = NGui::StickyNotePool::CreatStickyNote("contentText");
-			auto textGuiNote = dynamic_cast<NGui::StickyNoteText*>(nt);
-			textGuiNote->setHtml(QT_TRANSLATE_NOOP("main", "First help!"));
-			textGuiNote->show();
+            auto nt = NGui::StickyNotePool::CreatStickyNote("contentText");
+            auto textGuiNote = dynamic_cast<NGui::StickyNoteText*>(nt);
+            textGuiNote->setHtml(CAT_TRANSLATE_NOOP("main", "First help!"));
+            textGuiNote->show();
 
-			nt = NGui::StickyNotePool::CreatStickyNote("contentToDoList");
-			auto GuiNote = dynamic_cast<NGui::StickyNoteToDoList*>(nt);
-			GuiNote->addItem(QT_TRANSLATE_NOOP("main", "Double-click the option to edit the content!"));
-			GuiNote->addItem(QT_TRANSLATE_NOOP("main", "To delete the option, you need to click the Edit button at the bottom!"));
-			GuiNote->addItem(QT_TRANSLATE_NOOP("main", "Click the plus button below to add the item!"));
-			GuiNote->show();
+            nt = NGui::StickyNotePool::CreatStickyNote("contentToDoList");
+            auto GuiNote = dynamic_cast<NGui::StickyNoteToDoList*>(nt);
+            GuiNote->addItem(CAT_TRANSLATE_NOOP("main", "Double-click the option to edit the content!"));
+            GuiNote->addItem(CAT_TRANSLATE_NOOP("main", "To delete the option, you need to click the Edit button at the bottom!"));
+            GuiNote->addItem(CAT_TRANSLATE_NOOP("main", "Click the plus button below to add the item!"));
+            GuiNote->show();
 
-			GuiNote->move(textGuiNote->x() + textGuiNote->width() + 10, textGuiNote->y());
-
-		}
+            GuiNote->move(textGuiNote->x() + textGuiNote->width() + 10, textGuiNote->y());
+        }
 #endif
-	
-	}
+    }
 
-
-	return a.exec();
+    return a.exec();
 }

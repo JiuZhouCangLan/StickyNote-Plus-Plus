@@ -21,7 +21,6 @@ namespace OriginUI {
 		vLayout = new QVBoxLayout(parent);
 		actionClose = new QAction(parent);
 	}
-
 }
 
 OriginUI::WindowNoBoder::WindowNoBoder(QWidget* parent /*= 0*/)
@@ -49,7 +48,7 @@ void OriginUI::WindowNoBoder::paintEvent(QPaintEvent* event)
 	WidgetNoBoder::paintEvent(event);
 #endif // _RUN_WITH_WIN7_
 	
-	//为窗口增加一个灰色的边框
+	//涓虹獥鍙ｅ鍔犱竴涓伆鑹茬殑杈规
 	QPainter painter(this);
 	const QColor color(200, 200, 200, 100);
 	painter.setBrush(QColor(0, 0, 0, 0));

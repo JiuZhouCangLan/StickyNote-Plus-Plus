@@ -42,7 +42,7 @@ void NGui::HistoryWidget::actionTrigger(bool b)
 
 void NGui::HistoryWidget::serchEditButtonClicked(bool b)
 {
-	//ÊµÏÖËÑË÷¹¦ÄÜ
+	//å®ç°æœç´¢åŠŸèƒ½
 	if (sender() == serchEdit->getCancelButton())
 	{
 		serchEdit->getLineEdit()->clear();
@@ -231,7 +231,7 @@ void NGui::HistoryWidget::intitShortcut()
 	QKeySequence key(QString::fromStdString(setting->historyWidgetShortcut->getValue()));
 	shortcut = new QxtGlobalShortcut(this);
 
-	//µ±¿ì½İ¼ü±»³ö·¢Ê±£¬ÏÔÊ¾ÀúÊ·´°¿Ú£¬²¢ÖÃ¶¥
+	//å½“å¿«æ·é”®è¢«å‡ºå‘æ—¶ï¼Œæ˜¾ç¤ºå†å²çª—å£ï¼Œå¹¶ç½®é¡¶
 	connect(shortcut, &QxtGlobalShortcut::activated,
 		[=]() {
 			this->show();
@@ -255,15 +255,15 @@ void NGui::HistoryWidget::addFileNote(const std::shared_ptr<NF::StickyNote> note
 	noteItems.insert(StickyNoteItemMap::value_type(note->guid, noteItem));
 	listItemMap.insert(QListWidgetItemMap::value_type(noteItem, item));
 
-	//µÈ´ı¹ØÏµ°ó¶¨Íê³É£¬ÔØÈëÊ±¿ÉÒÔÍ¨¹ıĞÅºÅ³õÊ¼»¯item´óĞ¡
+	//ç­‰å¾…å…³ç³»ç»‘å®šå®Œæˆï¼Œè½½å…¥æ—¶å¯ä»¥é€šè¿‡ä¿¡å·åˆå§‹åŒ–itemå¤§å°
 	noteItem->setFileNote(note);
-	//ÅÅĞò
+	//æ’åº
 	listWidget->sortItems(Qt::DescendingOrder);
 }
 
 void NGui::HistoryWidget::removeFileNote(std::shared_ptr<NF::StickyNote> note)
 {
-	//´ÓitemsÖĞÒÆ³ı
+	//ä»itemsä¸­ç§»é™¤
 	auto iter = noteItems.find(note->guid);
 	if (iter == noteItems.end())
 		return;
@@ -301,7 +301,7 @@ void NGui::HistoryWidget::postEvent(QEvent* event)
 }
 
 /**
-* ÉèÖÃºô³öµÄ¿ì½İ¼ü
+* è®¾ç½®å‘¼å‡ºçš„å¿«æ·é”®
 * @brief NGui::HistoryWidget::setShortcut
 * @param const QKeySequence & key
 * @return void
@@ -345,7 +345,7 @@ std::shared_ptr<NGui::HistoryWidget> NGui::HistoryWidget::Getinstance()
 	static std::once_flag flag;
 	std::call_once(flag, [&] {
 		instance.reset(new HistoryWidget());
-		//×¢²áÊÂ¼ş·¢ËÍ
+		//æ³¨å†Œäº‹ä»¶å‘é€
 		EventManager::GetInstance()->rgisterSender(instance.get());
 		});
 

@@ -61,13 +61,13 @@ namespace NGui {
 NGui::ToDoListContent::ToDoListContent(QWidget* parent /*= 0*/)
 	:QListWidget(parent),d(new ToDoListContentD())
 {
-	//Ìí¼ÓĞÂ½¨´ú°ìÊÂ¼şÏî°´Å¥
+	//æ·»åŠ æ–°å»ºä»£åŠäº‹ä»¶é¡¹æŒ‰é’®
 	addItem(d->addItem);
 	setItemWidget(d->addItem, d->addItemWidget);
 	connect(d->addItemWidget, SIGNAL(clicked()), this, SLOT(addItemButtonClicked()));
-	// ½ûÓÃ´¹Ö±¹ö¶¯Ìõ
+	// ç¦ç”¨å‚ç›´æ»šåŠ¨æ¡
 	setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-	// ½ûÓÃË®Æ½¹ö¶¯Ìõ
+	// ç¦ç”¨æ°´å¹³æ»šåŠ¨æ¡
 	setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
 	setFocusPolicy(Qt::NoFocus);
@@ -237,7 +237,7 @@ void NGui::ToDoListContent::addToDoListItem(NF::StickyNoteToDoListItem& data)
 	d->ItemWidgetMap[item] = itemWidget;
 
 	connect(itemWidget, SIGNAL(deleteItem()), this, SLOT(deleteItem()));
-	//°ó¶¨´°¿Ú½¹µã×´Ì¬
+	//ç»‘å®šçª—å£ç„¦ç‚¹çŠ¶æ€
 	connect(itemWidget, &ToDoListItem::gotFocus, this, [&] {
 		//Q_EMIT gotFocus();
 		});
@@ -269,9 +269,9 @@ void NGui::ToDoListContent::addItemButtonClicked()
 
 void NGui::ToDoListContent::splitItem()
 {
-	//ÏÈÒÆ³ıËùÓĞµÄÏî
+	//å…ˆç§»é™¤æ‰€æœ‰çš„é¡¹
 	removeAllItem();
-	//½«Î´Íê³É ºÍ ÒÑÍê³ÉµÄÊÂÏî·Ö±ğ½¨±íÅÅĞò
+	//å°†æœªå®Œæˆ å’Œ å·²å®Œæˆçš„äº‹é¡¹åˆ†åˆ«å»ºè¡¨æ’åº
 	std::list<QListWidgetItem*> finishedItems, notFinishedItems;
 
 	for (auto iter = d->ItemWidgetMap.begin(); iter != d->ItemWidgetMap.end(); iter++)
@@ -285,7 +285,7 @@ void NGui::ToDoListContent::splitItem()
 		}
 	}
 
-	//ÅÅĞò 
+	//æ’åº 
 	finishedItems.sort([&](QListWidgetItem* item1, QListWidgetItem* item2) {
 		if (d->ItemWidgetMap[item1]->getFinishedDateTime() == d->ItemWidgetMap[item2]->getFinishedDateTime())
 			return false;
@@ -303,15 +303,15 @@ void NGui::ToDoListContent::splitItem()
 
 	auto pr = d->addItemWidget->parent();
 
-	//ÒÀ´ÎÌí¼Ó¹Ì¶¨µÄitem ´ÎĞòÊÇ
-	//Î´Íê³É -¡· Ìí¼Ó  -¡· ÒÑÍê³É
+	//ä¾æ¬¡æ·»åŠ å›ºå®šçš„item æ¬¡åºæ˜¯
+	//æœªå®Œæˆ -ã€‹ æ·»åŠ   -ã€‹ å·²å®Œæˆ
 	addItem(d->notFinishedSplitterItem);
 	addItem(d->addItem);
 	addItem(d->finishedSplitterItem);
 
 	/*
-	* ÓÉÓÚÎ´ÖªÔ­Òò¡£addItemWidget»á±»qtÎö¹¹µô£¬µ¼ÖÂ³ÌĞò±ÀÀ£
-	* ËùÒÔÔÚÕâ¸öµØ·½ÊÖ¶¯ÊÍ·ÅÄÚ´æ£¬ÖØĞÂ´´½¨¶ÔÏó 
+	* ç”±äºæœªçŸ¥åŸå› ã€‚addItemWidgetä¼šè¢«qtææ„æ‰ï¼Œå¯¼è‡´ç¨‹åºå´©æºƒ
+	* æ‰€ä»¥åœ¨è¿™ä¸ªåœ°æ–¹æ‰‹åŠ¨é‡Šæ”¾å†…å­˜ï¼Œé‡æ–°åˆ›å»ºå¯¹è±¡ 
 	*/
 
 	delete d->addItemWidget;
@@ -322,7 +322,7 @@ void NGui::ToDoListContent::splitItem()
 	setItemWidget(d->finishedSplitterItem, d->finishedSplitterWidget);
 	setItemWidget(d->notFinishedSplitterItem, d->notFinishedSplitterWidget);
 
-	//±éÀúÁ½¸öÅÅĞòµÄ±í£¬È»ºó²åÈë¸÷×ÔµÄÎ»ÖÃ
+	//éå†ä¸¤ä¸ªæ’åºçš„è¡¨ï¼Œç„¶åæ’å…¥å„è‡ªçš„ä½ç½®
 	for (auto it : notFinishedItems)
 	{
 		insertItem(row(d->addItem), it);
@@ -340,11 +340,11 @@ void NGui::ToDoListContent::splitItem()
 
 void NGui::ToDoListContent::cancelSplitItem()
 {
-	//ÒÆ³ıËùÓĞÏî
+	//ç§»é™¤æ‰€æœ‰é¡¹
 	removeAllItem();
 
-	//»ñÈ¡ËùÓĞµÄÊÂÏî
-	//È»ºóÊ¹ÓÃ´´½¨ÊÂ¼şÅÅĞò
+	//è·å–æ‰€æœ‰çš„äº‹é¡¹
+	//ç„¶åä½¿ç”¨åˆ›å»ºäº‹ä»¶æ’åº
 
 	std::list<QListWidgetItem*> listItems;
 
@@ -362,19 +362,19 @@ void NGui::ToDoListContent::cancelSplitItem()
 		});
 
 	/*
-	* ÓÉÓÚÎ´ÖªÔ­Òò¡£addItemWidget»á±»qtÎö¹¹µô£¬µ¼ÖÂ³ÌĞò±ÀÀ£
-	* ËùÒÔÔÚÕâ¸öµØ·½ÊÖ¶¯ÊÍ·ÅÄÚ´æ£¬ÖØĞÂ´´½¨¶ÔÏó
+	* ç”±äºæœªçŸ¥åŸå› ã€‚addItemWidgetä¼šè¢«qtææ„æ‰ï¼Œå¯¼è‡´ç¨‹åºå´©æºƒ
+	* æ‰€ä»¥åœ¨è¿™ä¸ªåœ°æ–¹æ‰‹åŠ¨é‡Šæ”¾å†…å­˜ï¼Œé‡æ–°åˆ›å»ºå¯¹è±¡
 	*/
 
 	delete d->addItemWidget;
 	d->addItemWidget = new ToDoListAddItemWidget();
 	d->addItem->setSizeHint(d->addItemWidget->sizeHint());
 
-	//Ìí¼ÓĞÂÔö°´Å¥
+	//æ·»åŠ æ–°å¢æŒ‰é’®
 	addItem(d->addItem);
 	setItemWidget(d->addItem, d->addItemWidget);
 
-	//°´ÕÕÅÅĞòË³ĞòĞ´Èë
+	//æŒ‰ç…§æ’åºé¡ºåºå†™å…¥
 	for (auto it : listItems)
 	{
 		insertItem(row(d->addItem), it);

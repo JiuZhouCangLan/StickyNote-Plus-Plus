@@ -5,7 +5,7 @@
 #include "ExportConfig.hpp"
 namespace OriginUI {
 	class EditLableD;
-	//����һ�����˫��ʱ���Ա༭��lable
+	//创建一个鼠标双击时可以编辑的lable
 	class ORIGIN_UI_EXPORT EditLable :public QWidget {
 		Q_OBJECT
 	public:
@@ -30,7 +30,7 @@ namespace OriginUI {
 		EditLableD* d;
 	};
 
-	//һ�����Է������˫���¼���lable
+	//一个可以发出鼠标双击事件的lable
 	class ORIGIN_UI_EXPORT ClickedLable :public QLabel {
 		Q_OBJECT
 	public:
@@ -43,7 +43,7 @@ namespace OriginUI {
 
 	};
 
-	//һ�����Է�������뿪�¼���lineEdit
+	//一个可以发出鼠标离开事件的lineEdit
 	class ORIGIN_UI_EXPORT LineEditLeave :public QLineEdit {
 		Q_OBJECT
 	public:

@@ -14,7 +14,7 @@ NGui::ColorWidget::ColorWidget( QColor color, QWidget* parent /*= 0*/)
 	setLayout(hlayout);
 
 	defaultColor = QColor("#FFF7D1");
-	//Ìí¼Ó°´Å¥
+	//æ·»åŠ æŒ‰é’®
 	{
 		auto button = creatButton();
 		button->setColor(defaultColor);
@@ -60,7 +60,7 @@ NGui::ColorWidget::~ColorWidget()
 }
 
 /**
-* @brief NGui::ColorWidget::getCheckIndex »ñÈ¡µ±Ç°Ê¹ÓÃµÄÑÕÉ«Ë÷Òı
+* @brief NGui::ColorWidget::getCheckIndex è·å–å½“å‰ä½¿ç”¨çš„é¢œè‰²ç´¢å¼•
 * @return int
 */
 int NGui::ColorWidget::getCheckIndex()
@@ -74,7 +74,7 @@ int NGui::ColorWidget::getCheckIndex()
 }
 
 /**
-* @brief NGui::ColorWidget::getButtonColor ·µ»ØË÷ÒıbuttonµÄÑÕÉ«
+* @brief NGui::ColorWidget::getButtonColor è¿”å›ç´¢å¼•buttonçš„é¢œè‰²
 * @param const int & index
 * @return QT_NAMESPACE::QColor
 */
@@ -86,7 +86,7 @@ QColor NGui::ColorWidget::getButtonColor(const int& index)
 }
 
 /**
-* @brief NGui::ColorWidget::setCustomColor ÉèÖÃ×Ô¶¨ÒåÑÕÉ«
+* @brief NGui::ColorWidget::setCustomColor è®¾ç½®è‡ªå®šä¹‰é¢œè‰²
 * @param const QColor & color
 * @return void
 */
@@ -101,7 +101,7 @@ void NGui::ColorWidget::setCustomColor(const QColor& color)
 }
 
 /**
-* @brief NGui::ColorWidget::getCustomColor »ñÈ¡×Ô¶¨ÒÔÑÕÉ«°´Å¥µÄÑÕÉ«
+* @brief NGui::ColorWidget::getCustomColor è·å–è‡ªå®šä»¥é¢œè‰²æŒ‰é’®çš„é¢œè‰²
 * @return QT_NAMESPACE::QColor
 */
 QColor NGui::ColorWidget::getCustomColor()
@@ -113,7 +113,7 @@ QColor NGui::ColorWidget::getCustomColor()
 }
 
 /**
-* @brief NGui::ColorWidget::setButtonCheck ÉèÖÃÄ³Ò»¸ö°´Å¥ÎªÑ¡ÖĞ×´Ì¬
+* @brief NGui::ColorWidget::setButtonCheck è®¾ç½®æŸä¸€ä¸ªæŒ‰é’®ä¸ºé€‰ä¸­çŠ¶æ€
 * @param const int & index
 * @return void
 */

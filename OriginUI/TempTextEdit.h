@@ -3,7 +3,7 @@
 #include "ExportConfig.hpp"
 namespace OriginUI {
 	class TempTextEditD;
-	//�ṩһ����ʱ���ı��༭�����༭���ں���һ��ȷ����ȡ���İ�ť
+	//提供一个临时的文本编辑器，编辑器内含有一个确定和取消的按钮
 	class ORIGIN_UI_EXPORT TempTextEdit :public QWidget{
 		Q_OBJECT
 	public:

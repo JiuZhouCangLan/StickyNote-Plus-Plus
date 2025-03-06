@@ -3,7 +3,7 @@
 #include <string>
 
 /*
-	QTµÄ°´¼üÓ³Éä±í
+	QTçš„æŒ‰é”®æ˜ å°„è¡¨
 */
 const std::map<int, std::string> KeyToString = { { 0x01000000,"Key_Escape"},
 { 0x01000001,"Key_Tab"},

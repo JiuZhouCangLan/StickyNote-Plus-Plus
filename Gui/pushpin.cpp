@@ -22,7 +22,7 @@ NGui::Pushpin::~Pushpin()
 }
 
 /**
-* @brief NGui::Pushpin::toTop 将widget置于顶层窗口
+* @brief NGui::Pushpin::toTop 灏唚idget缃簬椤跺眰绐楀彛
 * @return bool
 */
 bool NGui::Pushpin::toTop(StickyNote* widget)
@@ -33,7 +33,7 @@ bool NGui::Pushpin::toTop(StickyNote* widget)
 }
 
 /**
-* @brief NGui::Pushpin::toDesktop 将widget置于桌面窗口
+* @brief NGui::Pushpin::toDesktop 灏唚idget缃簬妗岄潰绐楀彛
 * @return bool
 */
 bool NGui::Pushpin::toDesktop(StickyNote* widget)

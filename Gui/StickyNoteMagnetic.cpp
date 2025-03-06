@@ -16,26 +16,26 @@ NGui::StickyNoteMagnetic::~StickyNoteMagnetic()
 }
 
 /**
-* ´°¿ÚÎü¸½ÅĞ¶Ï£¬
+* çª—å£å¸é™„åˆ¤æ–­ï¼Œ
 * @brief NGui::StickyNoteMagnetic::magnetic
-* @param StickyNote * note ÒÆ¶¯Î»ÖÃµÄ´°¿Ú
-* @param std::vector<StickyNote * > pool ËùÓĞµÄ±ã¼ã´°¿Ú
+* @param StickyNote * note ç§»åŠ¨ä½ç½®çš„çª—å£
+* @param std::vector<StickyNote * > pool æ‰€æœ‰çš„ä¾¿ç¬ºçª—å£
 * @return void
 */
 void NGui::StickyNoteMagnetic::magnetic(StickyNote* note, std::vector<StickyNote*> pool)
 {
 	/*
-		[1] µÃ³ö¸Ã´°¿ÚÓëÆäËû´°¿ÚÖ®¼äµÄ¾àÀë£¬Õâ¸ö¾àÀëÖ»ÓĞÂú×ããĞÖµÌõ¼şµÄ¾àÀëÎªÓĞĞ§¾àÀë£¬·ñÔò¾ùÎªÎŞĞ§¾àÀë
-		[2] ¼ÇÂ¼ÏÂxÖá»òÕßyÖáÖĞµÄ×îÔ¶µÄ¾àÀë
-		[3] µÃ³ö¾àÀë×î½üµÄ´°¿Ú
-		[4] Èç¹ûÃ»ÓĞÂú×ããĞÖµµÄ´°¿Ú£¬Ôò²»´¥·¢Îü¸½
-		[5] Ê¹ÓÃ¾àÀë×î½üµÄ´°¿Ú´¥·¢Îü¸½
+		[1] å¾—å‡ºè¯¥çª—å£ä¸å…¶ä»–çª—å£ä¹‹é—´çš„è·ç¦»ï¼Œè¿™ä¸ªè·ç¦»åªæœ‰æ»¡è¶³é˜ˆå€¼æ¡ä»¶çš„è·ç¦»ä¸ºæœ‰æ•ˆè·ç¦»ï¼Œå¦åˆ™å‡ä¸ºæ— æ•ˆè·ç¦»
+		[2] è®°å½•ä¸‹xè½´æˆ–è€…yè½´ä¸­çš„æœ€è¿œçš„è·ç¦»
+		[3] å¾—å‡ºè·ç¦»æœ€è¿‘çš„çª—å£
+		[4] å¦‚æœæ²¡æœ‰æ»¡è¶³é˜ˆå€¼çš„çª—å£ï¼Œåˆ™ä¸è§¦å‘å¸é™„
+		[5] ä½¿ç”¨è·ç¦»æœ€è¿‘çš„çª—å£è§¦å‘å¸é™„
 	*/
 
-	//Èç¹ûÎª²»¿ÉÓÃ×´Ì¬£¬²»×öÈÎºÎ²Ù×÷
+	//å¦‚æœä¸ºä¸å¯ç”¨çŠ¶æ€ï¼Œä¸åšä»»ä½•æ“ä½œ
 	if (!enable)
 		return;
-	//»ñÈ¡´°¿ÚÎ»ÖÃ´óĞ¡ĞÅÏ¢
+	//è·å–çª—å£ä½ç½®å¤§å°ä¿¡æ¯
 	StickyNoteRect rect(note);
 
 	std::list<StickyNotePositon> postions;
@@ -43,23 +43,23 @@ void NGui::StickyNoteMagnetic::magnetic(StickyNote* note, std::vector<StickyNote
 	{
 		StickyNote* poolNote = pool[i];
 		StickyNoteRect poolNoteRect(poolNote);
-		//Èç¹ûÊÇÍ¬Ò»¸ö´°¿Ú£¬ÉèÖÃÒ»¸öÎŞĞ§¾àÀë
+		//å¦‚æœæ˜¯åŒä¸€ä¸ªçª—å£ï¼Œè®¾ç½®ä¸€ä¸ªæ— æ•ˆè·ç¦»
 		if (note == poolNote)
 			continue;
-		//Èç¹ûÖØµş£¬²»¼ÆËã¾àÀë
+		//å¦‚æœé‡å ï¼Œä¸è®¡ç®—è·ç¦»
 		if(hasOverlap(note, poolNote))
 			continue;
 		
 		double distanceX = (note->x() > poolNote->x()) ? note->x() - (poolNote->x() + poolNote->width()) : poolNote->x() - (note->x() + note->width());
 		double distanceY = (note->y() > poolNote->y()) ? note->y() - (poolNote->y() + poolNote->height()) : poolNote->y() - (note->y() + note->height());
 
-		//½â¾ö¾àÀëµ¥·½Ïò¾àÀëÎª¸º£¬½á¹ûÔÙËã×ÛºÏ¾àÀëÊ±£¬¸ºÊıÌ«´ó£¬»áÔö´ó¾àÀë
-		//ÕâÀï½«Îª¸ºµÄ¾àÀëÖØÖÃÎª0
+		//è§£å†³è·ç¦»å•æ–¹å‘è·ç¦»ä¸ºè´Ÿï¼Œç»“æœå†ç®—ç»¼åˆè·ç¦»æ—¶ï¼Œè´Ÿæ•°å¤ªå¤§ï¼Œä¼šå¢å¤§è·ç¦»
+		//è¿™é‡Œå°†ä¸ºè´Ÿçš„è·ç¦»é‡ç½®ä¸º0
 		distanceX = distanceX < 0 ? 0 : distanceX;
 		distanceY = distanceY < 0 ? 0 : distanceY;
 
 
-		//Èç¹û¾àÀëĞ¡ÓÚãĞÖµ£¬²»´¥·¢
+		//å¦‚æœè·ç¦»å°äºé˜ˆå€¼ï¼Œä¸è§¦å‘
 		if(distanceX > threshold || distanceY > threshold)
 			continue;
 
@@ -68,14 +68,14 @@ void NGui::StickyNoteMagnetic::magnetic(StickyNote* note, std::vector<StickyNote
 		notePos.rect = poolNoteRect;
 
 
-		//ÅĞ¶ÏÄÄ¸öÖáµÄ¾àÀë±È½ÏÔ¶£¬¾ÍÒÔÄÄ¸öÖáÎª»ù×¼
-		//±ÈÈçÒÔxÖáÎª»ù×¼£¬ÄÇÃ´·½ÏòÖ»ÄÜÊÇ×óÓÒ
+		//åˆ¤æ–­å“ªä¸ªè½´çš„è·ç¦»æ¯”è¾ƒè¿œï¼Œå°±ä»¥å“ªä¸ªè½´ä¸ºåŸºå‡†
+		//æ¯”å¦‚ä»¥xè½´ä¸ºåŸºå‡†ï¼Œé‚£ä¹ˆæ–¹å‘åªèƒ½æ˜¯å·¦å³
 		if (distanceX > distanceY)
 		{
-			//ÒÔxÖáÎª»ù×¼
+			//ä»¥xè½´ä¸ºåŸºå‡†
 			notePos.direction = note->x() < poolNote->x() ? LEFT : RIGHT;
 		}else {
-			//ÒÔyÖáÎª»ù×¼
+			//ä»¥yè½´ä¸ºåŸºå‡†
 			notePos.direction = note->y() < poolNote->y() ? UP : DOWN;
 		}
 		postions.push_back(notePos);
@@ -87,22 +87,22 @@ void NGui::StickyNoteMagnetic::magnetic(StickyNote* note, std::vector<StickyNote
 
 	for (auto postion : postions)
 	{
-		//ÅĞ¶ÏÒÆ¶¯ºóµÄÎ»ÖÃÊÇ·ñÓëÔ­ÏÈµÄ´°¿ÚÖØ¸´
-		//Èç¹ûÖØ¸´£¬Ñ¡ÔñÏÂÒ»¸ö´°¿ÚÎü¸½
+		//åˆ¤æ–­ç§»åŠ¨åçš„ä½ç½®æ˜¯å¦ä¸åŸå…ˆçš„çª—å£é‡å¤
+		//å¦‚æœé‡å¤ï¼Œé€‰æ‹©ä¸‹ä¸€ä¸ªçª—å£å¸é™„
 		StickyNoteRect r = moveResult(rect, postion);
 		bool ok = false;
 		for (auto iter = pool.begin(); iter != pool.end(); iter++)
 		{
-			//Èç¹ûÊÇ×Ô¼º£¬²»ÅĞ¶Ï
+			//å¦‚æœæ˜¯è‡ªå·±ï¼Œä¸åˆ¤æ–­
 			if(*iter == note)
 				continue;
 			StickyNoteRect temp(*iter);
 			ok = ok || hasOverlap(r, temp);
 		}
-		//Èç¹ûÖØµş,Ñ¡ÔñÏÂÒ»¸ö
+		//å¦‚æœé‡å ,é€‰æ‹©ä¸‹ä¸€ä¸ª
 		if(ok)
 			continue;
-		//Èç¹ûÎ»ÖÃ³¬³öÆÁÄ»Íâ£¬Ôò²»´¥·¢
+		//å¦‚æœä½ç½®è¶…å‡ºå±å¹•å¤–ï¼Œåˆ™ä¸è§¦å‘
 		if(r.x < 0 || r.y < 0)
 			continue;
 		startAnimation(note, r);
@@ -111,7 +111,7 @@ void NGui::StickyNoteMagnetic::magnetic(StickyNote* note, std::vector<StickyNote
 }
 
 /**
-* Æô¶¯note1 Ïònote2 ÒÆ¶¯µÄ¶¯»­
+* å¯åŠ¨note1 å‘note2 ç§»åŠ¨çš„åŠ¨ç”»
 * @brief NGui::StickyNoteMagnetic::startAnimation
 * @param StickyNote * note1
 * @param StickyNote * note2

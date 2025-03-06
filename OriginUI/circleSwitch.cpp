@@ -73,7 +73,7 @@ void OriginUI::CircleSwitch::paintEvent(QPaintEvent* event)
 		painter.setPen(d->backgroundColor);
 		painter.setBrush(d->backgroundColor);
 	}
-	//»æÖÆÊ±²»±ØÆÌÂúÕû¸ö´°¿Ú
+	//ç»˜åˆ¶æ—¶ä¸å¿…é“ºæ»¡æ•´ä¸ªçª—å£
 	auto re = this->rect();
 	const int margin = 3;
 	re.setX(margin);
@@ -120,7 +120,7 @@ void OriginUI::DeleteButton::paintEvent(QPaintEvent* event)
 		painter.setPen(backgroundColor);
 		painter.setBrush(backgroundColor);
 	}
-	//»æÖÆÊ±²»±ØÆÌÂúÕû¸ö´°¿Ú
+	//ç»˜åˆ¶æ—¶ä¸å¿…é“ºæ»¡æ•´ä¸ªçª—å£
 	auto re = this->rect();
 	const int margin = 3;
 	re.setX(margin);

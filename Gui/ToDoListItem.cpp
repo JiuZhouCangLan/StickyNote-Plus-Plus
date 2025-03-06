@@ -41,7 +41,7 @@ NGui::ToDoListItem::ToDoListItem(QWidget* parent /*= 0*/)
 
 	hideEditButton();
 
-	//·¢ËÍÊäÈë¿òµÄ½¹µã×´Ì¬
+	//å‘é€è¾“å…¥æ¡†çš„ç„¦ç‚¹çŠ¶æ€
 	connect(ui->editLable, &OriginUI::EditLable::gotFocus, this, [&]() {
 		Q_EMIT gotFocus();
 		});

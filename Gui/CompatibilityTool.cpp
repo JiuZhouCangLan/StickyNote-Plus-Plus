@@ -17,10 +17,10 @@ void CompatibilityTool::moveConfigFile()
  	QString newNoteFile(newPath +"/note.xml");
 	QString newConfigFile(newPath + "/config.cfg");
 
-	//Èç¹ûÎÄ¼şÒÑ´æÔÚÔò²»ĞèÒªÇ¨ÒÆ
+	//å¦‚æœæ–‡ä»¶å·²å­˜åœ¨åˆ™ä¸éœ€è¦è¿ç§»
 	if (QFile(newNoteFile).exists() && QFile(newConfigFile).exists())
 		return;
-	//Èç¹û¾ÉÎÄ¼ş²»´æÔÚ£¬Ò²²»ĞèÒªÇ¨ÒÆ
+	//å¦‚æœæ—§æ–‡ä»¶ä¸å­˜åœ¨ï¼Œä¹Ÿä¸éœ€è¦è¿ç§»
 	if (!QFile(oldNoteFile).exists() || !QFile(oldConfigFile).exists())
 		return;
 	

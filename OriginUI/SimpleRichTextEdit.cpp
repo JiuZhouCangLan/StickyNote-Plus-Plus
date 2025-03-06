@@ -16,11 +16,11 @@ namespace OriginUI {
 		SimpleRichTextEditD();
 		~SimpleRichTextEditD();
 	public:
-		//×Ô¶¯Ê¶±ğÁĞ±íÕıÔò
+		//è‡ªåŠ¨è¯†åˆ«åˆ—è¡¨æ­£åˆ™
 		QRegularExpression * listHeadRex;
-		//×Ô¶¯Ê¶±ğURLÕıÔò
+		//è‡ªåŠ¨è¯†åˆ«URLæ­£åˆ™
 		QRegularExpression *urlRex;
-		//ÊÇ·ñ×Ô¶¯´ò¿ªurl
+		//æ˜¯å¦è‡ªåŠ¨æ‰“å¼€url
 		bool autoOpenUrl;
 	};
 
@@ -273,7 +273,7 @@ QTextCharFormat OriginUI::SimpleRichTextEdit::getTextCharFormat()
 }
 
 /**
-* Ê¹µÃÔÚÕ³ÌùÎÄ±¾Ê±£¬²»Õ³Ìù¸»ÎÄ±¾¸ñÊ½
+* ä½¿å¾—åœ¨ç²˜è´´æ–‡æœ¬æ—¶ï¼Œä¸ç²˜è´´å¯Œæ–‡æœ¬æ ¼å¼
 * @brief OriginUI::SimpleRichTextEdit::insertFromMimeData
 * @param const QMimeData * source
 * @return void
@@ -293,9 +293,9 @@ void OriginUI::SimpleRichTextEdit::insertFromMimeData(const QMimeData* source)
 
 void OriginUI::SimpleRichTextEdit::inserChanged(int position, int charsRemoved, int charsAdded)
 {
-	QTextCursor cursor = this->textCursor();        //»ñÈ¡µ±Ç°ÎÄ±¾¹â±ê
-	QString blockText = cursor.block().text();      //»ñÈ¡¹â±êËùÔÚÎÄ±¾¿éµÄÎÄ±¾
-	blockText = blockText.left(cursor.positionInBlock());   //»ñÈ¡¹â±êÖ®Ç°µÄÎÄ±¾
+	QTextCursor cursor = this->textCursor();        //è·å–å½“å‰æ–‡æœ¬å…‰æ ‡
+	QString blockText = cursor.block().text();      //è·å–å…‰æ ‡æ‰€åœ¨æ–‡æœ¬å—çš„æ–‡æœ¬
+	blockText = blockText.left(cursor.positionInBlock());   //è·å–å…‰æ ‡ä¹‹å‰çš„æ–‡æœ¬
 
 	auto match = d->listHeadRex->match(blockText);
 	if (!match.hasMatch())
@@ -307,7 +307,7 @@ void OriginUI::SimpleRichTextEdit::inserChanged(int position, int charsRemoved, 
 }
 
 /**
-* ÉèÖÃ¸ñÊ½µ½µ±Ç°Ñ¡ÔñµÄÎÄ±¾£¬Èç¹ûÎŞÑ¡ÔñÎÄ±¾£¬Ôò½«¸ñÊ½Ó¦ÓÃÓÚÎÄ±¾¿é
+* è®¾ç½®æ ¼å¼åˆ°å½“å‰é€‰æ‹©çš„æ–‡æœ¬ï¼Œå¦‚æœæ— é€‰æ‹©æ–‡æœ¬ï¼Œåˆ™å°†æ ¼å¼åº”ç”¨äºæ–‡æœ¬å—
 * @brief OriginUI::SimpleRichTextEdit::setFormatOnWordOrSelection
 * @param const QTextCharFormat & format
 * @return void
@@ -315,7 +315,7 @@ void OriginUI::SimpleRichTextEdit::inserChanged(int position, int charsRemoved, 
 void OriginUI::SimpleRichTextEdit::setFormatOnWordOrSelection(const QTextCharFormat& format)
 {
 	QTextCursor cursor = this->textCursor();
-	//¼ÇÂ¼¹â±êÎ»ÖÃ£¬ÔÚÈ¡ÏûÑ¡ÔñºóÎ»ÖÃ»á±»ÒÆµ½×îºó
+	//è®°å½•å…‰æ ‡ä½ç½®ï¼Œåœ¨å–æ¶ˆé€‰æ‹©åä½ç½®ä¼šè¢«ç§»åˆ°æœ€å
 	auto position = cursor.position();
 	bool hasSelection = cursor.hasSelection();
 	if (!hasSelection)
@@ -325,7 +325,7 @@ void OriginUI::SimpleRichTextEdit::setFormatOnWordOrSelection(const QTextCharFor
 	cursor.setCharFormat(format);
 	this->setCurrentCharFormat(format);
 
-	//Èç¹ûÖ®Ç°Ã»ÓĞÑ¡ÖĞ£¬ÄÇÃ´Çå³ıÑ¡ÖĞ
+	//å¦‚æœä¹‹å‰æ²¡æœ‰é€‰ä¸­ï¼Œé‚£ä¹ˆæ¸…é™¤é€‰ä¸­
 	if (!hasSelection)
 	{
 		cursor.clearSelection();
@@ -335,14 +335,14 @@ void OriginUI::SimpleRichTextEdit::setFormatOnWordOrSelection(const QTextCharFor
 }
 
 /**
-* @brief OriginUI::SimpleRichTextEdit::mergeFormatOnWordOrSelection ÎªÑ¡ÖĞµÄ×Ö·ûµ÷Õû¸ñÊ½ Ã»ÓĞÑ¡ÖĞµÄ×ÖÌåÔòµ÷Õûµ±Ç°¸ñÊ½
+* @brief OriginUI::SimpleRichTextEdit::mergeFormatOnWordOrSelection ä¸ºé€‰ä¸­çš„å­—ç¬¦è°ƒæ•´æ ¼å¼ æ²¡æœ‰é€‰ä¸­çš„å­—ä½“åˆ™è°ƒæ•´å½“å‰æ ¼å¼
 * @param const QTextCharFormat & format
 * @return void
 */
 void OriginUI::SimpleRichTextEdit::mergeFormatOnWordOrSelection(const QTextCharFormat& format)
 {
 	QTextCursor cursor = this->textCursor();
-	//¼ÇÂ¼¹â±êÎ»ÖÃ£¬ÔÚÈ¡ÏûÑ¡ÔñºóÎ»ÖÃ»á±»ÒÆµ½×îºó
+	//è®°å½•å…‰æ ‡ä½ç½®ï¼Œåœ¨å–æ¶ˆé€‰æ‹©åä½ç½®ä¼šè¢«ç§»åˆ°æœ€å
 	auto position = cursor.position();
 	bool hasSelection = cursor.hasSelection();
 	if (!hasSelection)
@@ -351,7 +351,7 @@ void OriginUI::SimpleRichTextEdit::mergeFormatOnWordOrSelection(const QTextCharF
 	}
 	cursor.mergeCharFormat(format);
 	this->mergeCurrentCharFormat(format);
-	//Èç¹ûÖ®Ç°Ã»ÓĞÑ¡ÖĞ£¬ÄÇÃ´Çå³ıÑ¡ÖĞ
+	//å¦‚æœä¹‹å‰æ²¡æœ‰é€‰ä¸­ï¼Œé‚£ä¹ˆæ¸…é™¤é€‰ä¸­
 	if (!hasSelection)
 	{
 		cursor.clearSelection();
@@ -373,23 +373,23 @@ QTextCharFormat OriginUI::SimpleRichTextEdit::getFormatOnWordOrSelection()
 
 void OriginUI::SimpleRichTextEdit::openUrlFromCurrentCursor()
 {
-#if 0   //ÔİÊ±²»ÏëÒªÕâ¸ö¹¦ÄÜ
+#if 0   //æš‚æ—¶ä¸æƒ³è¦è¿™ä¸ªåŠŸèƒ½
 	/*
-*	Èç¹û¹â±êÔÚµã»÷ÔÚÁ¬½ÓÖĞ£¬ÄÇÃ´Ö±½ÓÓÃä¯ÀÀÆ÷´ò¿ªÁ¬½Ó¡£
-*	Ë¼Â·£º Êó±ê×ó¼üµã»÷Ê±»á´¥·¢¹â±êÒÆ¶¯£¬µ±¹â±êÒÆ¶¯Ê±
-*	»ñÈ¡¹â±êµ±Ç°ËùÔÚµÄÎÄ±¾¿é£¬Æ¥ÅäÎÄ±¾¿éÖĞÊÇ·ñÓĞÍøÖ·£¬Èç¹ûÓĞ£¬
-*	ÄÇÃ´»ñÈ¡ÍøÖ·ÔÚ×Ö·û´®ÖĞµÄÎ»ÖÃ£¬Èç¹û¹â±êÔÚÍøÖ·Î»ÖÃÖĞ£¬ÄÇÃ´´ò¿ªÍøÖ·¡£
+*	å¦‚æœå…‰æ ‡åœ¨ç‚¹å‡»åœ¨è¿æ¥ä¸­ï¼Œé‚£ä¹ˆç›´æ¥ç”¨æµè§ˆå™¨æ‰“å¼€è¿æ¥ã€‚
+*	æ€è·¯ï¼š é¼ æ ‡å·¦é”®ç‚¹å‡»æ—¶ä¼šè§¦å‘å…‰æ ‡ç§»åŠ¨ï¼Œå½“å…‰æ ‡ç§»åŠ¨æ—¶
+*	è·å–å…‰æ ‡å½“å‰æ‰€åœ¨çš„æ–‡æœ¬å—ï¼ŒåŒ¹é…æ–‡æœ¬å—ä¸­æ˜¯å¦æœ‰ç½‘å€ï¼Œå¦‚æœæœ‰ï¼Œ
+*	é‚£ä¹ˆè·å–ç½‘å€åœ¨å­—ç¬¦ä¸²ä¸­çš„ä½ç½®ï¼Œå¦‚æœå…‰æ ‡åœ¨ç½‘å€ä½ç½®ä¸­ï¼Œé‚£ä¹ˆæ‰“å¼€ç½‘å€ã€‚
 *
 */
 	if (!d->autoOpenUrl)
 		return;
 
-	//»ñÈ¡¹â±êËùÔÚµÄÎ»ÖÃ
+	//è·å–å…‰æ ‡æ‰€åœ¨çš„ä½ç½®
 	QTextCursor cursor = textCursor();
 	QString str = cursor.block().text();
 	int blockPos = cursor.position() - cursor.block().position();
 
-	//Æ¥ÅäÕıÔò£¬Èç¹û¹â±êËùÔÚÎ»ÖÃÊÇÒ»¸öÁ´½Ó,ÄÇÃ´Ö±½Ó´ò¿ª
+	//åŒ¹é…æ­£åˆ™ï¼Œå¦‚æœå…‰æ ‡æ‰€åœ¨ä½ç½®æ˜¯ä¸€ä¸ªé“¾æ¥,é‚£ä¹ˆç›´æ¥æ‰“å¼€
 	int pos = 0;
 	int length = 0;
 
@@ -421,16 +421,16 @@ void OriginUI::SimpleRichTextEdit::mousePressEvent(QMouseEvent* e)
 void OriginUI::SimpleRichTextEdit::keyPressEvent(QKeyEvent* event)
 {
  	if (event->key() == Qt::Key_Space) {
-		// µ±°´ÏÂ¿Õ¸ñ¼üÊ±£¬²åÈë `&nbsp;`
+		// å½“æŒ‰ä¸‹ç©ºæ ¼é”®æ—¶ï¼Œæ’å…¥ `&nbsp;`
 		this->insertHtml("&nbsp;");
 	}
 	else if (event->key() == Qt::Key_Tab) {
-		//½«tab¼ü¸ü»»Îª4¸ö¿Õ¸ñ
+		//å°†tabé”®æ›´æ¢ä¸º4ä¸ªç©ºæ ¼
 		this->insertHtml("&nbsp;&nbsp;&nbsp;&nbsp;");
 	}
 	else 
 	{
-		// ¶ÔÓÚÆäËû¼üµÄÊÂ¼ş£¬Ê¹ÓÃÄ¬ÈÏµÄ´¦Àí·½Ê½
+		// å¯¹äºå…¶ä»–é”®çš„äº‹ä»¶ï¼Œä½¿ç”¨é»˜è®¤çš„å¤„ç†æ–¹å¼
 		QTextEdit::keyPressEvent(event);
 	}
 }

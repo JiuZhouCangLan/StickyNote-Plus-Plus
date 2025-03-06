@@ -74,7 +74,7 @@
         </sizepolicy>
        </property>
        <property name="styleSheet">
-        <string notr="true">font: 10pt &quot;微软雅黑&quot;;</string>
+        <string notr="true">font: 10pt &quot;寰蒋闆呴粦&quot;;</string>
        </property>
       </widget>
      </item>
@@ -93,7 +93,7 @@
         </size>
        </property>
        <property name="styleSheet">
-        <string notr="true">font: 8pt &quot;微软雅黑&quot;;
+        <string notr="true">font: 8pt &quot;寰蒋闆呴粦&quot;;
 color: rgb(89, 89, 89);</string>
        </property>
        <property name="text">

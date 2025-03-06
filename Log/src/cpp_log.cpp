@@ -6,10 +6,10 @@
 std::shared_ptr<Log::CppLog> Log::CppLog::instance;
 Log::CppLog::CppLog()
 {
-	//³õÊ¼»¯
+	//åˆå§‹åŒ–
 	coutSwitch.reset(new CoutSwitch);
 	cerrSwitch.reset(new CerrSwitch);
-	//Çå¿ÕlogÎÄ¼şĞÅÏ¢
+	//æ¸…ç©ºlogæ–‡ä»¶ä¿¡æ¯
 	std::fstream file;
 	file.open("log.txt", std::fstream::in | std::fstream::out | std::fstream::trunc);
 	if (!file.good())

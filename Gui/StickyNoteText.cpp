@@ -50,9 +50,9 @@ void NGui::StickyNoteText::loadSetting()
 
 void NGui::StickyNoteText::initActionCommand()
 {
-	//³õÊ¼»¯°´Å¥
+	//åˆå§‹åŒ–æŒ‰é’®
 	initActionCommandToTop(ActionCommandTypes("cmd_new_note", true));
-#if 0 //ÔİÊ±È¡ÏûÒ»Ğ©µôÃüÁî
+#if 0 //æš‚æ—¶å–æ¶ˆä¸€äº›æ‰å‘½ä»¤
 	initActionCommandToTop(ActionCommandTypes("cmd_new_copy_style", true));
 #endif
 	initActionCommandToTop(ActionCommandTypes("cmd_color_setting", true));

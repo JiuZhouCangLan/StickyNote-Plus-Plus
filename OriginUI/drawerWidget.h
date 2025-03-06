@@ -7,7 +7,7 @@ class QBoxLayout;
 namespace OriginUI {
 	class  DrawerWidgetD;
 	/*
-		Ò»¸ö¾ßÓĞµ¯³ö¶¯»­µÄ¶¥²¿´°¿Ú
+		ä¸€ä¸ªå…·æœ‰å¼¹å‡ºåŠ¨ç”»çš„é¡¶éƒ¨çª—å£
 	*/
 	class ORIGIN_UI_EXPORT DrawerWidget :public QWidget {
 		Q_OBJECT
@@ -15,21 +15,21 @@ namespace OriginUI {
 		DrawerWidget(QWidget* parent = 0);
 		virtual ~DrawerWidget();
 
-		//ÉèÖÃ¶¯»­Ê±¼ä
+		//è®¾ç½®åŠ¨ç”»æ—¶é—´
 		void setPopTime(unsigned int mec);
 		void setPushTime(unsigned int mec);
-		//ÉèÖÃÒ»¸öÖĞĞÄwidget
+		//è®¾ç½®ä¸€ä¸ªä¸­å¿ƒwidget
 		void setCenterWidget(QWidget* widget);
-		//³õÊ¼»¯´°¿ÚÎ»ÖÃ
+		//åˆå§‹åŒ–çª—å£ä½ç½®
 		virtual void initPos();
 
-		virtual void pop();  //µ¯³ö´°¿Ú
-		virtual void push(); //ÊÕ»Ø´°¿Ú
+		virtual void pop();  //å¼¹å‡ºçª—å£
+		virtual void push(); //æ”¶å›çª—å£
 	signals:
 		void widgetMoveSignal(QPoint point);
 
 	protected:
-		//»ñÈ¡¶¯»­ÆğÊ¼Î»ÖÃ
+		//è·å–åŠ¨ç”»èµ·å§‹ä½ç½®
 		virtual QPoint getPopStartPos();
 		virtual QPoint getPopEndPos();
 		virtual QPoint getPushEndPos();
@@ -40,7 +40,7 @@ namespace OriginUI {
 
 		void paintEvent(QPaintEvent* event) override;
 
-		//»ñÈ¡´°¿ÚµÄÎ»ÖÃ±ä»¯ÊÂ¼ş
+		//è·å–çª—å£çš„ä½ç½®å˜åŒ–äº‹ä»¶
 		void moveEvent(QMoveEvent* event) override;
 
 	private:

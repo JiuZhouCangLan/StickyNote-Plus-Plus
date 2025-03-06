@@ -10,11 +10,11 @@ namespace NGui {
 	public:
 		StickyNoteItemContent() = default;
 		virtual ~StickyNoteItemContent() =default;
-		//用于载入页面内容
+		//鐢ㄤ簬杞藉叆椤甸潰鍐呭
 		virtual void loadContent(const std::shared_ptr<NF::StickyNote> nfNote) = 0;
-		//用于限制页面高度
+		//鐢ㄤ簬闄愬埗椤甸潰楂樺害
 		virtual QSize getMiniSize() = 0;
-		//用于实现搜索功能
+		//鐢ㄤ簬瀹炵幇鎼滅储鍔熻兘
 		virtual QString getContentText() = 0;
 	};
 

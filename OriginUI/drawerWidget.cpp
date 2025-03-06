@@ -11,11 +11,11 @@ namespace OriginUI {
 		DrawerWidgetD(QWidget* widget);
 		~DrawerWidgetD();
 	public:
-		//²ÎÊı¿ØÖÆÆ÷
+		//å‚æ•°æ§åˆ¶å™¨
 		 QPropertyAnimation *pushAnimation,  *popAnimation;
-		 //´°¿Ú²¼¾Ö
+		 //çª—å£å¸ƒå±€
 		 QVBoxLayout* layout;
-		 //±£Ö¤ÖĞĞÄ´°¿ÚÖ»±»ÉèÖÃÒ»´Î
+		 //ä¿è¯ä¸­å¿ƒçª—å£åªè¢«è®¾ç½®ä¸€æ¬¡
 		 std::once_flag flag;
 	};
 
@@ -30,7 +30,7 @@ OriginUI::DrawerWidgetD::DrawerWidgetD(QWidget* widget)
 	pushAnimation = new QPropertyAnimation(widget, "pos");
 	pushAnimation->setDuration(500);
 
-	//³õÊ¼»¯²¼¾Ö
+	//åˆå§‹åŒ–å¸ƒå±€
 	layout = new QVBoxLayout();
 	widget->setLayout(layout);
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
@@ -62,7 +62,7 @@ OriginUI::DrawerWidget::~DrawerWidget()
 }
 
 /**
-* @brief OriginUI::DrawerWidget::pop µ¯³ö´°¿Ú
+* @brief OriginUI::DrawerWidget::pop å¼¹å‡ºçª—å£
 * @return void
 */
 void OriginUI::DrawerWidget::pop()
@@ -78,7 +78,7 @@ void OriginUI::DrawerWidget::pop()
 }
 
 /**
-* @brief OriginUI::DrawerWidget::push ÊÕÆğ´°¿Ú
+* @brief OriginUI::DrawerWidget::push æ”¶èµ·çª—å£
 * @return void
 */
 void OriginUI::DrawerWidget::push()
@@ -148,8 +148,8 @@ void OriginUI::DrawerWidget::moveEvent(QMoveEvent* event)
 }
 
 /**
-* @brief OriginUI::DrawerWidget::setPopTime ÉèÖÃµ¯³ö¶¯»­Ê±¼ä
-* @param unsigned int mec ºÁÃë
+* @brief OriginUI::DrawerWidget::setPopTime è®¾ç½®å¼¹å‡ºåŠ¨ç”»æ—¶é—´
+* @param unsigned int mec æ¯«ç§’
 * @return void
 */
 void OriginUI::DrawerWidget::setPopTime(unsigned int mec)
@@ -158,8 +158,8 @@ void OriginUI::DrawerWidget::setPopTime(unsigned int mec)
 }
 
 /**
-* @brief OriginUI::DrawerWidget::setPushTime ÉèÖÃÊÕ»Ø¶¯»­Ê±¼ä
-* @param unsigned int mec ºÁÃë
+* @brief OriginUI::DrawerWidget::setPushTime è®¾ç½®æ”¶å›åŠ¨ç”»æ—¶é—´
+* @param unsigned int mec æ¯«ç§’
 * @return void
 */
 void OriginUI::DrawerWidget::setPushTime(unsigned int mec)
@@ -168,7 +168,7 @@ void OriginUI::DrawerWidget::setPushTime(unsigned int mec)
 }
 
 /**
-* @brief OriginUI::DrawerWidget::setCenterWidget ÉèÖÃÖĞĞÄ´°¿Ú Ö»ÓĞµÚÒ»´Îµ÷ÓÃÓĞĞ§
+* @brief OriginUI::DrawerWidget::setCenterWidget è®¾ç½®ä¸­å¿ƒçª—å£ åªæœ‰ç¬¬ä¸€æ¬¡è°ƒç”¨æœ‰æ•ˆ
 * @param QWidget * widget
 * @return void
 */

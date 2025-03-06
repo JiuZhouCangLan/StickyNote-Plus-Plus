@@ -13,22 +13,22 @@ namespace OriginUI {
 		~ToolBar();
 		
 	public:
-		//Ìí¼Ó´°¿Ú
+		//æ·»åŠ çª—å£
 		void addWidget(QWidget* Widget);
-		//ÇåÀí´°¿Ú
+		//æ¸…ç†çª—å£
 		void clear();
-		//ÊÕ»Ø´°¿Ú
+		//æ”¶å›çª—å£
 		virtual void push();
-		//µ¯³ö´°¿Ú
+		//å¼¹å‡ºçª—å£
 		virtual void pop();
-		//ÉèÖÃ¹¤¾ßÀ¸¶ÔÆë¹æÔò
+		//è®¾ç½®å·¥å…·æ å¯¹é½è§„åˆ™
 		void setAlignment(Qt::AlignmentFlag flag);
 		//get set
 		void setAutoPop(const bool& b);
 		bool getAutoPop();
 		void setAutoPush(const bool& b);
 		bool getAutoPush();
-		//»ñÈ¡ÕæÕıµÄtoolbar´°¿Ú
+		//è·å–çœŸæ­£çš„toolbarçª—å£
 		QWidget* getToolbarWidget();
 	protected:
 		void resizeEvent(QResizeEvent* event) override;
@@ -54,10 +54,10 @@ namespace OriginUI {
 		ToolBarDynamic(QWidget* parent = 0);
 		ToolBarDynamic(DrawerWidget* dw, QWidget* parent = 0);
 		~ToolBarDynamic();
-		//³õÊ¼»¯
+		//åˆå§‹åŒ–
 		void init();
 
-		//ÉèÖÃ¿Ø¼ş×î´ó¸ß¶È
+		//è®¾ç½®æ§ä»¶æœ€å¤§é«˜åº¦
 		void setMaxHeight(const int& height);
 
 		void pop() override;

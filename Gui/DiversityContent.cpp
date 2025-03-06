@@ -3,7 +3,7 @@
 #include "ToDoListContent.h"
 NGui::DiversityContent::DiversityContent(QWidget* parent /*= 0*/)
 {
-	//Ìí¼ÓĞÂ½¨´ú°ìÊÂ¼şÏî°´Å¥
+	//æ·»åŠ æ–°å»ºä»£åŠäº‹ä»¶é¡¹æŒ‰é’®
 	{
 		auto item = new QListWidgetItem();
 		auto widget = new NoteTextEdit();

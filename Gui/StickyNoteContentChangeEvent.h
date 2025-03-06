@@ -6,11 +6,11 @@
 namespace NGui {
 	enum StickyNoteEventType {
 		NONE = QEvent::Type::User,
-		CONTENT_CHANGE,		//�ı��ı��¼�
-		COLOR_CHANGE,		//��ɫ�ı�
-		STICKY_NOTE_CREAT,	//��㱻����
-		STICKY_NOTE_COLSE,	//��㱻�ر�
-		STICKY_NOTE_DELETE	//���ɾ��
+		CONTENT_CHANGE,		//文本改变事件
+		COLOR_CHANGE,		//颜色改变
+		STICKY_NOTE_CREAT,	//便笺被创建
+		STICKY_NOTE_COLSE,	//便笺被关闭
+		STICKY_NOTE_DELETE	//便笺删除
 	};
 
 

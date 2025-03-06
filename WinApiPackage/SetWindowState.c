@@ -32,10 +32,10 @@ void setWindowNormal(HWND winID)
 
 BOOL isWindowNormal(HWND winID)
 {
-	//ÅĞ¶Ï´°¿ÚÊÇ·ñÎª×ÀÃæ´°¿Ú
+	//åˆ¤æ–­çª—å£æ˜¯å¦ä¸ºæ¡Œé¢çª—å£
 	if (!isDeskWindow(winID))
 		return FALSE;
-	//ÅĞ¶Ï´°¿ÚÑùÊ½ÊÇ·ñÖÃÓÚ¶¥²ã
+	//åˆ¤æ–­çª—å£æ ·å¼æ˜¯å¦ç½®äºé¡¶å±‚
 	auto style = GetWindowExStyle(winID);
 	if (style & WS_EX_TOPMOST)
 		return FALSE;

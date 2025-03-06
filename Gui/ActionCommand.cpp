@@ -87,7 +87,7 @@ namespace NGui {
 	{
 
 	}
-#if 0 //��ʱ��ʹ�ú�
+#if 0 //暂时不使用宏
 #define CREAT_STICKY_NOTE_TYPE_COMMAND(stickyNoteContent,nfStickyNote)\
 	class ActionCommand##stickyNoteContent :public ActionCommand {\
 	public:\
@@ -212,8 +212,8 @@ namespace NGui {
 			else if (Pushpin::isDesktop(note))
 			{
 				/*
-				*	����δ��ʾ���Ĵ���ʹ��windowsAPi���ý����ڹ̶�����ǰ
-				*	�ᵼ��������Ч��������Ҫ�ӳٵ��ã��ڴ�����ʾ֮�������ô��ڵ�λ��
+				*	由于未显示过的窗口使用windowsAPi设置将窗口固定到最前
+				*	会导致设置无效，所以需要延迟调用，在窗口显示之后再设置窗口的位置
 				*/
 				std::shared_ptr<NF::StickyNote> fnote = note->getNFNote();
 				StickyNotePool::GetInstance()->closeNoteNoSave(note);
@@ -248,11 +248,11 @@ namespace NGui {
 			setToolTip(tr("new sticky note"));
 		}
 		void active(StickyNote* note, const bool& check) {
-			//��������λ���ڵ�ǰ����λ�ò��
+			//调整窗口位置于当前窗口位置差不多
 			auto widget = StickyNotePool::CreatStickyNote(
 				note->getNFNote()->stickyNoteType.getValue());
 			auto p = note->pos();
-			//�ƶ���λ��
+			//移动的位置
 			int mv = 20;
 			p.setX(p.x() - mv);
 			p.setY(p.y() - mv);
@@ -287,7 +287,7 @@ namespace NGui {
 // 			note->saveNote();
 // 			auto nt = note->getNFNote()->copy();
 // 
-// 			//λ����һ��ƫ�ƣ����򴰿ڻ��ص�
+// 			//位置做一点偏移，否则窗口会重叠
 // 			int mv = 20;
 // 			nt.posX -= mv;
 // 			nt.posY -= mv;

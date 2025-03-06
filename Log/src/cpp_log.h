@@ -8,20 +8,20 @@ namespace Log {
 	public:
 		~CppLog();
 		static std::shared_ptr<CppLog> GetInstance();
-		//¿ª¹ØÊä³ö Ã¿Ò»¶Ôº¯Êı¶ÔÓ¦Ò»¸östdÖĞµÄ±ê×¼Êä³ö½Ó¿Ú
+		//å¼€å…³è¾“å‡º æ¯ä¸€å¯¹å‡½æ•°å¯¹åº”ä¸€ä¸ªstdä¸­çš„æ ‡å‡†è¾“å‡ºæ¥å£
 		void onCout();
 		void offCout();
 		void onCerr();
 		void offCerr();
 
-		//¹Ø±ÕËùÓĞÊä³ö
+		//å…³é—­æ‰€æœ‰è¾“å‡º
 		void onAll();
 		void offAll();
 	private:
 		CppLog();
 	private:
 		static std::shared_ptr<CppLog> instance;
-		//Êä³ö¿ª¹Ø
+		//è¾“å‡ºå¼€å…³
 		std::shared_ptr<Switch> coutSwitch, cerrSwitch;
 	};
 

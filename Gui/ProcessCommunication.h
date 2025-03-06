@@ -5,8 +5,8 @@
 #include <vector>
 namespace NGui {
 	enum ComunicationType {
-		SERVER ,	//·şÎñ¶Ë
-		CLIENT		//¿Í»§¶Ë
+		SERVER ,	//æœåŠ¡ç«¯
+		CLIENT		//å®¢æˆ·ç«¯
 	};
 
 	class ProcessCommunication:public QObject {

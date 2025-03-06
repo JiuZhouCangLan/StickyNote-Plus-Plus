@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
 
 	QWidget mw;
 	mw.show();
-	//‘ÿ»Îqss 
+	//ËΩΩÂÖ•qss 
 	QFile file("GuiStyle.qss");
 	file.open(QIODevice::ReadOnly);
 	QTextStream stream(&file);

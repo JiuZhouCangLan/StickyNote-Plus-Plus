@@ -10,7 +10,7 @@ namespace OriginUI {
 		NavigationBar(QWidget* parent =0);
 		~NavigationBar();
 		
-		//Ìí¼Ówidget
+		//æ·»åŠ widget
 		void addLeftWidget(QWidget* widget);
 		void addLeftWidget(QAction* action);
 		void addRightWidget(QWidget* widget);

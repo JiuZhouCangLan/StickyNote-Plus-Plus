@@ -19,7 +19,7 @@ namespace NF {
 	class StickyNote;
 }
 namespace NGui {
-	//Ê¹ÓÃÎÄ±¾ÅÅĞò
+	//ä½¿ç”¨æ–‡æœ¬æ’åº
 	class ListWidgetItem :public QListWidgetItem{
 	public:
 		bool operator >(const QListWidgetItem& item);
@@ -86,7 +86,7 @@ namespace NGui {
 
 		StickyNoteItemMap noteItems;
 		QListWidgetItemMap listItemMap;
-		//È«¾Ö¿ì½İ¼ü
+		//å…¨å±€å¿«æ·é”®
 		QxtGlobalShortcut* shortcut;
 	};
 

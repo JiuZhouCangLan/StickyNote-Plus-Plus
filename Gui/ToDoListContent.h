@@ -15,7 +15,7 @@ namespace NGui {
 		ToDoListContent(QWidget* parent = 0);
 		~ToDoListContent();
 
-		//ÉèÖÃÊÇ·ñ´¦ÓÚ±à¼­×´Ì¬
+		//è®¾ç½®æ˜¯å¦å¤„äºç¼–è¾‘çŠ¶æ€
 		void setEditState(const bool& state);
 		bool getEditState();
 	public:
@@ -37,13 +37,13 @@ namespace NGui {
 		void addToDoListItem();
 		void addToDoListItem(NF::StickyNoteToDoListItem& data);
 		void addToDoListItem(const QString& text);
-		//»ñÈ¡itemµÄÊıÁ¿
+		//è·å–itemçš„æ•°é‡
 		int getToDoListCount();
-		//»ñÈ¡itemµÄ´óĞ¡
+		//è·å–itemçš„å¤§å°
 		QSize getToDoListSize();
-		//»ñÈ¡ÎÄ±¾
+		//è·å–æ–‡æœ¬
 		QList<QString> getToDOListText();
-		//»ñÈ¡ ÉèÖÃ ·ÖÀàÏÔÊ¾µÄ×´Ì¬ 
+		//è·å– è®¾ç½® åˆ†ç±»æ˜¾ç¤ºçš„çŠ¶æ€ 
 		void setSplit(const bool& b);
 		bool getSplit();
 	public slots:
@@ -53,11 +53,11 @@ namespace NGui {
 		void lostFocus();
 		void gotFocus();
 	private:
-		//°´ÕÕÊÇ·ñÍê³É·ÖÀà
+		//æŒ‰ç…§æ˜¯å¦å®Œæˆåˆ†ç±»
 		void splitItem();
-		//È¡Ïû·ÖÀà
+		//å–æ¶ˆåˆ†ç±»
 		void cancelSplitItem();
-		//ÒÆ³ıËùÓĞitem ²¢²»ÊÍ·ÅÄÚ´æ
+		//ç§»é™¤æ‰€æœ‰item å¹¶ä¸é‡Šæ”¾å†…å­˜
 		void removeAllItem();
 	private:
 		ToDoListContentD* d;

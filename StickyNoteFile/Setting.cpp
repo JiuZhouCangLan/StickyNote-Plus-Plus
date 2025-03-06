@@ -15,9 +15,9 @@ NF::Setting::~Setting()
 }
 
 /**
-* ´ÓÎÄ¼şÖĞÔØÈëÊı¾İ
+* ä»æ–‡ä»¶ä¸­è½½å…¥æ•°æ®
 * @brief NF::Setting::loadProperty 
-* @param const std::string & path Â·¾¶£¬±àÂëÎªGBK
+* @param const std::string & path è·¯å¾„ï¼Œç¼–ç ä¸ºGBK
 * @return void
 */
 void NF::Setting::loadProperty(const std::string& path)
@@ -35,9 +35,9 @@ void NF::Setting::loadProperty(const std::string& path)
 }
 
 /**
-* ±£´æÎÄ¼şµ½Êı¾İ
+* ä¿å­˜æ–‡ä»¶åˆ°æ•°æ®
 * @brief NF::Setting::saveProperty
-* @param const std::string & path Â·¾¶£¬±àÂëÎªGBK
+* @param const std::string & path è·¯å¾„ï¼Œç¼–ç ä¸ºGBK
 * @return void
 */
 void NF::Setting::saveProperty(const std::string& path)

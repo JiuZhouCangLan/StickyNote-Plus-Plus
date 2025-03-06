@@ -37,7 +37,7 @@ namespace NGui {
 		StickyNoteMagnetic();
 		~StickyNoteMagnetic();
 	public:
-		//Îü¸½
+		//å¸é™„
 		void magnetic(StickyNote* note, std::vector<StickyNote*> pool);
 
 		//set get
@@ -51,20 +51,20 @@ namespace NGui {
 		int getSpace();
 
 	private:
-		//Æô¶¯´°¿ÚÒÆ¶¯¶¯»­
+		//å¯åŠ¨çª—å£ç§»åŠ¨åŠ¨ç”»
 		void startAnimation(StickyNote* note1, StickyNote* note2);
 		void startAnimation(StickyNote* note, const StickyNoteRect& rect);
-		//ÅĞ¶ÏÁ½¸ö´°¿ÚÊÇ·ñÓĞÖØµş
+		//åˆ¤æ–­ä¸¤ä¸ªçª—å£æ˜¯å¦æœ‰é‡å 
 		bool hasOverlap(StickyNote* note1, StickyNote* note2);
 		bool hasOverlap(const StickyNoteRect& rc1,const StickyNoteRect& rc2);
-		//»ñÈ¡ÒÆ¶¯ºóµÄÎ»ÖÃ
+		//è·å–ç§»åŠ¨åçš„ä½ç½®
 		StickyNoteRect moveResult(const StickyNoteRect& rect,const StickyNotePositon& magneticPos);
 	private:
-		//´¥·¢Îü¸½µÄãĞÖµ
+		//è§¦å‘å¸é™„çš„é˜ˆå€¼
 		int  threshold;
-		//ÊÇ·ñ¿ÉÓÃ
+		//æ˜¯å¦å¯ç”¨
 		bool enable;
-		//Îü¸½¼äÏ¶
+		//å¸é™„é—´éš™
 		int space;
 	};
 }

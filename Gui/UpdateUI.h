@@ -17,9 +17,9 @@ namespace NGui {
 		void ignoreButtonClicked();
 	private:
 		Ui::UpdateUI* ui;
-		//Á´½Ó
+		//é“¾æŽ¥
 		QUrl url;
-		//×îÐÂ°æ±¾
+		//æœ€æ–°ç‰ˆæœ¬
 		double newVersion;
 	};
 }

@@ -12,52 +12,52 @@ namespace OriginUI {
 		~SimpleRichTextEdit();
 
 	public:
-		//µ÷´ó×ÖÌå
+		//è°ƒå¤§å­—ä½“
 		void fontSizeUp();
-		//µ÷Ğ¡×ÖÌå
+		//è°ƒå°å­—ä½“
 		void fontSizeDown();
-		//ÉèÖÃÏÂ»¬Ïß
+		//è®¾ç½®ä¸‹æ»‘çº¿
 		void setUnderLine(const bool& b);
 		bool getUnderLine();
-		//ÉèÖÃÉ¾³ıÏß
+		//è®¾ç½®åˆ é™¤çº¿
 		void setStrikOut(const bool& b);
 		bool getStrikOut();
-		//ÉèÖÃ¾ÓÖĞ
+		//è®¾ç½®å±…ä¸­
 		void setTextCenter(const bool& b);
 		bool getTextCenter();
-		//ÉèÖÃ¾Ó×ó
+		//è®¾ç½®å±…å·¦
 		void setTextLeft();
 		bool getTextLeft();
-		//ÉèÖÃ¾ÓÓÒ
+		//è®¾ç½®å±…å³
 		void setTextRight(const bool& b);
 		bool getTextRight();
-		//ÉèÖÃµ±Ç°ÎÄ±¾Îªlist
+		//è®¾ç½®å½“å‰æ–‡æœ¬ä¸ºlist
 		void setListFormat(QString format = "1. ");
 		bool getListFormat();
-		//ÉèÖÃ×Ô¶¯Ê¶±ğÁĞ±í
+		//è®¾ç½®è‡ªåŠ¨è¯†åˆ«åˆ—è¡¨
 		void setAutoList(const bool& b);
 
-		//ÉèÖÃ×ÖÌåÑÕÉ«
+		//è®¾ç½®å­—ä½“é¢œè‰²
 		void setFontColor(const QColor& color);
 		QColor getFontColor();
 
-		//ÉèÖÃ¶ÎÂä±³¾°É«
+		//è®¾ç½®æ®µè½èƒŒæ™¯è‰²
 		void setBackground(const QColor& color);
-		//Çå¿Õ¶ÎÂä±³¾°É«
+		//æ¸…ç©ºæ®µè½èƒŒæ™¯è‰²
 		void clearBackground();
-		//»ñÈ¡¶ÎÂä±³¾°É«
+		//è·å–æ®µè½èƒŒæ™¯è‰²
 		QColor getBackground();
-		//ÉèÖÃÊÇ·ñÔÚµã»÷URL×Ô¶¯Ìø×ªµ½Á´½Ó
+		//è®¾ç½®æ˜¯å¦åœ¨ç‚¹å‡»URLè‡ªåŠ¨è·³è½¬åˆ°é“¾æ¥
 		void setAutoOpenUrl(const bool& b);
 		bool getAutoOpenUrl();
-		//ÉèÖÃĞ±Ìå
+		//è®¾ç½®æ–œä½“
 		void setItalic(const bool& b);
 		bool getItalic();
-		//ÉèÖÃ´ÖÌå
+		//è®¾ç½®ç²—ä½“
 		void setFontBlod(const bool& b);
 		bool getFontBlod();
 		
-		//»ñÈ¡µ±Ç°¿éÎÄ±¾¸ñÊ½£¬»òÕß»ñÈ¡µ±Ç°Ñ¡ÖĞµÄÎÄ±¾¸ñÊ½
+		//è·å–å½“å‰å—æ–‡æœ¬æ ¼å¼ï¼Œæˆ–è€…è·å–å½“å‰é€‰ä¸­çš„æ–‡æœ¬æ ¼å¼
 		QTextCharFormat getTextCharFormat();
 
 	protected:

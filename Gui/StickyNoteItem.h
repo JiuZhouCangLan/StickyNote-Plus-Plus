@@ -28,9 +28,9 @@ namespace NGui {
 		void setFileNote(const std::shared_ptr<NF::StickyNote> note);
 		std::shared_ptr<NF::StickyNote> getFileNote();
 		void loadNoteContent(const std::shared_ptr<NF::StickyNote> note);
-		//ÉèÖÃ±³¾°É«
+		//è®¾ç½®èƒŒæ™¯è‰²
 		void setBackgroundColor(const QColor& c);
-		//»ñÈ¡´¿ÎÄ±¾
+		//è·å–çº¯æ–‡æœ¬
 		QString getText();
 	protected:
 		void paintEvent(QPaintEvent* event);
@@ -53,7 +53,7 @@ namespace NGui {
 		void actionTrigger(bool);
 	Q_SIGNALS:
 		void deleteItem();
-		//Í¨ÖªQListItem¸Ä±ä´óĞ¡
+		//é€šçŸ¥QListItemæ”¹å˜å¤§å°
 		void listItemResize(QSize size);
 	private:
 		QVBoxLayout *vLayout;
@@ -65,10 +65,10 @@ namespace NGui {
 		QLabel* timesLabel;
 		StickyNoteItemEventFilter* filter;
 		std::shared_ptr<NF::StickyNote> fileNote;
-		//Êó±êĞüÍ£Ğ§¹û
+		//é¼ æ ‡æ‚¬åœæ•ˆæœ
 		bool isHover;
 		QColor hoverColor;
-		//´°¿Ú¶à±ßĞÎ
+		//çª—å£å¤šè¾¹å½¢
 		QPolygon polygon,triangle;
 	};
 }

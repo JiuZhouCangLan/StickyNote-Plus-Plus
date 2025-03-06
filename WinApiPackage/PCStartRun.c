@@ -2,50 +2,50 @@
 #include "PCStartRun.h"
 #include <windows.h>
 
-//ÉèÖÃµ±Ç°³ÌĞò¿ª»ú×ÔÆô¶¯
+//è®¾ç½®å½“å‰ç¨‹åºå¼€æœºè‡ªå¯åŠ¨
 void AutoStart()
 {
 	HKEY hKey;
 	//std::string strRegPath = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run";
 
-	//1¡¢ÕÒµ½ÏµÍ³µÄÆô¶¯Ïî  
-	if (RegOpenKeyEx(HKEY_CURRENT_USER, "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", 0, KEY_ALL_ACCESS, &hKey) == ERROR_SUCCESS) ///´ò¿ªÆô¶¯Ïî       
+	//1ã€æ‰¾åˆ°ç³»ç»Ÿçš„å¯åŠ¨é¡¹  
+	if (RegOpenKeyEx(HKEY_CURRENT_USER, "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", 0, KEY_ALL_ACCESS, &hKey) == ERROR_SUCCESS) ///æ‰“å¼€å¯åŠ¨é¡¹       
 	{
-		//2¡¢µÃµ½±¾³ÌĞò×ÔÉíµÄÈ«Â·¾¶
+		//2ã€å¾—åˆ°æœ¬ç¨‹åºè‡ªèº«çš„å…¨è·¯å¾„
 		TCHAR strExeFullDir[MAX_PATH];
 		GetModuleFileName(NULL, strExeFullDir, MAX_PATH);
 
-		//3¡¢ÅĞ¶Ï×¢²á±íÏîÊÇ·ñÒÑ¾­´æÔÚ
+		//3ã€åˆ¤æ–­æ³¨å†Œè¡¨é¡¹æ˜¯å¦å·²ç»å­˜åœ¨
 		TCHAR strDir[MAX_PATH];
 		DWORD nLength = MAX_PATH;
 		long result = RegGetValue(hKey, NULL, "StickyNote", RRF_RT_REG_SZ, 0, strDir, &nLength);
 
-		//4¡¢ÒÑ¾­´æÔÚ
+		//4ã€å·²ç»å­˜åœ¨
 		if (result != ERROR_SUCCESS || _tcscmp(strExeFullDir, strDir) != 0)
 		{
-			//5¡¢Ìí¼ÓÒ»¸ö×ÓKey,²¢ÉèÖÃÖµ£¬"GISRestart"ÊÇÓ¦ÓÃ³ÌĞòÃû×Ö£¨²»¼Óºó×º.exe£© 
+			//5ã€æ·»åŠ ä¸€ä¸ªå­Key,å¹¶è®¾ç½®å€¼ï¼Œ"GISRestart"æ˜¯åº”ç”¨ç¨‹åºåå­—ï¼ˆä¸åŠ åç¼€.exeï¼‰ 
 			RegSetValueEx(hKey, "StickyNote", 0, REG_SZ, (LPBYTE)strExeFullDir, (lstrlen(strExeFullDir) + 1) * sizeof(TCHAR));
 
-			//6¡¢¹Ø±Õ×¢²á±í
+			//6ã€å…³é—­æ³¨å†Œè¡¨
 			RegCloseKey(hKey);
 		}
 	}
 }
 
 
-//È¡Ïûµ±Ç°³ÌĞò¿ª»úÆô¶¯
+//å–æ¶ˆå½“å‰ç¨‹åºå¼€æœºå¯åŠ¨
 void CanclePowerOn()
 {
 	HKEY hKey;
 	//std::string strRegPath = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run";
 
-	//1¡¢ÕÒµ½ÏµÍ³µÄÆô¶¯Ïî  
+	//1ã€æ‰¾åˆ°ç³»ç»Ÿçš„å¯åŠ¨é¡¹  
 	if (RegOpenKeyEx(HKEY_CURRENT_USER, "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", 0, KEY_ALL_ACCESS, &hKey) == ERROR_SUCCESS)
 	{
-		//2¡¢É¾³ıÖµ
+		//2ã€åˆ é™¤å€¼
 		RegDeleteValue(hKey, "StickyNote");
 
-		//3¡¢¹Ø±Õ×¢²á±í
+		//3ã€å…³é—­æ³¨å†Œè¡¨
 		RegCloseKey(hKey);
 	}
 }
@@ -55,19 +55,19 @@ void CanclePowerOn()
 	HKEY hKey;
 	//std::string strRegPath = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run";
 
-	//1¡¢ÕÒµ½ÏµÍ³µÄÆô¶¯Ïî  
-	if (RegOpenKeyEx(HKEY_CURRENT_USER, "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", 0, KEY_ALL_ACCESS, &hKey) == ERROR_SUCCESS) ///´ò¿ªÆô¶¯Ïî       
+	//1ã€æ‰¾åˆ°ç³»ç»Ÿçš„å¯åŠ¨é¡¹  
+	if (RegOpenKeyEx(HKEY_CURRENT_USER, "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", 0, KEY_ALL_ACCESS, &hKey) == ERROR_SUCCESS) ///æ‰“å¼€å¯åŠ¨é¡¹       
 	{
-		//2¡¢µÃµ½±¾³ÌĞò×ÔÉíµÄÈ«Â·¾¶
+		//2ã€å¾—åˆ°æœ¬ç¨‹åºè‡ªèº«çš„å…¨è·¯å¾„
 		TCHAR strExeFullDir[MAX_PATH];
 		GetModuleFileName(NULL, strExeFullDir, MAX_PATH);
 
-		//3¡¢ÅĞ¶Ï×¢²á±íÏîÊÇ·ñÒÑ¾­´æÔÚ
+		//3ã€åˆ¤æ–­æ³¨å†Œè¡¨é¡¹æ˜¯å¦å·²ç»å­˜åœ¨
 		TCHAR strDir[MAX_PATH];
 		DWORD nLength = MAX_PATH;
 		long result = RegGetValue(hKey, NULL, "StickyNote", RRF_RT_REG_SZ, 0, strDir, &nLength);
 
-		//4¡¢ÒÑ¾­´æÔÚ
+		//4ã€å·²ç»å­˜åœ¨
 		if (result != ERROR_SUCCESS || _tcscmp(strExeFullDir, strDir) != 0)
 		{
 			return 0;

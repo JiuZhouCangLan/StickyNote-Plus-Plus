@@ -69,7 +69,7 @@ void NGui::SystemTrayIcon::initGUI()
 		menu->addAction(action);
 	}
 
-	//ÁÙÊ±Ìí¼ÓÒâ¼û·´À¡ÒÑ¾­¼ì²é¸üÐÂ°´Å¥
+	//ä¸´æ—¶æ·»åŠ æ„è§åé¦ˆå·²ç»æ£€æŸ¥æ›´æ–°æŒ‰é’®
 // 	{
 // 		auto action = new QAction(menu);
 // 		action->setText(tr("Feedback"));
@@ -83,7 +83,7 @@ void NGui::SystemTrayIcon::initGUI()
 		menu->addAction(action);
 	}
 
-	//³õÊ¼»¯¿ª»úÆô¶¯
+	//åˆå§‹åŒ–å¼€æœºå¯åŠ¨
 	acitonAutoStart = new OriginUI::Action();
 	acitonAutoStart->setCheckable(true);
 	acitonAutoStart->setCheckIcon(QIcon(":icon/on.svg"));
@@ -126,7 +126,7 @@ void NGui::SystemTrayIcon::acitonNewNoteTrigger(bool)
 
 void NGui::SystemTrayIcon::actionExitTrigger(bool)
 {
-	//ÍË³ö³ÌÐòÇ°£¬ÐèÒªÇåÀíËùÓÐQObject¶ÔÏó
+	//é€€å‡ºç¨‹åºå‰ï¼Œéœ€è¦æ¸…ç†æ‰€æœ‰QObjectå¯¹è±¡
 	StickyNotePool::GetInstance()->closeAllNote();
 	HistoryWidget::destoryInstance();
 	QApplication::exit();

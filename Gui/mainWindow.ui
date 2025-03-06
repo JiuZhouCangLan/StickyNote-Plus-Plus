@@ -18,14 +18,14 @@
     <item>
      <widget class="QPushButton" name="pushButtonTop">
       <property name="text">
-       <string>置顶</string>
+       <string>缃《</string>
       </property>
      </widget>
     </item>
     <item>
      <widget class="QPushButton" name="pushButtonDesktop">
       <property name="text">
-       <string>桌面</string>
+       <string>妗岄潰</string>
       </property>
      </widget>
     </item>

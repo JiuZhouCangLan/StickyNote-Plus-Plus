@@ -15,11 +15,11 @@ namespace NF {
 		static void setDefaultFolder(const QString& folder);
 
 	private:
-		//¼ì²éÎÄ¼ş¼ĞÊÇ·ñ´æÔÚ £¬²»´æÔÚÔò´´½¨
+		//æ£€æŸ¥æ–‡ä»¶å¤¹æ˜¯å¦å­˜åœ¨ ï¼Œä¸å­˜åœ¨åˆ™åˆ›å»º
 		void disposFolderExist();
-		//»ñÈ¡Â·¾¶ÖĞÎÄ¼şµÄÊıÁ¿
+		//è·å–è·¯å¾„ä¸­æ–‡ä»¶çš„æ•°é‡
 		int  getFileCount();
-		//¼ì²éÎÄ¼şÊÇ·ñÒÑ¾­´æÔÚ
+		//æ£€æŸ¥æ–‡ä»¶æ˜¯å¦å·²ç»å­˜åœ¨
 		bool disposFileExist(const QString& fileP);
 	private:
 		static QString defaultFolder;

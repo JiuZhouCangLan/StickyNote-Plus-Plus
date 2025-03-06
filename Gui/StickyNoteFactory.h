@@ -6,24 +6,24 @@ namespace NGui {
 	class StickyNoteCreator {
 	public:
 		/*
-		* NGui::StickyNote ĞèÒª±»±ã¼ã³Ø¹ÜÀí£¬ËùÒÔ²»ĞèÒªÖÇÄÜÖ¸Õë
+		* NGui::StickyNote éœ€è¦è¢«ä¾¿ç¬ºæ± ç®¡ç†ï¼Œæ‰€ä»¥ä¸éœ€è¦æ™ºèƒ½æŒ‡é’ˆ
 		*/
 		virtual StickyNote* creatStickyNote() = 0;
 		virtual StickyNote* creatStickyNote(std::shared_ptr<NF::StickyNote>) = 0;
-		//»ñÈ¡ÀàĞÍ£¬ÓÃÓÚ´´½¨Ê±Çø·Ö
+		//è·å–ç±»å‹ï¼Œç”¨äºåˆ›å»ºæ—¶åŒºåˆ†
 		virtual std::string getType() = 0;
-		//½«ËùÓĞ´´ÔìÆ÷×¢²áµ½±ã¼ã³ØÖĞ
+		//å°†æ‰€æœ‰åˆ›é€ å™¨æ³¨å†Œåˆ°ä¾¿ç¬ºæ± ä¸­
 		static void registerAllCreator();
 
 	};
 	class TextNoteCreator:public StickyNoteCreator {
 	public:
 		/*
-		* NGui::StickyNote ĞèÒª±»±ã¼ã³Ø¹ÜÀí£¬ËùÒÔ²»ĞèÒªÖÇÄÜÖ¸Õë
+		* NGui::StickyNote éœ€è¦è¢«ä¾¿ç¬ºæ± ç®¡ç†ï¼Œæ‰€ä»¥ä¸éœ€è¦æ™ºèƒ½æŒ‡é’ˆ
 		*/
 		virtual StickyNote* creatStickyNote();
 		virtual StickyNote* creatStickyNote(std::shared_ptr<NF::StickyNote>);
-		//»ñÈ¡ÀàĞÍ£¬ÓÃÓÚ´´½¨Ê±Çø·Ö
+		//è·å–ç±»å‹ï¼Œç”¨äºåˆ›å»ºæ—¶åŒºåˆ†
 		virtual std::string getType();
 
 	};
@@ -31,11 +31,11 @@ namespace NGui {
 	class ToDoListNoteCreator :public StickyNoteCreator {
 	public:
 		/*
-		* NGui::StickyNote ĞèÒª±»±ã¼ã³Ø¹ÜÀí£¬ËùÒÔ²»ĞèÒªÖÇÄÜÖ¸Õë
+		* NGui::StickyNote éœ€è¦è¢«ä¾¿ç¬ºæ± ç®¡ç†ï¼Œæ‰€ä»¥ä¸éœ€è¦æ™ºèƒ½æŒ‡é’ˆ
 		*/
 		virtual StickyNote* creatStickyNote();
 		virtual StickyNote* creatStickyNote(std::shared_ptr<NF::StickyNote>);
-		//»ñÈ¡ÀàĞÍ£¬ÓÃÓÚ´´½¨Ê±Çø·Ö
+		//è·å–ç±»å‹ï¼Œç”¨äºåˆ›å»ºæ—¶åŒºåˆ†
 		virtual std::string getType();
 
 	};
@@ -43,11 +43,11 @@ namespace NGui {
 	class DiversityNoteCreator :public StickyNoteCreator {
 	public:
 		/*
-		* NGui::StickyNote ĞèÒª±»±ã¼ã³Ø¹ÜÀí£¬ËùÒÔ²»ĞèÒªÖÇÄÜÖ¸Õë
+		* NGui::StickyNote éœ€è¦è¢«ä¾¿ç¬ºæ± ç®¡ç†ï¼Œæ‰€ä»¥ä¸éœ€è¦æ™ºèƒ½æŒ‡é’ˆ
 		*/
 		virtual StickyNote* creatStickyNote();
 		virtual StickyNote* creatStickyNote(std::shared_ptr<NF::StickyNote>);
-		//»ñÈ¡ÀàĞÍ£¬ÓÃÓÚ´´½¨Ê±Çø·Ö
+		//è·å–ç±»å‹ï¼Œç”¨äºåˆ›å»ºæ—¶åŒºåˆ†
 		virtual std::string getType();
 
 	};

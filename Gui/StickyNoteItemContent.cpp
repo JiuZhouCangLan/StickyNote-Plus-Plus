@@ -37,9 +37,9 @@ QSize NGui::StickyNoteItemTextContent::getMiniSize()
 	auto doc = document();
 
 	const int maxHieght = 200;
-	const int blockCount = 6;	//×î¶àÏÔÊ¾¶àÉÙĞĞ
+	const int blockCount = 6;	//æœ€å¤šæ˜¾ç¤ºå¤šå°‘è¡Œ
 	int count = 0;
-	const int barHieght = 70;	//²¼¾ÖµÄ¶îÍâ¿í¶È
+	const int barHieght = 70;	//å¸ƒå±€çš„é¢å¤–å®½åº¦
 	int h = barHieght;
 
 	for (auto block = doc->begin();
@@ -86,7 +86,7 @@ NGui::StickyNoteItemItemToDoList::StickyNoteItemItemToDoList(QWidget* parent /*=
 	installEventFilter(filter);
 	verticalScrollBar()->installEventFilter(filter);
 
-	// ½ûÓÃ×Ó¿Ø¼şµÄ½»»¥
+	// ç¦ç”¨å­æ§ä»¶çš„äº¤äº’
 	setEnabled(false);
 
 

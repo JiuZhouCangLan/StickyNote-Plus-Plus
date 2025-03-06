@@ -3,17 +3,17 @@
 #include "WinApiExport.h"
 #include <windows.h>
 
-//����ͼ���Ĵ��ھ��
+//查找图标层的窗口句柄
 WIN_API_EXPORT HWND findDesktopIconWindow();
 
-//�жϴ����Ƿ�Ϊ���ӹ�ϵ
-//�ƺ���㸸�ӹ�ϵҲ�᷵��TRUE  ��ʱ�޷����
+//判断窗口是否为父子关系
+//似乎多层父子关系也会返回TRUE  暂时无法解决
 WIN_API_EXPORT BOOL isChild(HWND parent, HWND child);
 
-//�ж��Ƿ���һ�����洰��
+//判断是否是一个桌面窗口
 WIN_API_EXPORT BOOL isDeskWindow(HWND hd);
 
-//���ұ�ֽ��
+//查找壁纸层
 WIN_API_EXPORT HWND findWallpaperLayer();
 
 #endif

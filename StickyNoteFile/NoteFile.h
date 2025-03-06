@@ -12,56 +12,56 @@ namespace NF {
 	{
 	public:
 		enum State {
-			NORMAL = 0, //Õı³£´°¿Ú
-			PIN_ICON_LAYER, //¹Ì¶¨µ½Í¼±ê²ã
-			PIN_ALWAYS_TOP //¹Ì¶¨µ½ÆÁÄ»
+			NORMAL = 0, //æ­£å¸¸çª—å£
+			PIN_ICON_LAYER, //å›ºå®šåˆ°å›¾æ ‡å±‚
+			PIN_ALWAYS_TOP //å›ºå®šåˆ°å±å¹•
 		};
 	public:
 		StickyNote();
 		~StickyNote() = default;
 		bool operator==(const StickyNote& note);
 
-		//´ÓxmlÖĞÔØÈëÊı¾İ
+		//ä»xmlä¸­è½½å…¥æ•°æ®
 		virtual void loadNode(xml_node& node);
-		//´æ´¢Êı¾İµ½xml
+		//å­˜å‚¨æ•°æ®åˆ°xml
 		virtual void toNode(xml_node& node);
-		//´æ´¢Êı¾İµ½xml£¬±ØĞë±£Ö¤xml_nodeÊÇÒ»¸öÓĞĞ§µÄ
+		//å­˜å‚¨æ•°æ®åˆ°xmlï¼Œå¿…é¡»ä¿è¯xml_nodeæ˜¯ä¸€ä¸ªæœ‰æ•ˆçš„
 		void save();
-		//¸´ÖÆÊı¾İ£¬²»¸´ÖÆnode
+		//å¤åˆ¶æ•°æ®ï¼Œä¸å¤åˆ¶node
 		StickyNote copy();
-		//Éú³Éguid
+		//ç”Ÿæˆguid
 		static std::string creatGUID();
-		//É¾³ıÎÄ¼ş
+		//åˆ é™¤æ–‡ä»¶
 		void deleteFile();
-		//»ñÈ¡µ±Ç°ÏµÍ³ÊÂ¼ş
+		//è·å–å½“å‰ç³»ç»Ÿäº‹ä»¶
 		std::string getTimes();
-		//ÊÇ·ñ±£´æ
+		//æ˜¯å¦ä¿å­˜
 		bool isSaved();
 
 	public:
-		int posX,posY; //´°¿ÚÎ»ÖÃ
-		int width, height;//´°¿Ú´óĞ¡
-		std::string times; //´´½¨Ê±¼ä
-		xml_node node;	//ÎÄ¼ş½Úµã
-		bool visible;  //ÊÇ·ñ¿ÉÓÃ
-		State state;	//´°¿Ú×´Ì¬
-		int backgroundColorIndex; //±³¾°É«Ë÷Òı
-		std::string backgroundColor; //±³¾°ÑÕÉ«
-		std::string customColor;	//×Ô¶¨ÒåÑÕÉ«Öµ
-		bool contentIsNull;	//ÄÚÈİÊÇ·ñÎª¿Õ
-		std::string guid; //±ã¼ã±êÊ¶·û
-		double version;//°æ±¾ºÅ
+		int posX,posY; //çª—å£ä½ç½®
+		int width, height;//çª—å£å¤§å°
+		std::string times; //åˆ›å»ºæ—¶é—´
+		xml_node node;	//æ–‡ä»¶èŠ‚ç‚¹
+		bool visible;  //æ˜¯å¦å¯ç”¨
+		State state;	//çª—å£çŠ¶æ€
+		int backgroundColorIndex; //èƒŒæ™¯è‰²ç´¢å¼•
+		std::string backgroundColor; //èƒŒæ™¯é¢œè‰²
+		std::string customColor;	//è‡ªå®šä¹‰é¢œè‰²å€¼
+		bool contentIsNull;	//å†…å®¹æ˜¯å¦ä¸ºç©º
+		std::string guid; //ä¾¿ç¬ºæ ‡è¯†ç¬¦
+		double version;//ç‰ˆæœ¬å·
 		PropertyString stickyNoteType;
 	};
 
 	class NOTE_FILE_EXPORT StickyNoteText :public StickyNote {
 	public:
 		StickyNoteText();
-		//´ÓxmlÖĞÔØÈëÊı¾İ
+		//ä»xmlä¸­è½½å…¥æ•°æ®
 		virtual void loadNode(xml_node& node) override;
-		//´æ´¢Êı¾İµ½xml
+		//å­˜å‚¨æ•°æ®åˆ°xml
 		virtual void toNode(xml_node& node) override;
-		//·µ»ØÀàĞÍ
+		//è¿”å›ç±»å‹
 		static std::string getStickyNoteType();
 	public:
 		PropertyString contentText;
@@ -80,15 +80,15 @@ namespace NF {
 	class NOTE_FILE_EXPORT StickyNoteToDoList :public StickyNote {
 	public:
 		StickyNoteToDoList();
-		//´ÓxmlÖĞÔØÈëÊı¾İ
+		//ä»xmlä¸­è½½å…¥æ•°æ®
 		virtual void loadNode(xml_node& node) override;
-		//´æ´¢Êı¾İµ½xml
+		//å­˜å‚¨æ•°æ®åˆ°xml
 		virtual void toNode(xml_node& node) override;
-		//·µ»ØÀàĞÍ
+		//è¿”å›ç±»å‹
 		static std::string getStickyNoteType();
 	public:
 		std::list<StickyNoteToDoListItem> toDoListItems;
-		//ÏÔÊ¾Ê±ÊÇ·ñÓ¦ÓÃ·ÖÀà -> ÔİÊ±Ö»ÓĞ°´ÕÕÊÇ·ñÍê³É·ÖÀà
+		//æ˜¾ç¤ºæ—¶æ˜¯å¦åº”ç”¨åˆ†ç±» -> æš‚æ—¶åªæœ‰æŒ‰ç…§æ˜¯å¦å®Œæˆåˆ†ç±»
 		PropertyBool isSplit;
 
 	};

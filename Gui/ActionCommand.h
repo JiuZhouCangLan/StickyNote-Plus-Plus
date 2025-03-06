@@ -22,8 +22,8 @@ namespace NGui {
 	class ActionCommandTypes {
 	public:
 		ActionCommandTypes(const std::string& cmd,const bool& b);
-		std::string cmd;	//ÃüÁî
-		bool visible;		//ÊÇ·ñÏÔÊ¾
+		std::string cmd;	//å‘½ä»¤
+		bool visible;		//æ˜¯å¦æ˜¾ç¤º
 	};
 
 	class ActionCreator {
@@ -55,7 +55,7 @@ namespace NGui {
 	private:
 		ActionCmdFactory();
 		static std::shared_ptr<ActionCmdFactory> instance;
-		//¹¹ÔìÆ÷¼¯
+		//æ„é€ å™¨é›†
 		std::map<std::string,ActionCreator*> creators;
 	};
 	

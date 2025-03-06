@@ -4,10 +4,10 @@
 
 
 /**
-* @brief enumWindowFindDesktopIconWindow  enumWindowsµÄ»Øµ÷º¯Êı£¬ÔÚ»Øµ÷ÖĞ²éÕÒÍ¼±ê²ã´°¿Ú
-* @param HWND hwnd  ´°¿Ú¾ä±ú
-* @param LPARAM lParam »Øµ÷²ÎÊı
-* @return BOOL  ·µ»ØFalse Í£Ö¹Ã¶¾Ù
+* @brief enumWindowFindDesktopIconWindow  enumWindowsçš„å›è°ƒå‡½æ•°ï¼Œåœ¨å›è°ƒä¸­æŸ¥æ‰¾å›¾æ ‡å±‚çª—å£
+* @param HWND hwnd  çª—å£å¥æŸ„
+* @param LPARAM lParam å›è°ƒå‚æ•°
+* @return BOOL  è¿”å›False åœæ­¢æšä¸¾
 */
 BOOL enumWindowFindDesktopIconWindow(HWND hwnd, LPARAM lParam)
 {
@@ -22,7 +22,7 @@ BOOL enumWindowFindDesktopIconWindow(HWND hwnd, LPARAM lParam)
 		return TRUE;
 	HWND* resultHwnd = (HWND*)lParam;
 	/*
-	* ·¢ÏÖÓĞµÄ×ÀÃæÉÏÓĞÆäËûÈí¼ş¸²¸ÇÔÚÍ¼±ê²ãÖ®ÉÏ£¬ËùÒÔÖ±½Ó½«´°¿ÚÖÃÓÚ¶¥²ã
+	* å‘ç°æœ‰çš„æ¡Œé¢ä¸Šæœ‰å…¶ä»–è½¯ä»¶è¦†ç›–åœ¨å›¾æ ‡å±‚ä¹‹ä¸Šï¼Œæ‰€ä»¥ç›´æ¥å°†çª—å£ç½®äºé¡¶å±‚
 	*/
 	*resultHwnd = hwnd;
 	return FALSE;
@@ -30,7 +30,7 @@ BOOL enumWindowFindDesktopIconWindow(HWND hwnd, LPARAM lParam)
 
 
 /**
-* @brief findDesktopIconWindow ²éÕÒÍ¼±ê²ãµÄ´°¿ÚID
+* @brief findDesktopIconWindow æŸ¥æ‰¾å›¾æ ‡å±‚çš„çª—å£ID
 * @return HWND
 */
 HWND findDesktopIconWindow()
@@ -41,7 +41,7 @@ HWND findDesktopIconWindow()
 }
 
 typedef struct{
-	HWND childID; //´°¿ÚID
+	HWND childID; //çª—å£ID
 	BOOL isChild;
 
 } IsChildPar;
@@ -61,8 +61,8 @@ BOOL enumWindowFindWindow(HWND winID, LPARAM par)
 BOOL isChild(HWND parent, HWND child)
 {
 	/*
-	ÓÉÓÚÎ´ÖªÔ­Òò£¬Ê¹ÓÃGetParent()ºÍIsChild()¶¼ÎŞ·¨Õı³£¹¤×÷
-	ËùÒÔÖ»ÄÜÃ¶¾ÙËùÓĞ×Ó´°¿Ú£¬È»ºóÑ°ÕÒµ½¶ÔÓ¦µÄchildÓÉ´ËÑéÖ¤ÊÇ·ñÎª¸¸×Ó¹ØÏµ
+	ç”±äºæœªçŸ¥åŸå› ï¼Œä½¿ç”¨GetParent()å’ŒIsChild()éƒ½æ— æ³•æ­£å¸¸å·¥ä½œ
+	æ‰€ä»¥åªèƒ½æšä¸¾æ‰€æœ‰å­çª—å£ï¼Œç„¶åå¯»æ‰¾åˆ°å¯¹åº”çš„childç”±æ­¤éªŒè¯æ˜¯å¦ä¸ºçˆ¶å­å…³ç³»
 	*/
 	IsChildPar* par = malloc(sizeof(IsChildPar));
 
@@ -110,8 +110,8 @@ BOOL enumWindowFindWallpaperLayer(HWND winID, LPARAM par)
 
 HWND findWallpaperLayer()
 {
-	//Win10µÄ±ÚÖ½²ãÓĞÁ½¸ö£¬ÕâÑùÊÇÎªÁË±ÜÃâÇĞ»»±ÚÖ½Ê±µÄÉÁË¸
-	//µÚ¶ş²ã±ÚÖ½Ö»»áÔÚÇĞ»»±ÚÖ½µÄÊ±ºò³öÏÖ£¬ËùÒÔĞèÒªÄ£ÄâÇĞ»»±ÚÖ½·¢ËÍÒ»¸öÏûÏ¢
+	//Win10çš„å£çº¸å±‚æœ‰ä¸¤ä¸ªï¼Œè¿™æ ·æ˜¯ä¸ºäº†é¿å…åˆ‡æ¢å£çº¸æ—¶çš„é—ªçƒ
+	//ç¬¬äºŒå±‚å£çº¸åªä¼šåœ¨åˆ‡æ¢å£çº¸çš„æ—¶å€™å‡ºç°ï¼Œæ‰€ä»¥éœ€è¦æ¨¡æ‹Ÿåˆ‡æ¢å£çº¸å‘é€ä¸€ä¸ªæ¶ˆæ¯
 	int result;
 	HWND windowHandle = FindWindow(L"Progman", NULL);
 	SendMessageTimeout(windowHandle, 0x052c, 0, 0, SMTO_NORMAL, 0x3e8, (PDWORD_PTR)&result);

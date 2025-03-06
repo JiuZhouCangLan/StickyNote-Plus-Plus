@@ -6,7 +6,7 @@ class QToolButton;
 
 namespace OriginUI {
 
-	//Ìá¹©Ò»¸ö¿ÉÒÔ·¢ËÍ½¹µã×´Ì¬ĞÅºÅµÄlineEidt
+	//æä¾›ä¸€ä¸ªå¯ä»¥å‘é€ç„¦ç‚¹çŠ¶æ€ä¿¡å·çš„lineEidt
 	class InputLineEditFocus :public QLineEdit {
 		Q_OBJECT
 	Q_SIGNALS:
@@ -20,8 +20,8 @@ namespace OriginUI {
 
 
 	enum InputLineEditLayoutMod {
-		BUTTON_LEFT = 0,		//°´Å¥ÔÚ×ó±ß		
-		BUTTON_RIGHT		//°´Å¥ÔÚÓÒ±ß
+		BUTTON_LEFT = 0,		//æŒ‰é’®åœ¨å·¦è¾¹		
+		BUTTON_RIGHT		//æŒ‰é’®åœ¨å³è¾¹
 	};
 
 	class InputLineEditD;
@@ -31,20 +31,20 @@ namespace OriginUI {
 		InputLineEdit(QWidget *parent = 0);
 		~InputLineEdit();
 
-		//ÉèÖÃ²¼¾Ömod
+		//è®¾ç½®å¸ƒå±€mod
 		void setButtonLaoutMod(const InputLineEditLayoutMod& mod);
 		InputLineEditLayoutMod getButtonLaoutMod();
 
-		//ÉèÖÃ°´Å¥Í¼±ê
+		//è®¾ç½®æŒ‰é’®å›¾æ ‡
 		void setOkIcon(QIcon icon);
 		void setCancelIcon(QIcon icon);
 
-		//»ñÈ¡°´Å¥Ö¸Õë
+		//è·å–æŒ‰é’®æŒ‡é’ˆ
 		QToolButton* getOkButton();
 		QToolButton* getCancelButton();
-		//»ñÈ¡±à¼­Æ÷
+		//è·å–ç¼–è¾‘å™¨
 		QLineEdit* getLineEdit();
-		//ÊÇ·ñ×Ô¶¯ÏÔÊ¾È¡Ïû°´Å¥
+		//æ˜¯å¦è‡ªåŠ¨æ˜¾ç¤ºå–æ¶ˆæŒ‰é’®
 		void setAutoShowCancelButton(const bool& b);
 		bool getAutoShowCancelButton();
 	public Q_SLOTS:

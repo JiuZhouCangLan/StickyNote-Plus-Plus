@@ -40,21 +40,21 @@ namespace NGui {
 		std::shared_ptr<NF::StickyNote> getNFNote();
 		StickyNoteContent* getContent();
 
-		//µ¯³öÑÕÉ«ÉèÖÃ
+		//å¼¹å‡ºé¢œè‰²è®¾ç½®
 		void popColorSetting();
 		void setNoteVisable(bool b);
 		void connectSlot();
 		void disConnectSlot();
 		void show();
 		void updateCmdState();
-		//Ë¢ĞÂ¹¤¾ßÀ¸ ÓÃÓÚË¢ĞÂ¹¤¾ßÀ¸ÉÏÄÄĞ©¹¤¾ß»áÏÔÊ¾
+		//åˆ·æ–°å·¥å…·æ  ç”¨äºåˆ·æ–°å·¥å…·æ ä¸Šå“ªäº›å·¥å…·ä¼šæ˜¾ç¤º
 		void updateToolBar(std::vector<ActionCommandTypes>& cmdTypes);
-		//³õÊ¼»¯¿ì½İ¼ü
+		//åˆå§‹åŒ–å¿«æ·é”®
 		void initShortCut();
-		//ÉèÖÃ´°¿ÚÎ»ÖÃ
+		//è®¾ç½®çª—å£ä½ç½®
 		void toDesk();
 		void toTop();
-		//ÉèÖÃ²Ëµ¥À¸ÊÇ·ñµ¯³ö
+		//è®¾ç½®èœå•æ æ˜¯å¦å¼¹å‡º
 		bool getTopToolbarAutoPop();
 		bool getBottomToolbarAutoPop();
 		void setTopToolbarAutoPop(const bool& b);
@@ -65,7 +65,7 @@ namespace NGui {
 		void setTopToolbarAutoPush(const bool& b);
 		void setBottomToolbarAutoPush(const bool& b);
 
-		//»ñÈ¡´°¿Ú±»ÖÃÓÚµ×²ãµÄ×´Ì¬
+		//è·å–çª—å£è¢«ç½®äºåº•å±‚çš„çŠ¶æ€
 		bool getOnlyBottom();
 		void setOnlyBottom(const bool& b);
 
@@ -74,13 +74,13 @@ namespace NGui {
 		void addActionCommand(std::vector<ActionCommandTypes> cmdTypes, OriginUI::ToolBar* bar);
 		void addActionCommand(const std::string& cmd, OriginUI::ToolBar* bar, const bool& visible);
 
-		//»ñÈ¡¡¢ÉèÖÃµ×²¿¹¤¾ßÀ¸µÄ×´Ì¬
+		//è·å–ã€è®¾ç½®åº•éƒ¨å·¥å…·æ çš„çŠ¶æ€
 		void setBottomToolbarHide(const bool& b);
 		bool getBottomToolbarHide();
 
-		//»ñÈ¡ÕæÊµµÄsize() Èç¹ûÔÚ¸ßdpiÄ£Ê½ÏÂ±»·Å´ó£¬ÒÀÈ»»á·µ»ØÕæÊµµÄ´óĞ¡
+		//è·å–çœŸå®çš„size() å¦‚æœåœ¨é«˜dpiæ¨¡å¼ä¸‹è¢«æ”¾å¤§ï¼Œä¾ç„¶ä¼šè¿”å›çœŸå®çš„å¤§å°
 		QSize getRealSize();
-		//ÔØÈëÉèÖÃ
+		//è½½å…¥è®¾ç½®
 		virtual void loadSetting();
 	private:
 		void init();
@@ -98,22 +98,22 @@ namespace NGui {
 #else
 		bool nativeEvent(const QByteArray& eventType, void* message, long* result) override;
 #endif
-		/* ³õÊ¼»¯±ã¼ãËùĞèÒªµÄÒ»Ğ©ÃüÁî
-		*  ÕâĞ©ÃüÁî£¬·Ö±ğ³öÏÖÔÙÉÏ·½µÄ¹¤¾ßÀ¸ºÍÏÂ·½µÄ¹¤¾ßÀ¸
-		*  ÕâĞ©ÃüÁîÌí¼Óºó²¢²»»áÁ¢¼´ÏÔÊ¾µ½¹¤¾ßÀ¸£¬ÔÚµ÷ÓÃaddActionCommand()Ê±£¬²Å»áÊµ¼ÊÌí¼Óµ½¹¤¾ßÀ¸
-		*  ²¢ÇÒÔÚÌí¼Óµ½¹¤¾ßÀ¸Ö®Ç°£¬»¹»áÊ×ÏÈÅĞ¶ÏÃüÁîÔÚÉèÖÃÖĞÊÇ·ñÉèÖÃÁËÊÇ·ñÏÔÊ¾
-		*  Èç¹û×´Ì¬Îª²»ÏÔÊ¾£¬ÄÇÃ´Ò²²»»áÏÔÊ¾µ½¹¤¾ßÀ¸
-		*  ¼´Ê¹Ã»ÓĞÏÔÊ¾µ½¹¤¾ßÀ¸£¬ÕâÀïÌí¼ÓµÄÃüÁîÒ²¿ÉÒÔÓÃ¹ı¿ì½İ¼ü´¥·¢£¬Èç¹ûÓĞ¿ì½İ¼üµÄÇé¿öÏÂ
+		/* åˆå§‹åŒ–ä¾¿ç¬ºæ‰€éœ€è¦çš„ä¸€äº›å‘½ä»¤
+		*  è¿™äº›å‘½ä»¤ï¼Œåˆ†åˆ«å‡ºç°å†ä¸Šæ–¹çš„å·¥å…·æ å’Œä¸‹æ–¹çš„å·¥å…·æ 
+		*  è¿™äº›å‘½ä»¤æ·»åŠ åå¹¶ä¸ä¼šç«‹å³æ˜¾ç¤ºåˆ°å·¥å…·æ ï¼Œåœ¨è°ƒç”¨addActionCommand()æ—¶ï¼Œæ‰ä¼šå®é™…æ·»åŠ åˆ°å·¥å…·æ 
+		*  å¹¶ä¸”åœ¨æ·»åŠ åˆ°å·¥å…·æ ä¹‹å‰ï¼Œè¿˜ä¼šé¦–å…ˆåˆ¤æ–­å‘½ä»¤åœ¨è®¾ç½®ä¸­æ˜¯å¦è®¾ç½®äº†æ˜¯å¦æ˜¾ç¤º
+		*  å¦‚æœçŠ¶æ€ä¸ºä¸æ˜¾ç¤ºï¼Œé‚£ä¹ˆä¹Ÿä¸ä¼šæ˜¾ç¤ºåˆ°å·¥å…·æ 
+		*  å³ä½¿æ²¡æœ‰æ˜¾ç¤ºåˆ°å·¥å…·æ ï¼Œè¿™é‡Œæ·»åŠ çš„å‘½ä»¤ä¹Ÿå¯ä»¥ç”¨è¿‡å¿«æ·é”®è§¦å‘ï¼Œå¦‚æœæœ‰å¿«æ·é”®çš„æƒ…å†µä¸‹
 		*/
 		void initActionCommandToTop(const ActionCommandTypes& cmd);
 		void initActionCommandToBottom(const ActionCommandTypes& cmd);
-		/* ÓÃÓÚ³õÊ¼»¯ÅÉÉúÀàµÄÃüÁî
+		/* ç”¨äºåˆå§‹åŒ–æ´¾ç”Ÿç±»çš„å‘½ä»¤
 		*/
 		virtual void initActionCommand() = 0;
-		//»ñÈ¡ÉÏÏÂ¹¤¾ßÀ¸
+		//è·å–ä¸Šä¸‹å·¥å…·æ 
 		OriginUI::ToolBar* getNavigaitonBar();
 		OriginUI::ToolBar* getBottomBar();
-		//ÉèÖÃ±ã¼ãÄÚÈİ¿Ø¼ş
+		//è®¾ç½®ä¾¿ç¬ºå†…å®¹æ§ä»¶
 		StickyNoteContent* getStickyNoteContent();
 		void setStickyNoteContent(StickyNoteContent* content);
 	private:

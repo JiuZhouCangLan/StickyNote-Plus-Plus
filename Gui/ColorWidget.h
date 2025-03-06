@@ -27,7 +27,7 @@ namespace NGui {
 		OriginUI::ToolButtonColor* creatButton();
 	private:
 		std::vector<OriginUI::ToolButtonColor*> buttons;
-		//默认颜色，用于索引错误时返回
+		//榛樿棰滆壊锛岀敤浜庣储寮曢敊璇椂杩斿洖
 		QColor defaultColor;
 	};
 

@@ -154,7 +154,7 @@ NGui::StickyNote* NGui::StickyNotePool::CreatStickyNote(const std::string& type)
 	std::vector<StickyNote*>& pool = GetInstance()->pool;
 	pool.push_back(nt);
 
-	//³õÊ¼»¯¹¤¾ßÀ¸
+	//åˆå§‹åŒ–å·¥å…·æ 
 	auto setting = Setting::GetInstance();
 	std::vector<ActionCommandTypes> cmdTypes;
 	for (auto iter = setting->cmdState.begin(); iter != setting->cmdState.end(); iter++)
@@ -163,7 +163,7 @@ NGui::StickyNote* NGui::StickyNotePool::CreatStickyNote(const std::string& type)
 		cmdTypes.push_back(types);
 	}
 	nt->updateToolBar(cmdTypes);
-	//²»ÈÃ¹¤¾ßÀ¸µ¯³öÀ´
+	//ä¸è®©å·¥å…·æ å¼¹å‡ºæ¥
 	nt->getNavigaitonBar()->push();
 	nt->getBottomBar()->push();
 
@@ -181,7 +181,7 @@ NGui::StickyNote* NGui::StickyNotePool::CreatStickyNote(std::shared_ptr<NF::Stic
 	std::vector<StickyNote*>& pool = GetInstance()->pool;
 	pool.push_back(nt);
 
-	//³õÊ¼»¯¹¤¾ßÀ¸
+	//åˆå§‹åŒ–å·¥å…·æ 
 	auto setting = Setting::GetInstance();
 	std::vector<ActionCommandTypes> cmdTypes;
 	for (auto iter = setting->cmdState.begin(); iter != setting->cmdState.end(); iter++)
@@ -190,7 +190,7 @@ NGui::StickyNote* NGui::StickyNotePool::CreatStickyNote(std::shared_ptr<NF::Stic
 		cmdTypes.push_back(types);
 	}
 	nt->updateToolBar(cmdTypes);
-	//²»ÈÃ¹¤¾ßÀ¸µ¯³öÀ´
+	//ä¸è®©å·¥å…·æ å¼¹å‡ºæ¥
 	nt->getNavigaitonBar()->push();
 	nt->getBottomBar()->push();
 
@@ -200,14 +200,14 @@ NGui::StickyNote* NGui::StickyNotePool::CreatStickyNote(std::shared_ptr<NF::Stic
 
 void NGui::StickyNotePool::reloadSetting()
 {
-	//ÔØÈëÅäÖÃ
+	//è½½å…¥é…ç½®
 	GetInstance()->loadSetting();
-	//ÖØĞÂÉèÖÃ±ã¼ãÊôĞÔ
+	//é‡æ–°è®¾ç½®ä¾¿ç¬ºå±æ€§
 	auto setting = Setting::GetInstance();
 	auto pool = GetInstance()->pool;
 	for (auto stickyNote : pool)
 	{
-		//»ñÈ¡Ô­À´µÄ×´Ì¬£¬Èç¹û×´Ì¬Ò»ÖÂÔò²»×ö´¦Àí
+		//è·å–åŸæ¥çš„çŠ¶æ€ï¼Œå¦‚æœçŠ¶æ€ä¸€è‡´åˆ™ä¸åšå¤„ç†
 		bool toolMod = GetInstance()->stickyNoteToolMod;
 		if (toolMod != setting->stickyNoteToolMod->getValue())
 		{
@@ -236,7 +236,7 @@ void NGui::StickyNotePool::magneticStickyNote(StickyNote* note)
 }
 
 /**
-* @brief NGui::StickyNotePool::toDeskCenter  ½«´°¿ÚÖÁÓÚÆÁÄ»µÄÖĞĞÄ
+* @brief NGui::StickyNotePool::toDeskCenter  å°†çª—å£è‡³äºå±å¹•çš„ä¸­å¿ƒ
 * @param std::shared_ptr<NF::StickyNote> note
 * @return void
 */
@@ -248,9 +248,9 @@ void NGui::StickyNotePool::toDeskCenter(std::shared_ptr<NF::StickyNote> note)
 	QRect screenGeometry = primaryScreen->geometry();
 	desktopCenter = screenGeometry.center();
 #else
-	// »ñÈ¡×ÀÃæ¶ÔÏó
+	// è·å–æ¡Œé¢å¯¹è±¡
 	QDesktopWidget* desktop = QApplication::desktop();
-	// »ñÈ¡×ÀÃæÖĞĞÄµã×ø±ê
+	// è·å–æ¡Œé¢ä¸­å¿ƒç‚¹åæ ‡
 	desktopCenter = desktop->availableGeometry().center();
 #endif
 
@@ -262,12 +262,12 @@ void NGui::StickyNotePool::toDeskCenter(std::shared_ptr<NF::StickyNote> note)
 
 
 /**
-* @brief NGui::StickyNotePool::initPos  ³õÊ¼»¯´°¿ÚÎ»ÖÃ£¬±ÜÃâ´°¿ÚÖØµş
+* @brief NGui::StickyNotePool::initPos  åˆå§‹åŒ–çª—å£ä½ç½®ï¼Œé¿å…çª—å£é‡å 
 * @param StickyNote * note
 * @return void
 */
 void NGui::StickyNotePool::initPos(StickyNote* note)
 {
-	//ÔİÊ±Î´ÏëºÃÈçºÎ¹æ±ÜÎ»ÖÃÖØ¸´ÎÊÌâ
+	//æš‚æ—¶æœªæƒ³å¥½å¦‚ä½•è§„é¿ä½ç½®é‡å¤é—®é¢˜
 }
 

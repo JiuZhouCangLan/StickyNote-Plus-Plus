@@ -1,112 +1,113 @@
 #include "ToolButtonColor.h"
 
-#include <QPainter>
 #include <QColorDialog>
-namespace OriginUI {
-	class ToolButtonColorD {
-	public:
-		ToolButtonColorD();
-		~ToolButtonColorD();
-	public:
-		QColor color;
-		QIcon icon;
-		bool hover;
-		QColor hoverCover;
-		QToolButton *settingButton;
-		bool settingEnable;
-	};
-
-	ToolButtonColorD::ToolButtonColorD()
-		:color(Qt::white), hover(false), hoverCover(0, 0, 0, 50),
-		icon(":icon/slection.svg"), settingEnable(false),settingButton(nullptr)
-	{
-		
-	}
-
-	ToolButtonColorD::~ToolButtonColorD()
-	{
-		delete settingButton;
-	}
-
-}
-
-OriginUI::ToolButtonColor::ToolButtonColor(QWidget* parent /*= 0*/)
-	:QToolButton(parent)
+#include <QPainter>
+namespace OriginUI
 {
-	d = new ToolButtonColorD();
-	setCheckable(true);
-	setMinimumSize(20, 20);
+    class ToolButtonColorD
+    {
+    public:
+        ToolButtonColorD();
+        ~ToolButtonColorD();
 
-	//ÉèÖÃÍ¸Ã÷±³¾°
-	setStyleSheet("background:transparent; border - width:0; border - style:outset");
+    public:
+        QColor color;
+        QIcon icon;
+        bool hover;
+        QColor hoverCover;
+        QToolButton* settingButton;
+        bool settingEnable;
+    };
+
+    ToolButtonColorD::ToolButtonColorD()
+        : color(Qt::white)
+        , icon(":icon/slection.svg")
+        , hover(false)
+        , hoverCover(0, 0, 0, 50)
+        , settingButton(nullptr)
+        , settingEnable(false)
+    {}
+
+    ToolButtonColorD::~ToolButtonColorD()
+    {
+        delete settingButton;
+    }
+
+} // namespace OriginUI
+
+OriginUI::ToolButtonColor::ToolButtonColor(QWidget* parent /*= 0*/) : QToolButton(parent)
+{
+    d = new ToolButtonColorD();
+    setCheckable(true);
+    setMinimumSize(20, 20);
+
+    // è®¾ç½®é€æ˜èƒŒæ™¯
+    setStyleSheet("background:transparent; border - width:0; border - style:outset");
 }
 
 OriginUI::ToolButtonColor::~ToolButtonColor()
-{
-
-}
+{}
 
 void OriginUI::ToolButtonColor::setColor(const QColor& c)
 {
-	d->color = c;
+    d->color = c;
 }
 
 QColor OriginUI::ToolButtonColor::getColor()
 {
-	return d->color;
+    return d->color;
 }
 
 void OriginUI::ToolButtonColor::setSettingButtonEnable(const bool& b)
 {
-	if (b)
-		addSettingButton();
-	else
-		removeSettingButton();
-	d->settingEnable = b;
+    if (b)
+        addSettingButton();
+    else
+        removeSettingButton();
+    d->settingEnable = b;
 }
 
 bool OriginUI::ToolButtonColor::getSettingButtonEnable()
 {
-	return d->settingEnable;
+    return d->settingEnable;
 }
 
 void OriginUI::ToolButtonColor::setIcon(const QIcon& icon)
 {
-	d->icon = icon;
+    d->icon = icon;
 }
 
 void OriginUI::ToolButtonColor::settingButtonClicked(bool)
 {
-	auto color = QColorDialog::getColor(d->color, nullptr,
-										QString::fromLocal8Bit("×Ô¶¨Òå°´Å¥ÑÕÉ«"),
-										QColorDialog::ColorDialogOption::ShowAlphaChannel);
-	color = color.isValid() ? color : d->color;
-	setColor(color);
-	if (isChecked())
-		Q_EMIT clicked(false);
+    auto color = QColorDialog::getColor(d->color, nullptr, "è‡ªå®šä¹‰æŒ‰é’®é¢œè‰²", QColorDialog::ColorDialogOption::ShowAlphaChannel);
+    color = color.isValid() ? color : d->color;
+    setColor(color);
+    if (isChecked())
+        Q_EMIT clicked(false);
 }
 
 void OriginUI::ToolButtonColor::paintEvent(QPaintEvent* event)
 {
+    QPainter painter(this);
+    painter.fillRect(this->rect(), QBrush(d->color));
 
- 	QPainter painter(this);
- 	painter.fillRect(this->rect(),QBrush(d->color));
+    if (d->hover)
+        painter.fillRect(this->rect(), QBrush(d->hoverCover));
 
-	if (d->hover)
-		painter.fillRect(this->rect(), QBrush(d->hoverCover));
-
-	QToolButton::paintEvent(event);
+    QToolButton::paintEvent(event);
 }
 
 void OriginUI::ToolButtonColor::checkStateSet()
 {
-	QToolButton::checkStateSet();
-	if (isChecked())
-	{
-		QToolButton::setIcon(d->icon);
-	}else {
-		QToolButton::setIcon(QIcon());
-	}
+    QToolButton::checkStateSet();
+    if (isChecked())
+    {
+        QToolButton::setIcon(d->icon);
+    }
+    else
+    {
+        QToolButton::setIcon(QIcon());
+    }
 }
 
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
@@ -115,71 +116,69 @@ void OriginUI::ToolButtonColor::enterEvent(QEnterEvent* event)
 void OriginUI::ToolButtonColor::enterEvent(QEvent* event)
 #endif
 {
-	QToolButton::enterEvent(event);
-	d->hover = true;
+    QToolButton::enterEvent(event);
+    d->hover = true;
 }
 
 void OriginUI::ToolButtonColor::leaveEvent(QEvent* event)
 {
-	QToolButton::leaveEvent(event);
-	d->hover = false;
+    QToolButton::leaveEvent(event);
+    d->hover = false;
 }
 
 void OriginUI::ToolButtonColor::resizeEvent(QResizeEvent* event)
 {
-	QToolButton::resizeEvent(event);
+    QToolButton::resizeEvent(event);
 
+    // æ”¹å˜è‡ªèº«å›¾æ ‡å¤§å°
+    double sacle = 0.5;
+    auto w = width() > height() ? height() : width();
+    setIconSize(QSize(w * sacle, w * sacle));
 
-	//¸Ä±ä×ÔÉíÍ¼±ê´óĞ¡
-	double sacle = 0.5;
-	auto w = width() > height() ? height() : width();
-	setIconSize(QSize(w*sacle, w*sacle));
-
-	//¸Ä±äÉèÖÃÍ¼±êµÄ´óĞ¡ÓëÎ»ÖÃ
-	autoSettingState();
+    // æ”¹å˜è®¾ç½®å›¾æ ‡çš„å¤§å°ä¸ä½ç½®
+    autoSettingState();
 }
 
-void test() {
-};
+void test() {};
 void OriginUI::ToolButtonColor::addSettingButton()
 {
-	if (d->settingButton)
-		return;
+    if (d->settingButton)
+        return;
 
-	//³õÊ¼»¯ÓÒÏÂ½Ç´°¿Ú
-	d->settingButton = new QToolButton(this);
-	d->settingButton->setIcon(QIcon(":icon/setting.svg"));
-	d->settingButton->setMinimumSize(20, 20);
-	d->settingButton->setToolTip(QString::fromLocal8Bit("×Ô¶¨ÒåÑÕÉ«"));
-	d->settingButton->setStyleSheet("QToolButton:hover{ margin-top:0px;margin-left:0px;}\
+    // åˆå§‹åŒ–å³ä¸‹è§’çª—å£
+    d->settingButton = new QToolButton(this);
+    d->settingButton->setIcon(QIcon(":icon/setting.svg"));
+    d->settingButton->setMinimumSize(20, 20);
+    d->settingButton->setToolTip(QString::fromLocal8Bit("è‡ªå®šä¹‰é¢œè‰²"));
+    d->settingButton->setStyleSheet("QToolButton:hover{ margin-top:0px;margin-left:0px;}\
 					QToolButton{ margin-top:2px;margin-left:2px;}");
 
-	connect(d->settingButton, SIGNAL(clicked(bool)), this, SLOT(settingButtonClicked(bool)));
-	autoSettingState();
+    connect(d->settingButton, SIGNAL(clicked(bool)), this, SLOT(settingButtonClicked(bool)));
+    autoSettingState();
 }
 
 void OriginUI::ToolButtonColor::removeSettingButton()
 {
-	if (!d->settingButton)
-		return;
-	delete d->settingButton;
-	d->settingButton = nullptr;
+    if (!d->settingButton)
+        return;
+    delete d->settingButton;
+    d->settingButton = nullptr;
 }
 
 void OriginUI::ToolButtonColor::autoSettingButtonSize()
 {
-	if (!d->settingButton)
-		return;
-	double sacle = 0.3;
-	double w = width() > height() ? height() : width();
-	d->settingButton->resize(w * sacle, w * sacle);
-	d->settingButton->setIconSize(d->settingButton->size());
+    if (!d->settingButton)
+        return;
+    double sacle = 0.3;
+    double w = width() > height() ? height() : width();
+    d->settingButton->resize(w * sacle, w * sacle);
+    d->settingButton->setIconSize(d->settingButton->size());
 }
 
 void OriginUI::ToolButtonColor::autoSettingButtonPos()
 {
-	if (!d->settingButton)
-		return;
+    if (!d->settingButton)
+        return;
 
 #if 0
 	auto w = width();
@@ -189,22 +188,20 @@ void OriginUI::ToolButtonColor::autoSettingButtonPos()
 	auto y = height() - d->settingButton->height() - padding;
 	d->settingButton->move(x, y);
 #else
-	int padding = 4;
-	auto x = width() - d->settingButton->width() - padding;
-	auto y = height() - d->settingButton->height() - padding;
-	d->settingButton->move(x,y);
+    int padding = 4;
+    auto x = width() - d->settingButton->width() - padding;
+    auto y = height() - d->settingButton->height() - padding;
+    d->settingButton->move(x, y);
 #endif
-	
 }
 
 /**
-* @brief OriginUI::ToolButtonColor::autoSettingState ×Ô¶¯µ÷ÕûÉèÖÃ°´Å¥×´Ì¬
-* @return void
-*/
+ * @brief OriginUI::ToolButtonColor::autoSettingState è‡ªåŠ¨è°ƒæ•´è®¾ç½®æŒ‰é’®çŠ¶æ€
+ * @return void
+ */
 void OriginUI::ToolButtonColor::autoSettingState()
 {
-	//ÏÈµ÷Õû´óĞ¡ÔÙÉèÖÃÎ»ÖÃ£¬ÒòÎªÎ»ÖÃĞèÒªÊ¹ÓÃ´óĞ¡¼ÆËã
-	autoSettingButtonSize();
-	autoSettingButtonPos();
+    // å…ˆè°ƒæ•´å¤§å°å†è®¾ç½®ä½ç½®ï¼Œå› ä¸ºä½ç½®éœ€è¦ä½¿ç”¨å¤§å°è®¡ç®—
+    autoSettingButtonSize();
+    autoSettingButtonPos();
 }
-

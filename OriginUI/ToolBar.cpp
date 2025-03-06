@@ -13,16 +13,16 @@ namespace OriginUI {
 		ToolBarD();
 		~ToolBarD();
 
-		//¶¯»­´°¿Ú
+		//åŠ¨ç”»çª—å£
 		DrawerWidget* drawerWidget; 
-		//³ĞÔØÖ÷ÒªÄÚÈİµÄ´°¿Ú
+		//æ‰¿è½½ä¸»è¦å†…å®¹çš„çª—å£
 		QWidget* toolBar;
-		//¿ØÖÆ¶¯»­´°¿ÚÊÇ·ñ×Ô¶¯µ¯³ö»òÕßÊÕ»Ø
+		//æ§åˆ¶åŠ¨ç”»çª—å£æ˜¯å¦è‡ªåŠ¨å¼¹å‡ºæˆ–è€…æ”¶å›
 		bool autoPop, autoPush;
-		//ÓÃÓÚ¼ÇÂ¼²åÈëµÄ´°¿Ú
+		//ç”¨äºè®°å½•æ’å…¥çš„çª—å£
 		std::vector<QWidget*> insertWidgets;
-		//µ¯³ö´°¿ÚµÄ¸ß¶È
-		//¸ß¶ÈÒ»Ö±±£³Ö²»±ä
+		//å¼¹å‡ºçª—å£çš„é«˜åº¦
+		//é«˜åº¦ä¸€ç›´ä¿æŒä¸å˜
 		
 
 	};
@@ -93,7 +93,7 @@ void OriginUI::ToolBar::initGui(DrawerWidget* dw /*= nullptr*/)
 
 
 /**
-* @brief OriginUI::ToolBar::addWidget ÔÚµ±ĞĞÀ¸ÖĞÔö¼Ówidget £¬Ä¬ÈÏÊ¹ÓÃË®Æ½²¼¾Ö£¬ÏòÓÒ¿¿Â£
+* @brief OriginUI::ToolBar::addWidget åœ¨å½“è¡Œæ ä¸­å¢åŠ widget ï¼Œé»˜è®¤ä½¿ç”¨æ°´å¹³å¸ƒå±€ï¼Œå‘å³é æ‹¢
 * @param QWidget * Widget
 * @return void
 */
@@ -187,10 +187,10 @@ namespace OriginUI {
 	class ToolBarDynamicD {
 	public:
 		ToolBarDynamicD();
-		//¹¤¾ßÀ¸µÄ¸ß¶È
-		//Õâ¸ö¸ß¶È²»ËæÖ÷´°¿ÚµÄ´óĞ¡±ä»¯¶ø±ä»¯
+		//å·¥å…·æ çš„é«˜åº¦
+		//è¿™ä¸ªé«˜åº¦ä¸éšä¸»çª—å£çš„å¤§å°å˜åŒ–è€Œå˜åŒ–
 		int height;
-		//´°¿Ú±ä»¯Ê±µÄ×îĞ¡¸ß¶È
+		//çª—å£å˜åŒ–æ—¶çš„æœ€å°é«˜åº¦
 		int miniHeight;
 	};
 
@@ -244,7 +244,7 @@ void OriginUI::ToolBarDynamic::push()
 }
 
 /**
-* @brief OriginUI::ToolBarDynamic::drawerWidgetMove µ±µ¯³ö´°¿ÚÒÆ¶¯Ê±£¬¸Ä±äÖ÷´°¿ÚµÄ´óĞ¡£¬ÊµÏÖÕû¸ö´°¿ÚÒş²ØµÄĞ§¹û
+* @brief OriginUI::ToolBarDynamic::drawerWidgetMove å½“å¼¹å‡ºçª—å£ç§»åŠ¨æ—¶ï¼Œæ”¹å˜ä¸»çª—å£çš„å¤§å°ï¼Œå®ç°æ•´ä¸ªçª—å£éšè—çš„æ•ˆæœ
 * @param QPoint point
 * @return void
 */
@@ -253,15 +253,15 @@ void OriginUI::ToolBarDynamic::drawerWidgetMove(QPoint point)
 	auto drawerWidgetSize = getDrawerWidget()->size();
 	int h = drawerWidgetSize.height() + point.y();
 
-	//µ±¸ß¶ÈĞ¡ÓÚ×îĞ¡¸ß¶ÈÊ±°´ÕÕ×îĞ¡¸ß¶È¸Ä±ä´óĞ¡
+	//å½“é«˜åº¦å°äºæœ€å°é«˜åº¦æ—¶æŒ‰ç…§æœ€å°é«˜åº¦æ”¹å˜å¤§å°
 	h = h > d->miniHeight ? h : d->miniHeight;
 
 	setFixedHeight(h);
 }
 
 /**
-* @brief OriginUI::ToolBarDynamic::resizeEvent ToolBarÖĞÉèÖÃÁËÈÃµ¯³ö´°¿Ú¸úËæÖ÷´°¿ÚµÄµÄ´óĞ¡±ä»¯¶ø±ä»¯
-* ÔÙÕâÀïÖØĞÂ½«»úÖÆÉèÖÃÎª£¬Ö»ÓĞ¿í¶È¸úËæÖ÷´°¿Ú±ä»¯¡£
+* @brief OriginUI::ToolBarDynamic::resizeEvent ToolBarä¸­è®¾ç½®äº†è®©å¼¹å‡ºçª—å£è·Ÿéšä¸»çª—å£çš„çš„å¤§å°å˜åŒ–è€Œå˜åŒ–
+* å†è¿™é‡Œé‡æ–°å°†æœºåˆ¶è®¾ç½®ä¸ºï¼Œåªæœ‰å®½åº¦è·Ÿéšä¸»çª—å£å˜åŒ–ã€‚
 * @param QResizeEvent * event
 * @return void
 */

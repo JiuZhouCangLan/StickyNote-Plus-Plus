@@ -60,7 +60,7 @@ void NGui::NoteTextEdit::loadNote(const std::shared_ptr<NF::StickyNote> note)
  	textDoc->setHtml(QString::fromStdString(textNode->contentText.getValue()));
 	setDocument(textDoc);
 	
-	//½«ÎÄ±¾¹â±êÖÃÓÚ¶¥²¿
+	//å°†æ–‡æœ¬å…‰æ ‡ç½®äºé¡¶éƒ¨
 	auto cursor = textCursor();
 	cursor.setPosition(0);
 	setTextCursor(cursor);
@@ -131,7 +131,7 @@ void NGui::NoteTextEdit::insertFromMimeData(const QMimeData* source)
 			if(endName != "jpg" && endName !="png"&& endName!="gif")
 				continue;
 			QString p = url.path();
-			//ÍÏ×§¹ıÀ´µÄÂ·¾¶»áÓĞ¶àÓàµÄ×Ö·û
+			//æ‹–æ‹½è¿‡æ¥çš„è·¯å¾„ä¼šæœ‰å¤šä½™çš„å­—ç¬¦
 			p = p.right(p.length() - 1);
 			QImage image;
 			image.load(p);
@@ -152,15 +152,15 @@ void NGui::NoteTextEdit::resizeEvent(QResizeEvent* e)
 void NGui::NoteTextEdit::timerEvent(QTimerEvent* e)
 {
 	/*
-	ÎªÁË±ÜÃâµ÷½Ú´°¿Ú´óĞ¡Ê±Æµ·±µÄµ÷ÓÃ×Ô¶¯µ÷½Ú´óĞ¡º¯Êı£¬
-	ÉèÖÃÎª100msµ÷ÓÃÒ»´Î¡£
+	ä¸ºäº†é¿å…è°ƒèŠ‚çª—å£å¤§å°æ—¶é¢‘ç¹çš„è°ƒç”¨è‡ªåŠ¨è°ƒèŠ‚å¤§å°å‡½æ•°ï¼Œ
+	è®¾ç½®ä¸º100msè°ƒç”¨ä¸€æ¬¡ã€‚
 	*/
 	if (e->timerId() == autoImageSizeTimerID)
 	{
 		QSize size(this->width(), this->height());
 		/*
-		* ÓÉÓÚÊ¹ÓÃ¶àÏß³Ì£¬¿ÉÄÜ»áÔÚ´°¿Ú¹Ø±ÕÊ±£¬Ïß³Ì»¹ÔÚÔËĞĞ¡£
-		* Õâ¸öÊ±ºò·¢ËÍĞÅºÅ»áÒı·¢Òì³££¬Ã»½â¾öÕâ¸öÎÊÌâÇ°ÔİÊ±²»Ê¹ÓÃ¶àÏß³Ì
+		* ç”±äºä½¿ç”¨å¤šçº¿ç¨‹ï¼Œå¯èƒ½ä¼šåœ¨çª—å£å…³é—­æ—¶ï¼Œçº¿ç¨‹è¿˜åœ¨è¿è¡Œã€‚
+		* è¿™ä¸ªæ—¶å€™å‘é€ä¿¡å·ä¼šå¼•å‘å¼‚å¸¸ï¼Œæ²¡è§£å†³è¿™ä¸ªé—®é¢˜å‰æš‚æ—¶ä¸ä½¿ç”¨å¤šçº¿ç¨‹
 		*/
 		//QtConcurrent::run(this, &NGui::NoteTextEdit::autoImageSize, toHtml(),size);
 		autoImageSize(toHtml(), size);
@@ -182,15 +182,15 @@ void NGui::NoteTextEdit::buttonLowerClicked(bool)
 void NGui::NoteTextEdit::slotSetHtml(QString html)
 {
 	/*
-	* ÒòÎªÕâÀïµÄµ÷Õû£¬ÓĞ¿ÉÄÜÊÇÔÚÓÃ»§ÕıÔÚÊ¹ÓÃµÄÊ±ºò
-	* ËùÒÔÎªÁË±£Ö¤ÓÃ»§Ã»ÓĞ±»µ÷ÕûµÄ¸Ğ¾õ£¬ĞèÒªÉèÖÃhtmlÖ®ºó£¬¹â±êÓë´¹Ö±¹ö¶¯ÌõµÄÎ»ÖÃ²»·¢Éú±ä»¯
-	* ÔÚÉèÖÃÎÄ±¾Ö®Ç°£¬ÏÈ»ñÈ¡¹â±êºÍ¹ö¶¯ÌõµÄÊı¾İ£¬ÉèÖÃÍê³ÉÖ®ºóÔÙ½«ÖµÉèÖÃ»ØÈ¥¡£
+	* å› ä¸ºè¿™é‡Œçš„è°ƒæ•´ï¼Œæœ‰å¯èƒ½æ˜¯åœ¨ç”¨æˆ·æ­£åœ¨ä½¿ç”¨çš„æ—¶å€™
+	* æ‰€ä»¥ä¸ºäº†ä¿è¯ç”¨æˆ·æ²¡æœ‰è¢«è°ƒæ•´çš„æ„Ÿè§‰ï¼Œéœ€è¦è®¾ç½®htmlä¹‹åï¼Œå…‰æ ‡ä¸å‚ç›´æ»šåŠ¨æ¡çš„ä½ç½®ä¸å‘ç”Ÿå˜åŒ–
+	* åœ¨è®¾ç½®æ–‡æœ¬ä¹‹å‰ï¼Œå…ˆè·å–å…‰æ ‡å’Œæ»šåŠ¨æ¡çš„æ•°æ®ï¼Œè®¾ç½®å®Œæˆä¹‹åå†å°†å€¼è®¾ç½®å›å»ã€‚
 	*/
 	auto cursorPos = textCursor().position();
-	// »ñÈ¡´¹Ö±¹ö¶¯Ìõ
+	// è·å–å‚ç›´æ»šåŠ¨æ¡
 	QScrollBar* verticalScrollBar = this->verticalScrollBar();
 
-	// »ñÈ¡¹ö¶¯ÌõµÄµ±Ç°Î»ÖÃ
+	// è·å–æ»šåŠ¨æ¡çš„å½“å‰ä½ç½®
 	int scrollPosition = verticalScrollBar->value();
 	setHtml(html);
 	auto cursor = textCursor();
@@ -203,8 +203,8 @@ void NGui::NoteTextEdit::slotSetHtml(QString html)
 void NGui::NoteTextEdit::autoImageSize(const QString& ht, const QSize& widgetSize)
 {
 	/*
-	* Èç¹ûÍ¼Æ¬¿í¶ÈĞ¡ÓÚ´°¿Ú¿í¶È£¬Ôò²»¸Ä±ä´óĞ¡¡£
-	* Èç¹û´óÓÚ´°¿Ú¿í¶È£¬½«¿í¶ÈËõĞ¡Óë´°¿ÚÒ»ÖÂ£¬È»ºó½«¸ß¶È°´ÕÕ¿í¶ÈµÄËõ·Å±ÈÀıµÈ±ÈÀıËõĞ¡¡£
+	* å¦‚æœå›¾ç‰‡å®½åº¦å°äºçª—å£å®½åº¦ï¼Œåˆ™ä¸æ”¹å˜å¤§å°ã€‚
+	* å¦‚æœå¤§äºçª—å£å®½åº¦ï¼Œå°†å®½åº¦ç¼©å°ä¸çª—å£ä¸€è‡´ï¼Œç„¶åå°†é«˜åº¦æŒ‰ç…§å®½åº¦çš„ç¼©æ”¾æ¯”ä¾‹ç­‰æ¯”ä¾‹ç¼©å°ã€‚
 	*/
 	QString html = ht;
 	pugi::xml_document doc;
@@ -213,7 +213,7 @@ void NGui::NoteTextEdit::autoImageSize(const QString& ht, const QSize& widgetSiz
 	if (!re)
 		return;
 	/*
-		ÕâÀïÖ»µ÷ÕûbodyÖĞµÄÄÚÈİ£¬·ñÔòµ÷ÕûÖ®ºó½«ÄÚÈİÖØĞÂÉèÖÃ»ØÈ¥»áÌí¼Ó¶àÓàµÄ¿Õ°×ĞĞ
+		è¿™é‡Œåªè°ƒæ•´bodyä¸­çš„å†…å®¹ï¼Œå¦åˆ™è°ƒæ•´ä¹‹åå°†å†…å®¹é‡æ–°è®¾ç½®å›å»ä¼šæ·»åŠ å¤šä½™çš„ç©ºç™½è¡Œ
 	*/
 	{
 		pugi::xml_node node = doc.child("html");
@@ -230,7 +230,7 @@ void NGui::NoteTextEdit::autoImageSize(const QString& ht, const QSize& widgetSiz
 	ndoc.save(stream);
 	html = QString::fromStdString(stream.str());
 	//html = html.simplified();
-	//ÓÃĞÅºÅ´¥·¢ÉèÖÃ£¬ÒòÎªÕâÀïÒªÊ¹ÓÃ¶àÏß³Ìµ÷ÓÃ
+	//ç”¨ä¿¡å·è§¦å‘è®¾ç½®ï¼Œå› ä¸ºè¿™é‡Œè¦ä½¿ç”¨å¤šçº¿ç¨‹è°ƒç”¨
 	emitSetHtml(html);
 }
 

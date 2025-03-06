@@ -35,36 +35,36 @@ namespace NGui {
 
 		void initActionCommand();
 		void setBackgroundColor(const QColor& color);
-		//¸ù¾İÉÏÏÂ¹¤¾ßÀ¸µÄ´óĞ¡¸ø³ö´°¿Ú×îĞ¡´óĞ¡
+		//æ ¹æ®ä¸Šä¸‹å·¥å…·æ çš„å¤§å°ç»™å‡ºçª—å£æœ€å°å¤§å°
 		QSize getNodeMiniSize();
 
 		QToolButton* creatToolButton();
 		OriginUI::ToolBarDynamic *navigationBar;
-		OriginUI::ToolBar * bottomToolbar; //µ¼º½Ìõ
-		OriginUI::DrawerWidgetTraceMouse* traceMouse; //µ¼º½ÌõÖĞµÄÊó±êÒÆ¶¯´°¿Ú
-		ColorDrawerWidget* colorBar;	//ÑÕÉ«ÉèÖÃµ¯³ö´°¿Ú
-		ColorWidget* colorWidget;		//ÑÕÉ«ÉèÖÃ´°¿Ú
-		//NoteTextEdit* noteTextEdit; // ±à¼­Æ÷
-		QVBoxLayout* layout;	//²¼¾Ö¶ÔÏó
-		QWidget* contentWidget;	//³ĞÔØ±ã¼ãÄÚÈİ
-		StickyNoteContent* noteContent;	//±ã¼ãÄÚÈİ
+		OriginUI::ToolBar * bottomToolbar; //å¯¼èˆªæ¡
+		OriginUI::DrawerWidgetTraceMouse* traceMouse; //å¯¼èˆªæ¡ä¸­çš„é¼ æ ‡ç§»åŠ¨çª—å£
+		ColorDrawerWidget* colorBar;	//é¢œè‰²è®¾ç½®å¼¹å‡ºçª—å£
+		ColorWidget* colorWidget;		//é¢œè‰²è®¾ç½®çª—å£
+		//NoteTextEdit* noteTextEdit; // ç¼–è¾‘å™¨
+		QVBoxLayout* layout;	//å¸ƒå±€å¯¹è±¡
+		QWidget* contentWidget;	//æ‰¿è½½ä¾¿ç¬ºå†…å®¹
+		StickyNoteContent* noteContent;	//ä¾¿ç¬ºå†…å®¹
 
 
-		StickyNoteSlot* noteSlot;	//cmd²Ûº¯Êı´¦ÀíÆ÷
+		StickyNoteSlot* noteSlot;	//cmdæ§½å‡½æ•°å¤„ç†å™¨
 		using ActionCommands = std::map<std::string, ActionCommand*>;
-		ActionCommands actions;	//action¼¯
-		std::shared_ptr<NF::StickyNote> note; //Êı¾İ
+		ActionCommands actions;	//actioné›†
+		std::shared_ptr<NF::StickyNote> note; //æ•°æ®
 
-		//±³¾°ÑÕÉ«
+		//èƒŒæ™¯é¢œè‰²
 		QColor backgroundColor;
-		std::vector<ActionCommandTypes> topCmd, bottomCmd; //¶¥²¿°´Å¥¡¢µ×²¿°´Å¥
-		//ÊÇ·ñË¢ĞÂcmd×´Ì¬
+		std::vector<ActionCommandTypes> topCmd, bottomCmd; //é¡¶éƒ¨æŒ‰é’®ã€åº•éƒ¨æŒ‰é’®
+		//æ˜¯å¦åˆ·æ–°cmdçŠ¶æ€
 		bool updateCmdState;
-		//´°¿ÚÊÇ·ñÖÃÓÚµ×²ã
+		//çª—å£æ˜¯å¦ç½®äºåº•å±‚
 		bool onlyBottom;
-		//ÃüÁî¿ì½İ¼ü
+		//å‘½ä»¤å¿«æ·é”®
 		std::map<QShortcut*, ActionCommand*> shortcuts;
-		//¼ÇÂ¼´°¿ÚÔÚÈÎÎñÀ¸ÖĞÏÔÊ¾µÄ×´Ì¬
+		//è®°å½•çª—å£åœ¨ä»»åŠ¡æ ä¸­æ˜¾ç¤ºçš„çŠ¶æ€
 		bool stickyNoteToolMod;
 
 	};
@@ -74,13 +74,13 @@ namespace NGui {
 		onlyBottom = false;
 		updateCmdState = false;
 		stickyNoteToolMod = false;
-		//³õÊ¼»¯±³¾°É«
+		//åˆå§‹åŒ–èƒŒæ™¯è‰²
 		backgroundColor = QColor(255, 247, 209);
 
-		//³õÊ¼¹ş²Û´¦ÀíÆ÷
+		//åˆå§‹å“ˆæ§½å¤„ç†å™¨
 		noteSlot = new StickyNoteSlot();
 
-		//³õÊ¼»¯µ¼º½À¸
+		//åˆå§‹åŒ–å¯¼èˆªæ 
 		traceMouse = new OriginUI::DrawerWidgetTraceMouse();
 		traceMouse->setPopTime(200);
 		traceMouse->setPushTime(1000);
@@ -100,7 +100,7 @@ namespace NGui {
 		bottomToolbar->setAutoPush(false);
 		navigationBar->setAutoPop(false);
 
-		//³õÊ¼»¯²¼¾Ö
+		//åˆå§‹åŒ–å¸ƒå±€
 		layout = new QVBoxLayout();
 		layout->setSpacing(0);
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
@@ -194,7 +194,7 @@ namespace NGui {
 
 	void StickyNote::addActionCommand()
 	{
-		//ÏÈÇå³ıÖ®Ç°µÄ
+		//å…ˆæ¸…é™¤ä¹‹å‰çš„
 		d->navigationBar->clear();
 		d->bottomToolbar->clear();
 		addActionCommand(d->topCmd, d->navigationBar);
@@ -207,7 +207,7 @@ namespace NGui {
 	}
 
 	/**
-	* @brief NGui::StickyNoteD::setBackgroundColor ÉèÖÃÖ®Ç°¼ì²âÍ¸Ã÷¶È£¬±ÜÃâÍ¸Ã÷¶ÈÎª0 µ¼ÖÂ´°¿ÚÎŞ·¨»ñÈ¡½¹µã
+	* @brief NGui::StickyNoteD::setBackgroundColor è®¾ç½®ä¹‹å‰æ£€æµ‹é€æ˜åº¦ï¼Œé¿å…é€æ˜åº¦ä¸º0 å¯¼è‡´çª—å£æ— æ³•è·å–ç„¦ç‚¹
 	* @param const QColor & color
 	* @return void
 	*/
@@ -224,8 +224,8 @@ namespace NGui {
 	QSize StickyNoteD::getNodeMiniSize()
 	{
 		/*
-		*	µÃ³öÓĞĞ§ÉÏÏÂ¹¤¾ßÀ¸ÖĞÓĞĞ§¹¤¾ßµÄ¸öÊı
-		*	ÒÔ×î¶à¹¤¾ßÎª×¼£¬Ôö¼Ó×îĞ¡¿í¶È
+		*	å¾—å‡ºæœ‰æ•ˆä¸Šä¸‹å·¥å…·æ ä¸­æœ‰æ•ˆå·¥å…·çš„ä¸ªæ•°
+		*	ä»¥æœ€å¤šå·¥å…·ä¸ºå‡†ï¼Œå¢åŠ æœ€å°å®½åº¦
 		*/
 		int topCount = 0, bottomCount = 0;
 
@@ -284,23 +284,23 @@ void NGui::StickyNote::loadNote(std::shared_ptr<NF::StickyNote> nt)
 {
 	auto note = nt;
 	d->note = note;
-	//³õÊ¼»¯ÄÚÈİ
+	//åˆå§‹åŒ–å†…å®¹
 	d->noteContent->loadNote(nt);
 
-	//³õÊ¼»¯´óĞ¡ºÍÎ»ÖÃ
-	//Èç¹ûÎ»ÖÃ³¬³öÆÁÄ»Íâ  ¾ÀÕıÎª 0 0
+	//åˆå§‹åŒ–å¤§å°å’Œä½ç½®
+	//å¦‚æœä½ç½®è¶…å‡ºå±å¹•å¤–  çº æ­£ä¸º 0 0
 	int miniX = 0, miniY = 0;
 	note->posX = note->posX < miniX ? miniY : note->posX;
 	note->posY = note->posY < miniX ? miniY : note->posY;
 	move(note->posX, note->posY);
 
-	//Èç¹û´°¿Ú¹ıĞ¡Ôò¾ÀÕı
+	//å¦‚æœçª—å£è¿‡å°åˆ™çº æ­£
 	int miniWidth = 100, miniHeight = 100;
 	note->width = note->width < miniWidth ? miniWidth : note->width;
 	note->height = note->height < miniHeight ? miniHeight : note->height;
 	resize(note->width, note->height);
 
-	//³õÊ¼»¯±³¾°ÑÕÉ«
+	//åˆå§‹åŒ–èƒŒæ™¯é¢œè‰²
 	auto str = QString::fromStdString(note->customColor);
 	d->colorWidget->setCustomColor(QColor(str));
 	auto bcolor = QColor(QString::fromStdString(note->backgroundColor));
@@ -314,7 +314,7 @@ void NGui::StickyNote::loadNote(std::shared_ptr<NF::StickyNote> nt)
 	d->colorWidget->setButtonCheck(note->backgroundColorIndex);
 
 
-	//³õÊ¼»¯´°¿Ú×´Ì¬
+	//åˆå§‹åŒ–çª—å£çŠ¶æ€
 	switch (note->state)
 	{
 	case NF::StickyNote::PIN_ALWAYS_TOP:
@@ -331,7 +331,7 @@ void NGui::StickyNote::loadNote(std::shared_ptr<NF::StickyNote> nt)
 
 
 /**
-* @brief NGui::StickyNote::saveNote ±£´æÎÄ¼ş
+* @brief NGui::StickyNote::saveNote ä¿å­˜æ–‡ä»¶
 * @return void
 */
 void NGui::StickyNote::saveNote()
@@ -376,7 +376,7 @@ void NGui::StickyNote::saveNote()
 
 
 /**
-* @brief NGui::StickyNote::clearContent Çå¿Õ±ã¼ãµÄÄÚÈİ
+* @brief NGui::StickyNote::clearContent æ¸…ç©ºä¾¿ç¬ºçš„å†…å®¹
 * @return void
 */
 void NGui::StickyNote::clearContent()
@@ -399,7 +399,7 @@ void NGui::StickyNote::popColorSetting()
 	d->colorBar->pop();
 	d->colorBar->setFocus();
 	d->colorBar->raise();
-	//·ÀÖ¹ÎÄ±¾±à¼­Æ÷¶ªÊ§½¹µãºóµ¯»Øµ×²¿¹¤¾ßÀ¸
+	//é˜²æ­¢æ–‡æœ¬ç¼–è¾‘å™¨ä¸¢å¤±ç„¦ç‚¹åå¼¹å›åº•éƒ¨å·¥å…·æ 
 	d->bottomToolbar->pop();
 }
 
@@ -416,7 +416,7 @@ void NGui::StickyNote::connectSlot()
 	if(d->noteContent)
 		d->noteContent->connectStickyNote(this);
 
-	//³õÊ¼»¯ÑÕÉ«´°¿Ú
+	//åˆå§‹åŒ–é¢œè‰²çª—å£
 	connect(d->colorWidget, SIGNAL(colorChange(QColor)), this, SLOT(colorChange(QColor)));
 
 	d->noteSlot->setStickyNote(this);
@@ -427,7 +427,7 @@ void NGui::StickyNote::disConnectSlot()
 {
 
 	disconnect(d->traceMouse, SIGNAL(mouseMove(QPoint)), this, SLOT(navigaitonBarMouseMove(QPoint)));
-	//³õÊ¼»¯ÑÕÉ«´°¿Ú
+	//åˆå§‹åŒ–é¢œè‰²çª—å£
 	disconnect(d->colorWidget, SIGNAL(colorChange(QColor)), this, SLOT(colorChange(QColor)));
 	if(d->noteContent)
 		d->noteContent->disConnectStickyNote(this);
@@ -443,7 +443,7 @@ void NGui::StickyNote::disConnectSlot()
 void NGui::StickyNote::show()
 {
 	QWidget::show();
-	raise(); //½«´°¿Ú²ã¼¶ÖÃÓÚ¶¥²ã
+	raise(); //å°†çª—å£å±‚çº§ç½®äºé¡¶å±‚
 }
 
 void NGui::StickyNote::updateCmdState()
@@ -460,7 +460,7 @@ void NGui::StickyNote::updateToolBar(std::vector<ActionCommandTypes>& cmdTypes)
 {
 	for (auto cmdType : cmdTypes)
 	{
-		//Í¬²½ÉÏÏÂ¹¤¾ßÀ¸ÖĞµÄĞÅÏ¢
+		//åŒæ­¥ä¸Šä¸‹å·¥å…·æ ä¸­çš„ä¿¡æ¯
 		for (auto cmd = d->topCmd.begin(); cmd != d->topCmd.end(); cmd++)
 		{
 			if (cmd->cmd == cmdType.cmd)
@@ -481,7 +481,7 @@ void NGui::StickyNote::updateToolBar(std::vector<ActionCommandTypes>& cmdTypes)
 
 	addActionCommand();
 	initShortCut();
-	//¸ù¾İ¹¤¾ßÀ¸µÄ´óĞ¡ÉèÖÃ´°¿ÚµÄ×îĞ¡´óĞ¡
+	//æ ¹æ®å·¥å…·æ çš„å¤§å°è®¾ç½®çª—å£çš„æœ€å°å¤§å°
 	setMinimumSize(d->getNodeMiniSize());
 }
 
@@ -490,7 +490,7 @@ void NGui::StickyNote::initShortCut()
 	for (auto iter = d->actions.begin(); iter != d->actions.end(); iter++)
 	{
 		auto action = iter->second;
-		//Ìí¼Ó¿ì½İ¼ü
+		//æ·»åŠ å¿«æ·é”®
 		QString key = action->getShortcut();
 		if (key.isEmpty())
 			continue;
@@ -565,9 +565,9 @@ void NGui::StickyNote::setOnlyBottom(const bool& b)
 	d->onlyBottom = b;
 	
 #if 0
-	//Î´Íê³ÉµÄ¹¦ÄÜ  ÒòÎª»ñÈ¡²»µ½ÕıÈ·µÄQt::ToolµÄ×´Ì¬
-	//´°¿ÚÖÃÓÚµ×²¿Ê±²»ÔÚÈÎÎñÀ¸ÖĞÏÔÊ¾
-	//ÎŞÂÛÔÚÉèÖÃÖĞÊÇ·ñ¹´Ñ¡¶¼Èç´Ë
+	//æœªå®Œæˆçš„åŠŸèƒ½  å› ä¸ºè·å–ä¸åˆ°æ­£ç¡®çš„Qt::Toolçš„çŠ¶æ€
+	//çª—å£ç½®äºåº•éƒ¨æ—¶ä¸åœ¨ä»»åŠ¡æ ä¸­æ˜¾ç¤º
+	//æ— è®ºåœ¨è®¾ç½®ä¸­æ˜¯å¦å‹¾é€‰éƒ½å¦‚æ­¤
 	if (d->onlyBottom) {
 		d->stickyNoteToolMod = windowFlags() & Qt::Tool;
 		setWindowFlag(Qt::Tool, false);
@@ -633,7 +633,7 @@ void NGui::StickyNote::enterEvent(QEvent* event)
 void NGui::StickyNote::leaveEvent(QEvent* event)
 {
 	QWidget::leaveEvent(event);
-	//ÑÓÊ±Ò»Ãë
+	//å»¶æ—¶ä¸€ç§’
 	QApplication::processEvents(QEventLoop::AllEvents, 1000);
 	d->updateCmdState = false;
 }
@@ -644,15 +644,15 @@ bool NGui::StickyNote::nativeEvent(const QByteArray& eventType, void* message, q
 bool NGui::StickyNote::nativeEvent(const QByteArray& eventType, void* message, long* result)
 #endif
 {
-	//Èç¹ûĞèÒª´°¿ÚÖÃÓÚµ×²ãÊ±
-	//µ±´°¿ÚÎ»ÖÃ·¢Éú¸Ä±äÊ±£¬½«´°¿ÚÖØÖÃ´°¿ÚµÄÎ»ÖÃ
+	//å¦‚æœéœ€è¦çª—å£ç½®äºåº•å±‚æ—¶
+	//å½“çª—å£ä½ç½®å‘ç”Ÿæ”¹å˜æ—¶ï¼Œå°†çª—å£é‡ç½®çª—å£çš„ä½ç½®
 #if (QT_VERSION == QT_VERSION_CHECK(5, 11, 1))
 	MSG* msg = *static_cast<MSG**>(message);
 #else
 	MSG* msg = static_cast<MSG*>(message);
 #endif
 	switch (msg->message) {
-	case WM_WINDOWPOSCHANGING:	//´°¿ÚµÄzÖáÎ»ÖÃ·¢Éú¸Ä±ä
+	case WM_WINDOWPOSCHANGING:	//çª—å£çš„zè½´ä½ç½®å‘ç”Ÿæ”¹å˜
 	{
 		if (!d->onlyBottom)
 			break;
@@ -663,18 +663,18 @@ bool NGui::StickyNote::nativeEvent(const QByteArray& eventType, void* message, l
 		}
 		break;
 	}
-	case WM_ACTIVATE:		//´°¿ÚÍ¨¹ı¿ì½İ¼ü»òÕßÈÎÎñÀ¸»½ĞÑ
+	case WM_ACTIVATE:		//çª—å£é€šè¿‡å¿«æ·é”®æˆ–è€…ä»»åŠ¡æ å”¤é†’
 	{
 		if (!d->onlyBottom)
 			break;
 		lower();
 		break;
 	}
-	case  WM_ENTERSIZEMOVE: //´°¿Ú¿ªÊ¼ÍÏ×§ÒÆ¶¯
+	case  WM_ENTERSIZEMOVE: //çª—å£å¼€å§‹æ‹–æ‹½ç§»åŠ¨
 	{
 		break;
 	}
-	case WM_EXITSIZEMOVE:	//´°¿Ú½áÊøÍÏ×§ÒÆ¶¯
+	case WM_EXITSIZEMOVE:	//çª—å£ç»“æŸæ‹–æ‹½ç§»åŠ¨
 	{
 		toolbarLeftButtonRelease();
 		break;
@@ -722,7 +722,7 @@ void NGui::StickyNote::setStickyNoteContent(StickyNoteContent* content)
 }
 
 /**
-* @brief NGui::StickyNote::navigaitonBarMouseMove ¸úËæµ¼º½À¸ÒÆ¶¯
+* @brief NGui::StickyNote::navigaitonBarMouseMove è·Ÿéšå¯¼èˆªæ ç§»åŠ¨
 * @param QPoint pos
 * @return void
 */
@@ -736,7 +736,7 @@ void NGui::StickyNote::contentGotFocus()
 	d->navigationBar->pop();
 	d->navigationBar->setAutoPush(false);
 	d->bottomToolbar->pop();
-	//ÊÕÆğcolorbar
+	//æ”¶èµ·colorbar
 	d->colorBar->push();
 }
 
@@ -752,8 +752,8 @@ void NGui::StickyNote::contentLostFocus()
 
 void NGui::StickyNote::contentChange()
 {
-	//½«ÎÄ±¾¸Ä±äÊÂ¼ş·¢ËÍ¸øÀúÊ·¼ÇÂ¼´°¿Ú
-	//Èç¹ûÎÄ±¾¹ı³¤£¬Ôò²»·¢ËÍ
+	//å°†æ–‡æœ¬æ”¹å˜äº‹ä»¶å‘é€ç»™å†å²è®°å½•çª—å£
+	//å¦‚æœæ–‡æœ¬è¿‡é•¿ï¼Œåˆ™ä¸å‘é€
 // 	auto cusor = d->noteTextEdit->textCursor();
 // 	auto block = cusor.block();
 // 	if (block.firstLineNumber() > 6)

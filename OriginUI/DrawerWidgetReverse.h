@@ -2,7 +2,7 @@
 #include "drawerWidget.h"
 namespace OriginUI {
 	/*
-		Ò»¸ö´Óµ×²¿µ¯³öµÄµ¯³ö´°¿Ú
+		ä¸€ä¸ªä»åº•éƒ¨å¼¹å‡ºçš„å¼¹å‡ºçª—å£
 	*/
 	class ORIGIN_UI_EXPORT DrawerWidgetReverse :public DrawerWidget{
 	public:

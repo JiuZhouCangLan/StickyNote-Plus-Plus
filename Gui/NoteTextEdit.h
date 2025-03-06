@@ -42,10 +42,10 @@ namespace NGui {
 		void buttonLowerClicked(bool);
 		void slotSetHtml(QString html);
 	private:
-		//自动设置所有图片的大小
+		//鑷姩璁剧疆鎵�鏈夊浘鐗囩殑澶у皬
 		void autoImageSize(const QString& html,const QSize& widgetSize);
 		QSize getImageSize(const QSize& imageSize, const QSize& widgetSize);
-		//修改xml中的大小
+		//淇敼xml涓殑澶у皬
 		void setImageXmlNodeSize(pugi::xml_node node, const QSize& widgetSize);
 		void insertImage(const QImage& image);
 		void loopXmlNode(pugi::xml_node node, const QSize& widgetSize);

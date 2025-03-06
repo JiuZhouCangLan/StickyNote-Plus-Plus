@@ -93,7 +93,7 @@ void NGui::Setting::initProperty()
 	std::vector<std::string> cmds = ActionCmdFactory::GetInstance()->getAllCmdName();
 	for (std::string cmdName : cmds)
 	{
-		//ÔÚÕâÀïÉèÖÃÒ»Ğ©ÃüÁîµÄ³õÊ¼×´Ì¬
+		//åœ¨è¿™é‡Œè®¾ç½®ä¸€äº›å‘½ä»¤çš„åˆå§‹çŠ¶æ€
 		if(cmdName == "cmd_close")
 			continue;
 		auto cmdPr = new NF::PropertyBool(cmdName, true);

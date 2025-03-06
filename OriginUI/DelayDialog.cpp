@@ -26,11 +26,11 @@ OriginUI::DelayDialog::DelayDialog(QWidget* parent /*= 0*/)
 	ui->setupUi(this);
 	d = new DelayDialogD();
 
-	//ÉèÖÃ°´Å¥ÑÓÊ±
+	//è®¾ç½®æŒ‰é’®å»¶æ—¶
 	ui->pushButtonOk->setEnabled(false);
 	d->timerID = startTimer(1000);
 
-	//°ó¶¨°´Å¥²Ûº¯Êý
+	//ç»‘å®šæŒ‰é’®æ§½å‡½æ•°
 	connect(ui->pushButtonOk, &QPushButton::clicked, this, &OriginUI::DelayDialog::okButtonClicked);
 	connect(ui->pushButtonCancel, &QPushButton::clicked, this, &OriginUI::DelayDialog::cancelButtonClicked);
 

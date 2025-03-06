@@ -4,13 +4,13 @@
 #include <QVBoxLayout>
 namespace OriginUI {
 	/*
-		Êı¾İÀà
+		æ•°æ®ç±»
 	*/
 	class WidgetNoBoderD {
 	public:
 		WidgetNoBoderD();
 	public:
-		//ÏìÓ¦Êó±ê±ß¿òĞüÍ£µÄ·¶Î§
+		//å“åº”é¼ æ ‡è¾¹æ¡†æ‚¬åœçš„èŒƒå›´
 		int boundaryWidth;
 	};
 
@@ -40,8 +40,8 @@ bool OriginUI::WidgetNoBoder::nativeEvent(const QByteArray& eventType, void* mes
 bool OriginUI::WidgetNoBoder::nativeEvent(const QByteArray& eventType, void* message, long* result)
 #endif
 {
-	//Èç¹ûĞèÒª´°¿ÚÖÃÓÚµ×²ãÊ±
-	//µ±´°¿ÚÎ»ÖÃ·¢Éú¸Ä±äÊ±£¬½«´°¿ÚÖØÖÃ´°¿ÚµÄÎ»ÖÃ
+	//å¦‚æœéœ€è¦çª—å£ç½®äºåº•å±‚æ—¶
+	//å½“çª—å£ä½ç½®å‘ç”Ÿæ”¹å˜æ—¶ï¼Œå°†çª—å£é‡ç½®çª—å£çš„ä½ç½®
 #if (QT_VERSION == QT_VERSION_CHECK(5, 11, 1))
 	MSG* msg = *static_cast<MSG**>(message);
 #else
@@ -107,6 +107,6 @@ bool OriginUI::WidgetNoBoder::nativeEvent(const QByteArray& eventType, void* mes
 
 	}
 	}
-	return false;         //´Ë´¦·µ»Øfalse£¬Áô¸øÆäËûÊÂ¼ş´¦ÀíÆ÷´¦Àí
+	return false;         //æ­¤å¤„è¿”å›falseï¼Œç•™ç»™å…¶ä»–äº‹ä»¶å¤„ç†å™¨å¤„ç†
 }
 
